@@ -19,6 +19,8 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f0f4f8;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -56,6 +58,16 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 12px;
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); }
+            50% { box-shadow: 0 4px 25px rgba(245, 158, 11, 0.6); }
         }
 
         .logo-icon img {
@@ -63,6 +75,7 @@
             height: 100%;
             object-fit: contain;
             display: block;
+            border-radius: 8px;
         }
 
         .logo-text {
@@ -74,6 +87,23 @@
 
         .logo-text span {
             color: #f59e0b;
+            position: relative;
+        }
+
+        .logo-text span::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #f59e0b, transparent);
+            animation: shimmerLine 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmerLine {
+            0%, 100% { width: 100%; opacity: 1; }
+            50% { width: 60%; opacity: 0.5; }
         }
 
         .logo-sub {
@@ -96,6 +126,12 @@
             padding: 8px 18px;
             border-radius: 30px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        .header-phone:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(245, 158, 11, 0.3);
         }
 
         .header-phone .icon {
@@ -111,6 +147,28 @@
             padding: 40px 30px 35px;
             text-align: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: '✈️';
+            position: absolute;
+            right: -30px;
+            top: -30px;
+            font-size: 300px;
+            opacity: 0.05;
+            transform: rotate(-15deg);
+        }
+
+        .hero-banner::after {
+            content: '🌍';
+            position: absolute;
+            left: -40px;
+            bottom: -40px;
+            font-size: 280px;
+            opacity: 0.04;
+            transform: rotate(10deg);
         }
 
         .hero-banner h1 {
@@ -119,6 +177,8 @@
             font-weight: 800;
             margin-bottom: 8px;
             letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-banner h1 .highlight {
@@ -126,11 +186,30 @@
             position: relative;
         }
 
+        .hero-banner h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            border-radius: 2px;
+            animation: underlineMove 4s ease-in-out infinite;
+        }
+
+        @keyframes underlineMove {
+            0%, 100% { width: 100%; }
+            50% { width: 60%; left: 20%; }
+        }
+
         .hero-banner p {
             color: #cbd5e1;
             font-size: 18px;
             max-width: 600px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .main-content {
@@ -138,17 +217,32 @@
             display: flex;
             justify-content: center;
             padding: 40px 20px 60px;
-            background: #f0f4f8;
+            background: transparent;
+            position: relative;
         }
 
         .form-container {
-            background: white;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             max-width: 820px;
             width: 100%;
             padding: 40px 45px;
             border-radius: 24px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container::before {
+            content: '🏝️';
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            font-size: 120px;
+            opacity: 0.05;
+            transform: rotate(20deg);
         }
 
         .form-header {
@@ -157,14 +251,22 @@
             gap: 14px;
             margin-bottom: 30px;
             padding-bottom: 18px;
-            border-bottom: 2px solid #f1f5f9;
+            border-bottom: 2px solid rgba(245, 158, 11, 0.2);
+            position: relative;
         }
 
         .form-header .icon {
             font-size: 32px;
-            background: #fef3c7;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
             padding: 12px;
             border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+            animation: floatIcon 4s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
 
         .form-header h2 {
@@ -182,17 +284,38 @@
         }
 
         .seccion {
-            background: #f8fafc;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: 16px;
             padding: 22px 26px;
             margin-bottom: 22px;
-            border: 1px solid #e9edf4;
-            transition: 0.3s;
+            border: 1px solid rgba(233, 237, 244, 0.6);
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
         .seccion:hover {
-            border-color: #cbd5e1;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border-color: #f59e0b;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .seccion::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f59e0b, #f97316, #f59e0b);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .seccion:hover::after {
+            transform: scaleX(1);
         }
 
         .seccion h3 {
@@ -207,7 +330,7 @@
         }
 
         .seccion h3 .badge {
-            background: #0a1628;
+            background: linear-gradient(135deg, #0a1628, #1a2a4a);
             color: #f59e0b;
             border-radius: 50%;
             width: 28px;
@@ -218,10 +341,12 @@
             font-size: 13px;
             font-weight: 700;
             flex-shrink: 0;
+            border: 2px solid #f59e0b;
         }
 
         .campo {
             margin-bottom: 16px;
+            position: relative;
         }
 
         .campo label {
@@ -254,7 +379,8 @@
         .campo textarea:focus {
             outline: none;
             border-color: #f59e0b;
-            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.10);
+            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.10), 0 0 20px rgba(245, 158, 11, 0.05);
+            transform: translateY(-1px);
         }
 
         .campo textarea {
@@ -287,7 +413,7 @@
             padding: 9px 22px;
             border-radius: 40px;
             border: 1.5px solid #d6dfeb;
-            transition: 0.2s;
+            transition: 0.3s ease;
             font-size: 14px;
             color: #1e293b;
         }
@@ -295,6 +421,15 @@
         .grupo-opciones label:hover {
             border-color: #f59e0b;
             background: #fffbeb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1);
+        }
+
+        .grupo-opciones input[type="radio"]:checked + .grupo-opciones label,
+        .grupo-opciones label:has(input:checked) {
+            border-color: #f59e0b;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
         }
 
         .grupo-opciones input[type="radio"] {
@@ -320,7 +455,7 @@
             border-radius: 12px;
             border: 1.5px solid #d6dfeb;
             cursor: pointer;
-            transition: 0.2s;
+            transition: 0.3s ease;
             font-weight: 500;
             font-size: 14px;
             color: #1e293b;
@@ -331,6 +466,13 @@
             background: #fffbeb;
             transform: translateY(-2px);
             box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+        }
+
+        .viajes-grid label:has(input:checked) {
+            border-color: #f59e0b;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+            transform: translateY(-2px);
         }
 
         .viajes-grid input[type="radio"] {
@@ -348,6 +490,7 @@
 
         .btn-enviar {
             background: linear-gradient(135deg, #f59e0b, #f97316);
+            background-size: 200% 200%;
             color: white;
             border: none;
             padding: 17px 32px;
@@ -360,6 +503,31 @@
             box-shadow: 0 6px 24px rgba(245, 158, 11, 0.30);
             letter-spacing: 0.5px;
             margin-top: 6px;
+            animation: gradientMove 3s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-enviar::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: shimmerBtn 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmerBtn {
+            0%, 100% { transform: translateX(-30%) translateY(-30%); }
+            50% { transform: translateX(30%) translateY(30%); }
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .btn-enviar:hover {
@@ -398,8 +566,8 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.96); }
-            to { opacity: 1; transform: scale(1); }
+            from { opacity: 0; transform: scale(0.96) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         #mensajeGracias h2 {
@@ -421,6 +589,13 @@
         #mensajeGracias h2 .check-icon {
             color: #16a34a;
             font-size: 36px;
+            animation: checkPop 0.6s ease;
+        }
+
+        @keyframes checkPop {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); opacity: 1; }
         }
 
         .mensaje-exito {
@@ -437,6 +612,12 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .mensaje-exito span {
@@ -449,15 +630,17 @@
             max-width: 480px;
             margin: 8px auto 10px;
             line-height: 1.7;
-            background: #fef3c7;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
             padding: 12px 24px;
             border-radius: 40px;
             display: inline-block;
             border: 1px solid #fde68a;
+            animation: slideUp 0.6s ease 0.2s both;
         }
 
         .detalle-cliente {
-            background: #f8fafc;
+            background: rgba(248, 250, 252, 0.9);
+            backdrop-filter: blur(10px);
             border-radius: 16px;
             padding: 18px 24px;
             margin: 14px auto 10px;
@@ -465,7 +648,8 @@
             text-align: left;
             font-size: 15px;
             color: #1e293b;
-            border: 1px solid #e9edf4;
+            border: 1px solid rgba(233, 237, 244, 0.6);
+            animation: slideUp 0.6s ease 0.4s both;
         }
 
         .detalle-cliente p {
@@ -492,13 +676,21 @@
             font-size: 16px;
             color: #475569;
             margin-top: 12px;
+            animation: slideUp 0.6s ease 0.6s both;
         }
         .corazon-final span {
             color: #dc2626;
+            animation: heartbeat 1.5s ease infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
 
         .btn-reiniciar {
-            background: #e9edf4;
+            background: linear-gradient(135deg, #e9edf4, #d6dfeb);
             color: #1e293b;
             border: none;
             padding: 11px 34px;
@@ -506,13 +698,15 @@
             font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            transition: 0.2s;
+            transition: 0.3s;
             margin-top: 16px;
+            animation: slideUp 0.6s ease 0.8s both;
         }
 
         .btn-reiniciar:hover {
-            background: #d6dfeb;
+            background: linear-gradient(135deg, #d6dfeb, #c8d3e0);
             transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
         .form-hidden {
@@ -548,10 +742,68 @@
             border: 1px solid #fca5a5;
             font-size: 14px;
             text-align: center;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-10px); }
+            40% { transform: translateX(10px); }
+            60% { transform: translateX(-5px); }
+            80% { transform: translateX(5px); }
         }
 
         .error-message i {
             margin-right: 8px;
+        }
+
+        /* ===== DESTACADO DE DESTINO ===== */
+        .destino-destacado {
+            background: linear-gradient(135deg, #1e293b, #0a1628);
+            border-radius: 16px;
+            padding: 18px 22px;
+            margin-bottom: 22px;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+            transition: 0.3s;
+        }
+
+        .destino-destacado:hover {
+            border-color: #f59e0b;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.1);
+        }
+
+        .destino-destacado .imagen {
+            width: 120px;
+            height: 80px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            flex-shrink: 0;
+            border: 2px solid #f59e0b;
+        }
+
+        .destino-destacado .info h4 {
+            color: #f59e0b;
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .destino-destacado .info p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .destino-destacado .info .precio {
+            color: #4ade80;
+            font-weight: 700;
+            font-size: 16px;
         }
 
         @media (max-width: 768px) {
@@ -603,6 +855,16 @@
                 width: 40px;
                 height: 40px;
             }
+
+            .destino-destacado {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .destino-destacado .imagen {
+                width: 100%;
+                height: 60px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -643,8 +905,8 @@
             </div>
         </div>
         <div class="header-phone">
-            <span class="icon">Para Ti</span>
-            <span>Somos<strong> La Mejor Opción</strong></span>
+            <span class="icon">🎯</span>
+            <span>Somos <strong>Tu Mejor Opción</strong></span>
         </div>
     </div>
 </header>
@@ -657,6 +919,17 @@
 <main class="main-content">
 
     <div class="form-container">
+
+        <!-- DESTINO DESTACADO -->
+        <div class="destino-destacado">
+            <div class="imagen">🏖️</div>
+            <div class="info">
+                <h4>🌟 Destino del Mes</h4>
+                <p><strong>Cancún, Quintana Roo</strong></p>
+                <p class="precio">💵 Desde $5,999 MXN por persona</p>
+                <p style="color:#94a3b8; font-size:12px; margin-top:4px;">*Paquete 4 días / 3 noches</p>
+            </div>
+        </div>
 
         <div id="formularioWrapper">
             <div class="form-header">
@@ -774,7 +1047,7 @@
             </div>
 
             <p class="subtitulo">
-                Nuestro personal se pondrá en contacto con usted en las próximas 24 hrs.
+                🌟 Nuestro personal se pondrá en contacto con usted en las próximas 24 hrs.
             </p>
 
             <div class="detalle-cliente" id="resumenCliente">
