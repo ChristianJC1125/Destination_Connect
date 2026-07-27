@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,6 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
     
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -182,7 +181,6 @@
             margin-top: 2px;
         }
 
-        /* --- SECCIONES --- */
         .seccion {
             background: #f8fafc;
             border-radius: 16px;
@@ -222,7 +220,6 @@
             flex-shrink: 0;
         }
 
-        /* --- CAMPOS --- */
         .campo {
             margin-bottom: 16px;
         }
@@ -265,7 +262,6 @@
             min-height: 60px;
         }
 
-        /* --- FILAS --- */
         .fila-dos {
             display: flex;
             gap: 18px;
@@ -274,7 +270,6 @@
             flex: 1;
         }
 
-        /* --- RADIO BUTTONS --- */
         .grupo-opciones {
             display: flex;
             gap: 16px;
@@ -309,7 +304,6 @@
             margin: 0;
         }
 
-        /* --- PREFERENCIA DE VIAJES --- */
         .viajes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
@@ -352,7 +346,6 @@
             line-height: 1;
         }
 
-        /* --- BOTÓN --- */
         .btn-enviar {
             background: linear-gradient(135deg, #f59e0b, #f97316);
             color: white;
@@ -545,6 +538,22 @@
             font-weight: 600;
         }
 
+        .error-message {
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+            display: none;
+            border: 1px solid #fca5a5;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .error-message i {
+            margin-right: 8px;
+        }
+
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -626,7 +635,7 @@
     <div class="header-container">
         <div class="logo-section">
             <div class="logo-icon">
-                <img src="Imagenes/DTCG.jpeg" alt="Destination Connect - Agencia de Viajes">
+                <img src="Imagenes/DTCG.jpeg" alt="Destination Connect - Agencia de Viajes" onerror="this.style.display='none'">
             </div>
             <div>
                 <div class="logo-text">Destination<span>Connect</span></div>
@@ -649,7 +658,6 @@
 
     <div class="form-container">
 
-        <!-- FORMULARIO -->
         <div id="formularioWrapper">
             <div class="form-header">
                 <span class="icon">📋</span>
@@ -661,7 +669,6 @@
 
             <form id="formularioViajes">
 
-                <!-- SECCIÓN 1: DATOS PERSONALES -->
                 <div class="seccion">
                     <h3><span class="badge">1</span> Datos Personales</h3>
 
@@ -695,7 +702,6 @@
                     </div>
                 </div>
 
-                <!-- SECCIÓN 2: PREFERENCIA DE VIAJES -->
                 <div class="seccion">
                     <h3><span class="badge">2</span> Preferencia de Viajes</h3>
                     <div class="campo">
@@ -722,7 +728,6 @@
                     </div>
                 </div>
 
-                <!-- SECCIÓN 3: DISPONIBILIDAD -->
                 <div class="seccion">
                     <h3><span class="badge">3</span> Disponibilidad</h3>
                     <div class="campo">
@@ -738,12 +743,16 @@
                     </div>
                 </div>
 
+                <div class="error-message" id="errorMessage">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span id="errorText">Error al guardar los datos.</span>
+                </div>
+
                 <button type="submit" class="btn-enviar" id="btnEnviar">✈️ Confirmar Registro</button>
 
             </form>
         </div>
 
-        <!-- MENSAJE DE GRACIAS -->
         <div id="mensajeGracias">
 
             <div class="paloma-verde">
@@ -793,7 +802,9 @@
 </footer>
 
 <script>
-
+    // ============================================================
+    // 🔥 CONFIGURACIÓN DE FIREBASE (FIRESTORE)
+    // ============================================================
     const firebaseConfig = {
         apiKey: "AIzaSyC_XZ7BvaYVsDQNIvxaXdYRA-2mF7SvRL0",
         authDomain: "destination-connect-fd7dd.firebaseapp.com",
@@ -808,39 +819,50 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
+    // ============================================================
+    // LÓGICA DEL FORMULARIO
+    // ============================================================
     (function() {
         const formWrapper = document.getElementById('formularioWrapper');
         const mensajeGracias = document.getElementById('mensajeGracias');
         const btnEnviar = document.getElementById('btnEnviar');
+        const errorMessage = document.getElementById('errorMessage');
+        const errorText = document.getElementById('errorText');
+
+        // Ocultar error al interactuar
+        document.querySelectorAll('input, select, textarea').forEach(el => {
+            el.addEventListener('input', () => {
+                errorMessage.style.display = 'none';
+            });
+        });
 
         document.getElementById('formularioViajes').addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Obtener datos del formulario
+            errorMessage.style.display = 'none';
+
             const nombre = document.getElementById('nombre').value.trim();
             const edad = document.getElementById('edad').value.trim() || null;
             const estadoCivil = document.getElementById('estadoCivil').value || null;
             const telefono = document.getElementById('telefono').value.trim();
 
-            // Validar campos obligatorios
             if (!nombre || !telefono) {
-                alert('⚠️ Por favor, completa todos los campos obligatorios (marcados con *).');
+                mostrarError('⚠️ Por favor, completa todos los campos obligatorios (marcados con *).');
                 return;
             }
 
             const preferenciaRadio = document.querySelector('input[name="preferenciaViaje"]:checked');
             if (!preferenciaRadio) {
-                alert('⚠️ Por favor, selecciona una preferencia de viaje.');
+                mostrarError('⚠️ Por favor, selecciona una preferencia de viaje.');
                 return;
             }
 
             const disponibilidadRadio = document.querySelector('input[name="disponibilidad"]:checked');
             if (!disponibilidadRadio) {
-                alert('⚠️ Por favor, selecciona tu disponibilidad (Entre semana / Fin de semana).');
+                mostrarError('⚠️ Por favor, selecciona tu disponibilidad (Entre semana / Fin de semana).');
                 return;
             }
 
-            // Preparar datos para Firebase
             const datosCliente = {
                 nombre: nombre,
                 edad: edad ? parseInt(edad) : null,
@@ -849,46 +871,74 @@
                 preferenciaViaje: preferenciaRadio.value,
                 disponibilidad: disponibilidadRadio.value,
                 fechaRegistro: new Date().toISOString(),
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                estado: 'pendiente',
+                operador: null,
+                comentario: null
             };
 
-            // Deshabilitar botón y mostrar estado de carga
             btnEnviar.disabled = true;
             btnEnviar.textContent = '⏳ Guardando...';
 
             try {
-                // Guardar en Firebase Firestore
                 const docRef = await db.collection('clientes').add(datosCliente);
                 console.log('✅ Cliente guardado con ID:', docRef.id);
 
-                // Mostrar resumen en pantalla
                 document.getElementById('resNombre').textContent = nombre;
                 document.getElementById('resTelefono').textContent = telefono;
                 document.getElementById('resPreferencia').textContent = preferenciaRadio.value;
                 document.getElementById('resDisponibilidad').textContent = disponibilidadRadio.value;
 
-                // Mostrar mensaje de éxito
                 formWrapper.classList.add('form-hidden');
                 mensajeGracias.style.display = 'block';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
 
             } catch (error) {
                 console.error('❌ Error al guardar:', error);
-                alert('❌ Error al guardar los datos. Verifica tu conexión a internet y la configuración de Firebase.');
+                
+                let mensajeError = '❌ Error al guardar los datos. ';
+                
+                if (error.code === 'permission-denied' || error.message.includes('permission')) {
+                    mensajeError += 'No tienes permisos para escribir en la base de datos. Ve a Firebase Console → Firestore → Reglas y cambia a "Modo de prueba".';
+                } else if (error.code === 'unavailable') {
+                    mensajeError += 'El servicio no está disponible. Verifica tu conexión a internet.';
+                } else {
+                    mensajeError += error.message || 'Intenta nuevamente más tarde.';
+                }
+                
+                mostrarError(mensajeError);
             } finally {
-                // Restaurar botón
                 btnEnviar.disabled = false;
                 btnEnviar.textContent = '✈️ Confirmar Registro';
             }
         });
 
-        // Función para reiniciar el formulario
+        function mostrarError(mensaje) {
+            errorText.textContent = mensaje;
+            errorMessage.style.display = 'block';
+            errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
         window.reiniciarFormulario = function() {
             formWrapper.classList.remove('form-hidden');
             mensajeGracias.style.display = 'none';
             document.getElementById('formularioViajes').reset();
+            errorMessage.style.display = 'none';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
+
+        // Verificar conexión al cargar
+        async function verificarConexion() {
+            try {
+                await db.collection('clientes').limit(1).get();
+                console.log('✅ Conexión a Firestore establecida correctamente.');
+            } catch (error) {
+                console.warn('⚠️ Error al conectar con Firestore:', error);
+                mostrarError('⚠️ No se pudo conectar con la base de datos. Verifica tu configuración de Firebase.');
+            }
+        }
+
+        verificarConexion();
 
     })();
 </script>
