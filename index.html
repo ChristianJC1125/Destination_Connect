@@ -52,22 +52,27 @@
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
             background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 12px;
-            padding: 5px;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            border-radius: 14px;
+            padding: 4px;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
             animation: pulseGlow 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-icon:hover {
+            transform: scale(1.05) rotate(-3deg);
         }
 
         @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); }
-            50% { box-shadow: 0 4px 25px rgba(245, 158, 11, 0.6); }
+            0%, 100% { box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35); }
+            50% { box-shadow: 0 4px 35px rgba(245, 158, 11, 0.6); }
         }
 
         .logo-icon img {
@@ -75,7 +80,8 @@
             height: 100%;
             object-fit: contain;
             display: block;
-            border-radius: 8px;
+            border-radius: 10px;
+            background: white;
         }
 
         .logo-text {
@@ -757,55 +763,6 @@
             margin-right: 8px;
         }
 
-        /* ===== DESTACADO DE DESTINO ===== */
-        .destino-destacado {
-            background: linear-gradient(135deg, #1e293b, #0a1628);
-            border-radius: 16px;
-            padding: 18px 22px;
-            margin-bottom: 22px;
-            border: 1px solid rgba(245, 158, 11, 0.2);
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            flex-wrap: wrap;
-            transition: 0.3s;
-        }
-
-        .destino-destacado:hover {
-            border-color: #f59e0b;
-            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.1);
-        }
-
-        .destino-destacado .imagen {
-            width: 120px;
-            height: 80px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            flex-shrink: 0;
-            border: 2px solid #f59e0b;
-        }
-
-        .destino-destacado .info h4 {
-            color: #f59e0b;
-            font-size: 18px;
-            margin-bottom: 4px;
-        }
-
-        .destino-destacado .info p {
-            color: #94a3b8;
-            font-size: 14px;
-        }
-
-        .destino-destacado .info .precio {
-            color: #4ade80;
-            font-weight: 700;
-            font-size: 16px;
-        }
-
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -852,18 +809,8 @@
             }
 
             .logo-icon {
-                width: 40px;
-                height: 40px;
-            }
-
-            .destino-destacado {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .destino-destacado .imagen {
-                width: 100%;
-                height: 60px;
+                width: 45px;
+                height: 45px;
             }
         }
 
@@ -919,17 +866,6 @@
 <main class="main-content">
 
     <div class="form-container">
-
-        <!-- DESTINO DESTACADO -->
-        <div class="destino-destacado">
-            <div class="imagen">🏖️</div>
-            <div class="info">
-                <h4>🌟 Destino del Mes</h4>
-                <p><strong>Cancún, Quintana Roo</strong></p>
-                <p class="precio">💵 Desde $5,999 MXN por persona</p>
-                <p style="color:#94a3b8; font-size:12px; margin-top:4px;">*Paquete 4 días / 3 noches</p>
-            </div>
-        </div>
 
         <div id="formularioWrapper">
             <div class="form-header">
