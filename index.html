@@ -4,13 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Destination Connect | Agencia de Viajes</title>
+    <title>Tours Emblema | Viaja. Descubre. Vive.</title>
 
-    <!-- Firebase -->
+    <meta name="description"
+          content="Tours Emblema - Descubre destinos extraordinarios y vive experiencias inolvidables.">
+
+    <meta name="theme-color" content="#07111f">
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- =====================================================
+         ICONOS
+    ====================================================== -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- =====================================================
+         FIREBASE
+    ====================================================== -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 
     <style>
+
+        /* =====================================================
+           VARIABLES
+        ====================================================== */
+
+        :root {
+
+            --navy: #07111f;
+            --navy-2: #0b1a2d;
+            --navy-3: #10243a;
+
+            --gold: #c9a45c;
+            --gold-light: #e8ca8b;
+            --gold-dark: #9c7737;
+
+            --white: #ffffff;
+            --cream: #f7f3eb;
+            --sand: #ebe2d1;
+
+            --text: #172334;
+            --muted: #6f7a88;
+
+            --success: #2f9e72;
+            --danger: #c84c4c;
+
+            --shadow:
+                0 25px 70px rgba(0,0,0,.18);
+
+            --transition:
+                all .35s cubic-bezier(.2,.8,.2,1);
+
+            --radius:
+                24px;
+        }
+
+        /* =====================================================
+           RESET
+        ====================================================== */
 
         * {
             margin: 0;
@@ -18,189 +78,684 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --navy: #07111f;
-            --navy-2: #0d1d31;
-            --navy-3: #132a43;
-
-            --gold: #d6a84f;
-            --gold-light: #f1d48a;
-            --gold-soft: #fff6df;
-
-            --white: #ffffff;
-            --cream: #faf8f3;
-
-            --text: #172235;
-            --muted: #718096;
-
-            --border: #e7e3da;
-
-            --green: #159447;
-            --red: #d93636;
-
-            --shadow: 0 25px 70px rgba(7, 17, 31, .12);
-        }
-
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family:
-                "Segoe UI",
-                Inter,
-                -apple-system,
-                BlinkMacSystemFont,
-                sans-serif;
-
-            background:
-                radial-gradient(
-                    circle at 10% 10%,
-                    rgba(214,168,79,.10),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 90% 30%,
-                    rgba(19,42,67,.12),
-                    transparent 35%
-                ),
-                #f5f3ee;
-
+            font-family: 'Inter', sans-serif;
             color: var(--text);
-            min-height: 100vh;
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
         }
 
         button,
         input,
-        select,
-        textarea {
+        select {
             font-family: inherit;
         }
 
-        /* =========================================================
-           HEADER
-        ========================================================= */
-
-        .header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            background: rgba(7,17,31,.96);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-
-            border-bottom: 1px solid rgba(214,168,79,.25);
-
-            box-shadow:
-                0 8px 35px rgba(0,0,0,.18);
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
-        .header-container {
-            width: min(1180px, calc(100% - 40px));
-            min-height: 82px;
+        /* =====================================================
+           SCROLLBAR
+        ====================================================== */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+
+        /* =====================================================
+           HEADER
+        ====================================================== */
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            padding: 18px 5%;
+
+            transition: var(--transition);
+
+            color: white;
+        }
+
+        .header.scrolled {
+            background: rgba(7,17,31,.94);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 10px 35px rgba(0,0,0,.15);
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+
+        .nav {
+            max-width: 1400px;
             margin: auto;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 25px;
         }
 
         /* LOGO */
 
-        .brand {
+        .logo {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 13px;
         }
 
-        .brand-logo {
-            width: 52px;
-            height: 52px;
+        .logo-symbol {
+            width: 45px;
+            height: 45px;
 
-            border-radius: 15px;
+            border: 1px solid rgba(232,202,139,.7);
 
-            padding: 3px;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--gold-light);
+
+            font-size: 19px;
+
+            background: rgba(255,255,255,.04);
+
+            box-shadow:
+                inset 0 0 20px rgba(201,164,92,.08);
+        }
+
+        .logo-text strong {
+            display: block;
+
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 28px;
+            font-weight: 600;
+
+            letter-spacing: 2px;
+
+            line-height: .9;
+        }
+
+        .logo-text span {
+            font-size: 9px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            color: var(--gold-light);
+        }
+
+        /* MENU */
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+
+            list-style: none;
+        }
+
+        .nav-menu a {
+            position: relative;
+
+            font-size: 13px;
+            font-weight: 500;
+
+            color: rgba(255,255,255,.88);
+
+            transition: var(--transition);
+        }
+
+        .nav-menu a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            bottom: -8px;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--gold-light);
+
+            transform: translateX(-50%);
+
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--gold-light);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-button {
+            padding: 12px 20px;
+
+            border: 1px solid rgba(232,202,139,.7);
+
+            border-radius: 30px;
+
+            color: var(--gold-light) !important;
+        }
+
+        .nav-button::after {
+            display: none;
+        }
+
+        .nav-button:hover {
+            background: var(--gold);
+            color: var(--navy) !important;
+        }
+
+        .menu-toggle {
+            display: none;
+
+            border: 0;
+            background: transparent;
+
+            color: white;
+
+            font-size: 23px;
+
+            cursor: pointer;
+        }
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            color: white;
 
             background:
                 linear-gradient(
-                    135deg,
-                    var(--gold),
-                    #fff0b9,
-                    var(--gold)
+                    90deg,
+                    rgba(4,12,22,.90) 0%,
+                    rgba(4,12,22,.65) 43%,
+                    rgba(4,12,22,.22) 100%
+                ),
+                url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=85")
+                center/cover no-repeat;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 180px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    var(--white)
                 );
 
-            box-shadow:
-                0 7px 25px rgba(214,168,79,.25);
+            pointer-events: none;
         }
 
-        .brand-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .hero-content {
+            position: relative;
 
-            border-radius: 12px;
-            background: white;
+            z-index: 2;
+
+            width: min(1250px, 90%);
+
+            margin: auto;
+
+            padding-top: 90px;
         }
 
-        .brand-name {
-            color: white;
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: -.5px;
-        }
+        .hero-tag {
+            display: inline-flex;
 
-        .brand-name span {
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 24px;
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
             color: var(--gold-light);
         }
 
-        .brand-subtitle {
-            color: #8fa1b5;
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-top: 2px;
+        .hero-tag::before {
+            content: "";
+
+            width: 42px;
+            height: 1px;
+
+            background: var(--gold);
         }
 
-        .header-badge {
+        .hero h1 {
+            max-width: 780px;
+
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: clamp(60px, 8vw, 110px);
+
+            font-weight: 500;
+
+            line-height: .86;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 30px;
+        }
+
+        .hero h1 em {
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        .hero-description {
+            max-width: 560px;
+
+            color: rgba(255,255,255,.82);
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            margin-bottom: 38px;
+        }
+
+        .hero-actions {
             display: flex;
             align-items: center;
-            gap: 9px;
+            gap: 18px;
 
-            color: #e8edf4;
-
-            border: 1px solid rgba(255,255,255,.12);
-            background: rgba(255,255,255,.05);
-
-            padding: 9px 17px;
-            border-radius: 50px;
-
-            font-size: 13px;
+            flex-wrap: wrap;
         }
 
-        .header-badge strong {
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            min-height: 52px;
+
+            padding: 0 27px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 1.2px;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            transition: var(--transition);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+
+            color: var(--navy);
+
+            border: 1px solid var(--gold);
+
+            box-shadow:
+                0 12px 30px rgba(201,164,92,.20);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+
+            background: var(--gold-light);
+
+            box-shadow:
+                0 18px 40px rgba(201,164,92,.30);
+        }
+
+        .btn-outline {
+            color: white;
+
+            border: 1px solid rgba(255,255,255,.4);
+
+            background: rgba(255,255,255,.04);
+
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--navy);
+        }
+
+        .hero-bottom {
+            position: absolute;
+
+            bottom: 45px;
+            left: 5%;
+            right: 5%;
+
+            z-index: 5;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .scroll-indicator {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color: rgba(255,255,255,.75);
+        }
+
+        .scroll-line {
+            width: 50px;
+            height: 1px;
+
+            background: var(--gold);
+        }
+
+        .hero-number {
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 20px;
+
             color: var(--gold-light);
         }
 
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: #3ddc84;
-            border-radius: 50%;
+        /* =====================================================
+           GENERAL SECTIONS
+        ====================================================== */
 
-            box-shadow: 0 0 0 5px rgba(61,220,132,.10);
+        .section {
+            padding: 110px 5%;
         }
 
-        /* =========================================================
-           HERO
-        ========================================================= */
+        .section-dark {
+            background: var(--navy);
+            color: white;
+        }
 
-        .hero {
+        .section-cream {
+            background: var(--cream);
+        }
+
+        .section-container {
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .section-heading {
+            max-width: 720px;
+
+            margin-bottom: 55px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: var(--gold-dark);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .eyebrow::before {
+            content: "";
+
+            width: 35px;
+            height: 1px;
+
+            background: var(--gold);
+        }
+
+        .section-dark .eyebrow {
+            color: var(--gold-light);
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: clamp(42px, 5vw, 70px);
+
+            font-weight: 500;
+
+            line-height: .95;
+
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            color: var(--muted);
+
+            line-height: 1.8;
+
+            max-width: 620px;
+        }
+
+        .section-dark .section-description {
+            color: rgba(255,255,255,.65);
+        }
+
+        /* =====================================================
+           DESTINATIONS
+        ====================================================== */
+
+        .destinations-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .destination-card {
             position: relative;
+
+            min-height: 430px;
+
             overflow: hidden;
 
-            min-height: 410px;
+            border-radius: 4px;
+
+            cursor: pointer;
+
+            background: #ddd;
+        }
+
+        .destination-card::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 1;
+
+            background:
+                linear-gradient(
+                    transparent 30%,
+                    rgba(0,0,0,.82)
+                );
+        }
+
+        .destination-image {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            position: absolute;
+
+            inset: 0;
+
+            transition:
+                transform .8s cubic-bezier(.2,.8,.2,1);
+        }
+
+        .destination-card:hover .destination-image {
+            transform: scale(1.08);
+        }
+
+        .destination-info {
+            position: absolute;
+
+            z-index: 2;
+
+            left: 25px;
+            right: 25px;
+            bottom: 25px;
+
+            color: white;
+        }
+
+        .destination-number {
+            color: var(--gold-light);
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 8px;
+        }
+
+        .destination-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 35px;
+
+            font-weight: 500;
+
+            margin-bottom: 8px;
+        }
+
+        .destination-info p {
+            font-size: 11px;
+
+            color: rgba(255,255,255,.72);
+
+            line-height: 1.6;
+        }
+
+        /* =====================================================
+           EXPERIENCES
+        ====================================================== */
+
+        .experience-layout {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+        .experience-image {
+            position: relative;
+
+            min-height: 600px;
+        }
+
+        .experience-main-image {
+            width: 86%;
+            height: 570px;
+
+            object-fit: cover;
+
+            border-radius: 3px;
+        }
+
+        .experience-small-image {
+            position: absolute;
+
+            width: 42%;
+            height: 240px;
+
+            object-fit: cover;
+
+            right: 0;
+            bottom: 0;
+
+            border: 10px solid var(--cream);
+
+        }
+
+        .experience-badge {
+            position: absolute;
+
+            top: 45px;
+            right: 4px;
+
+            width: 105px;
+            height: 105px;
+
+            border-radius: 50%;
 
             display: flex;
             align-items: center;
@@ -208,976 +763,1097 @@
 
             text-align: center;
 
-            background:
-                linear-gradient(
-                    115deg,
-                    rgba(7,17,31,.98),
-                    rgba(13,39,64,.95),
-                    rgba(7,17,31,.98)
-                );
-
-            color: white;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 600px;
-            height: 600px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(214,168,79,.14),
-                    transparent 65%
-                );
-
-            top: -300px;
-            right: -120px;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            width: 500px;
-            height: 500px;
-
-            border-radius: 50%;
-
-            border: 1px solid rgba(214,168,79,.12);
-
-            bottom: -300px;
-            left: -120px;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-
-            width: min(850px, calc(100% - 40px));
-        }
-
-        .hero-kicker {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-
-            padding: 8px 15px;
-
-            border-radius: 50px;
-
-            border: 1px solid rgba(214,168,79,.30);
-
-            background: rgba(214,168,79,.08);
-
-            color: var(--gold-light);
-
-            font-size: 12px;
-            font-weight: 700;
-
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-
-            margin-bottom: 22px;
-        }
-
-        .hero h1 {
-            font-size: clamp(38px, 6vw, 65px);
-            line-height: 1.05;
-
-            letter-spacing: -2.5px;
-
-            margin-bottom: 22px;
-        }
-
-        .hero h1 span {
-            background:
-                linear-gradient(
-                    135deg,
-                    #fff,
-                    var(--gold-light)
-                );
-
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            max-width: 650px;
-            margin: auto;
-
-            color: #b7c4d3;
-
-            font-size: 17px;
-            line-height: 1.8;
-        }
-
-        .hero-decoration {
-            margin-top: 28px;
-
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .hero-decoration span {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-
             background: var(--gold);
-        }
 
-        .hero-decoration span:nth-child(2) {
-            width: 45px;
-            border-radius: 10px;
-        }
-
-        /* =========================================================
-           MAIN
-        ========================================================= */
-
-        main {
-            padding: 55px 20px 80px;
-        }
-
-        .main-wrapper {
-            width: min(880px, 100%);
-            margin: auto;
-        }
-
-        /* =========================================================
-           FORM CARD
-        ========================================================= */
-
-        .form-card {
-            background: rgba(255,255,255,.96);
-
-            border: 1px solid rgba(255,255,255,.8);
-
-            border-radius: 28px;
-
-            box-shadow: var(--shadow);
-
-            overflow: hidden;
-        }
-
-        .form-top {
-            padding: 34px 42px 27px;
-
-            border-bottom: 1px solid var(--border);
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .form-title {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .form-icon {
-            width: 53px;
-            height: 53px;
-
-            border-radius: 16px;
-
-            display: grid;
-            place-items: center;
-
-            background: var(--gold-soft);
-
-            color: #9b6d1f;
-
-            font-size: 23px;
-
-            border: 1px solid #f0dfb5;
-        }
-
-        .form-title h2 {
-            font-size: 23px;
             color: var(--navy);
-        }
 
-        .form-title p {
-            color: var(--muted);
-            font-size: 13px;
-            margin-top: 3px;
-        }
+            font-size: 9px;
 
-        .required-note {
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-        .required-note span {
-            color: var(--red);
-        }
-
-        .form-body {
-            padding: 35px 42px 42px;
-        }
-
-        /* =========================================================
-           SECTIONS
-        ========================================================= */
-
-        .section {
-            position: relative;
-
-            border: 1px solid var(--border);
-
-            border-radius: 20px;
-
-            padding: 25px;
-
-            margin-bottom: 20px;
-
-            background: linear-gradient(
-                180deg,
-                #fff,
-                #fdfcf9
-            );
-
-            transition:
-                border .25s ease,
-                box-shadow .25s ease,
-                transform .25s ease;
-        }
-
-        .section:hover {
-            border-color: #dec78f;
-
-            box-shadow:
-                0 14px 35px rgba(7,17,31,.055);
-
-            transform: translateY(-1px);
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            margin-bottom: 23px;
-        }
-
-        .section-number {
-            width: 32px;
-            height: 32px;
-
-            border-radius: 10px;
-
-            display: grid;
-            place-items: center;
-
-            color: white;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--navy),
-                    var(--navy-3)
-                );
-
-            font-size: 13px;
             font-weight: 800;
 
-            box-shadow:
-                0 5px 15px rgba(7,17,31,.15);
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            line-height: 1.5;
         }
 
-        .section-header h3 {
-            font-size: 16px;
-            color: var(--navy);
-        }
-
-        .section-header p {
-            font-size: 12px;
-            color: var(--muted);
-            margin-top: 2px;
-        }
-
-        /* =========================================================
-           GRID
-        ========================================================= */
-
-        .grid-2 {
+        .experience-list {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+
+            margin-top: 35px;
+        }
+
+        .experience-item {
+            display: grid;
+
+            grid-template-columns: 50px 1fr;
+
             gap: 17px;
+
+            padding-bottom: 25px;
+
+            border-bottom: 1px solid #e4ded3;
         }
 
-        .field {
-            margin-bottom: 17px;
+        .experience-icon {
+            width: 44px;
+            height: 44px;
+
+            border: 1px solid var(--gold);
+
+            color: var(--gold-dark);
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .field:last-child {
-            margin-bottom: 0;
+        .experience-item h4 {
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 25px;
+
+            font-weight: 600;
+
+            margin-bottom: 5px;
         }
 
-        label.field-label {
-            display: block;
+        .experience-item p {
+            color: var(--muted);
 
-            color: #273449;
+            font-size: 13px;
 
-            font-size: 12px;
-            font-weight: 700;
-
-            margin-bottom: 8px;
+            line-height: 1.7;
         }
 
-        .required {
-            color: var(--red);
-            margin-left: 3px;
-        }
+        /* =====================================================
+           PACKAGES
+        ====================================================== */
 
-        .input-wrap {
-            position: relative;
-        }
-
-        .input-icon {
-            position: absolute;
-
-            left: 15px;
-            top: 50%;
-
-            transform: translateY(-50%);
-
-            color: #94a3b8;
-
-            font-size: 14px;
-
-            pointer-events: none;
-        }
-
-        .field input,
-        .field select,
-        .field textarea {
-            width: 100%;
-
-            border: 1px solid #dfe3e8;
-
-            border-radius: 12px;
-
-            background: #fff;
-
-            color: #1c2738;
-
-            font-size: 14px;
-
-            padding: 13px 14px;
-
-            outline: none;
-
-            transition:
-                border .2s ease,
-                box-shadow .2s ease,
-                background .2s ease;
-        }
-
-        .field input.with-icon,
-        .field select.with-icon {
-            padding-left: 43px;
-        }
-
-        .field input::placeholder {
-            color: #aab3bf;
-        }
-
-        .field input:focus,
-        .field select:focus,
-        .field textarea:focus {
-            border-color: var(--gold);
-
-            background: #fffefa;
-
-            box-shadow:
-                0 0 0 4px rgba(214,168,79,.11);
-        }
-
-        /* =========================================================
-           TRAVEL OPTIONS
-        ========================================================= */
-
-        .options-grid {
+        .packages-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(2, minmax(0, 1fr));
+                repeat(3, 1fr);
 
-            gap: 12px;
+            gap: 20px;
         }
 
-        .option {
+        .package {
             position: relative;
 
-            cursor: pointer;
+            padding: 42px 35px;
+
+            background: rgba(255,255,255,.055);
+
+            border: 1px solid rgba(255,255,255,.10);
+
+            transition: var(--transition);
         }
 
-        .option input {
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
+        .package:hover {
+            transform: translateY(-8px);
+
+            border-color: rgba(201,164,92,.5);
+
+            background: rgba(255,255,255,.075);
         }
 
-        .option-content {
-            min-height: 72px;
-
-            display: flex;
-            align-items: center;
-            gap: 13px;
-
-            padding: 14px 16px;
-
-            border: 1px solid #e1e5ea;
-
-            border-radius: 15px;
-
-            background: white;
-
-            transition: .25s ease;
-        }
-
-        .option:hover .option-content {
-            border-color: #d5bb7a;
-
-            transform: translateY(-2px);
-
-            box-shadow:
-                0 9px 20px rgba(7,17,31,.06);
-        }
-
-        .option input:checked + .option-content {
+        .package.featured {
             border-color: var(--gold);
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #fffaf0,
-                    #fff3d1
-                );
-
-            box-shadow:
-                0 8px 25px rgba(214,168,79,.14);
+            transform: translateY(-10px);
         }
 
-        .option-icon {
-            width: 40px;
-            height: 40px;
-
-            border-radius: 12px;
-
-            display: grid;
-            place-items: center;
-
-            background: #f6f7f8;
-
-            font-size: 20px;
-
-            flex-shrink: 0;
+        .package.featured:hover {
+            transform: translateY(-16px);
         }
 
-        .option input:checked + .option-content .option-icon {
-            background: white;
+        .package-label {
+            display: inline-block;
+
+            padding: 6px 10px;
+
+            margin-bottom: 25px;
+
+            background: rgba(201,164,92,.13);
+
+            color: var(--gold-light);
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
         }
 
-        .option-text strong {
-            display: block;
+        .package h3 {
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 39px;
+
+            font-weight: 500;
+
+            margin-bottom: 10px;
+        }
+
+        .package p {
+            color: rgba(255,255,255,.58);
 
             font-size: 13px;
 
-            color: var(--navy);
+            line-height: 1.8;
 
-            margin-bottom: 2px;
+            margin-bottom: 25px;
         }
 
-        .option-text span {
-            font-size: 11px;
+        .package ul {
+            list-style: none;
+
+            display: grid;
+
+            gap: 13px;
+
+            margin-bottom: 35px;
+        }
+
+        .package li {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 12px;
+
+            color: rgba(255,255,255,.78);
+        }
+
+        .package li i {
+            color: var(--gold-light);
+        }
+
+        /* =====================================================
+           WHY US
+        ====================================================== */
+
+        .why-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .why-card {
+            padding: 32px 25px;
+
+            border-top: 1px solid var(--gold);
+
+            background: white;
+
+            box-shadow:
+                0 15px 50px rgba(0,0,0,.05);
+
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .why-icon {
+            font-size: 25px;
+
+            color: var(--gold-dark);
+
+            margin-bottom: 22px;
+        }
+
+        .why-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 27px;
+
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            font-size: 12px;
+
+            line-height: 1.8;
+
             color: var(--muted);
         }
 
-        /* =========================================================
-           AVAILABILITY
-        ========================================================= */
+        /* =====================================================
+           FORM SECTION
+        ====================================================== */
 
-        .availability {
+        .registration {
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    rgba(7,17,31,.97),
+                    rgba(7,17,31,.87)
+                ),
+                url("https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=2200&q=80")
+                center/cover fixed;
+
+            color: white;
+        }
+
+        .registration-layout {
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: .85fr 1.15fr;
 
-            gap: 12px;
+            gap: 80px;
+
+            align-items: start;
         }
 
-        .availability label {
-            cursor: pointer;
+        .registration-copy {
+            position: sticky;
+
+            top: 130px;
         }
 
-        .availability input {
-            position: absolute;
-            opacity: 0;
+        .registration-copy .section-title {
+            max-width: 500px;
         }
 
-        .availability-box {
+        .registration-copy > p {
+            max-width: 490px;
+
+            color: rgba(255,255,255,.65);
+
+            line-height: 1.9;
+
+            font-size: 14px;
+        }
+
+        .contact-points {
+            display: grid;
+
+            gap: 18px;
+
+            margin-top: 35px;
+        }
+
+        .contact-point {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+        }
+
+        .contact-point-icon {
+            width: 43px;
+            height: 43px;
+
+            border: 1px solid rgba(201,164,92,.5);
+
+            border-radius: 50%;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
 
-            padding: 14px;
+            color: var(--gold-light);
+        }
 
-            border: 1px solid #e1e5ea;
+        .contact-point span {
+            font-size: 12px;
 
-            border-radius: 13px;
+            color: rgba(255,255,255,.72);
+        }
+
+        /* FORM CARD */
+
+        .form-card {
+            background: white;
+
+            color: var(--text);
+
+            padding: 45px;
+
+            border-radius: 4px;
+
+            box-shadow:
+                0 30px 90px rgba(0,0,0,.28);
+        }
+
+        .form-header {
+            margin-bottom: 35px;
+        }
+
+        .form-header span {
+            display: block;
+
+            color: var(--gold-dark);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+        .form-header h3 {
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 40px;
+
+            font-weight: 500;
+        }
+
+        .form-header p {
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            margin-top: 8px;
+        }
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.2px;
+
+            text-transform: uppercase;
+
+            color: #536071;
+        }
+
+        .form-group label span {
+            color: var(--gold-dark);
+        }
+
+        .form-control {
+            width: 100%;
+
+            height: 50px;
+
+            padding: 0 15px;
+
+            border: 1px solid #dfe3e7;
+
+            border-radius: 3px;
+
+            background: #fbfcfd;
+
+            color: var(--text);
+
+            outline: none;
+
+            font-size: 13px;
+
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--gold);
 
             background: white;
 
-            color: #344054;
+            box-shadow:
+                0 0 0 3px rgba(201,164,92,.10);
+        }
 
-            font-size: 13px;
+        /* PREFERENCES */
+
+        .preference-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 10px;
+        }
+
+        .preference-option {
+            position: relative;
+        }
+
+        .preference-option input {
+            position: absolute;
+
+            opacity: 0;
+        }
+
+        .preference-option label {
+            height: 52px;
+
+            padding: 0 14px;
+
+            border: 1px solid #dfe3e7;
+
+            border-radius: 3px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            cursor: pointer;
+
+            color: #536071;
+
+            transition: var(--transition);
+
+            font-size: 11px;
+
             font-weight: 600;
 
-            transition: .25s ease;
+            text-transform: none;
+
+            letter-spacing: 0;
         }
 
-        .availability label:hover .availability-box {
-            border-color: #d5bb7a;
+        .preference-option label i {
+            color: var(--gold-dark);
+
+            font-size: 15px;
         }
 
-        .availability input:checked + .availability-box {
-            color: #755316;
-
+        .preference-option input:checked + label {
             border-color: var(--gold);
 
-            background: var(--gold-soft);
+            background: rgba(201,164,92,.09);
 
-            box-shadow:
-                0 7px 18px rgba(214,168,79,.12);
+            color: var(--navy);
         }
 
-        /* =========================================================
-           BUTTON
-        ========================================================= */
+        /* ERROR */
 
-        .submit-area {
-            margin-top: 25px;
+        .error-message {
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 13px 15px;
+
+            border-left: 3px solid var(--danger);
+
+            background: #fff2f2;
+
+            color: #9b3030;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+        .error-message.show {
+            display: block;
         }
 
         .submit-button {
             width: 100%;
 
+            margin-top: 28px;
+
             border: 0;
 
-            border-radius: 15px;
-
-            padding: 17px 22px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #b98429,
-                    #e0b85c,
-                    #b98429
-                );
-
-            background-size: 200% 100%;
-
-            color: white;
-
-            font-size: 15px;
-            font-weight: 800;
-
-            letter-spacing: .3px;
-
             cursor: pointer;
-
-            box-shadow:
-                0 12px 30px rgba(164,115,35,.25);
-
-            transition: .3s ease;
         }
 
-        .submit-button:hover {
-            background-position: 100% 0;
+        .submit-button.loading {
+            pointer-events: none;
 
-            transform: translateY(-2px);
-
-            box-shadow:
-                0 17px 35px rgba(164,115,35,.32);
+            opacity: .7;
         }
 
-        .submit-button:active {
-            transform: translateY(0);
-        }
+        .privacy-note {
+            margin-top: 14px;
 
-        .submit-button:disabled {
-            opacity: .6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .security-note {
             text-align: center;
 
-            margin-top: 12px;
+            color: #8b939c;
 
-            color: #8792a1;
+            font-size: 10px;
 
-            font-size: 11px;
+            line-height: 1.6;
         }
 
-        /* =========================================================
-           ERROR
-        ========================================================= */
-
-        .error-message {
-            display: none;
-
-            padding: 14px 16px;
-
-            margin-top: 18px;
-
-            border-radius: 13px;
-
-            background: #fff1f1;
-
-            border: 1px solid #f4c4c4;
-
-            color: #b42318;
-
-            font-size: 13px;
-
-            line-height: 1.5;
-
-            animation: errorIn .3s ease;
-        }
-
-        @keyframes errorIn {
-            from {
-                opacity: 0;
-                transform: translateY(-6px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* =========================================================
+        /* =====================================================
            SUCCESS
-        ========================================================= */
+        ====================================================== */
 
-        #mensajeGracias {
+        .success-screen {
             display: none;
 
-            padding: 48px 42px;
-
             text-align: center;
+
+            padding: 35px 10px;
+        }
+
+        .success-screen.show {
+            display: block;
         }
 
         .success-icon {
-            width: 90px;
-            height: 90px;
+            width: 75px;
+            height: 75px;
 
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
 
             border-radius: 50%;
 
-            display: grid;
-            place-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            font-size: 42px;
+            background: rgba(47,158,114,.10);
 
-            background: #eaf8ef;
+            color: var(--success);
 
-            border: 1px solid #bce8c9;
-
-            box-shadow:
-                0 12px 35px rgba(21,148,71,.12);
-
-            animation: successPop .6s ease;
+            font-size: 30px;
         }
 
-        @keyframes successPop {
-            0% {
-                opacity: 0;
-                transform: scale(.7);
-            }
+        .success-screen h3 {
+            font-family: 'Cormorant Garamond', serif;
 
-            70% {
-                transform: scale(1.08);
-            }
+            font-size: 45px;
 
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .success-title {
-            color: var(--navy);
-
-            font-size: 34px;
+            font-weight: 500;
 
             margin-bottom: 10px;
         }
 
-        .success-title span {
-            color: var(--green);
-        }
+        .success-screen p {
+            max-width: 450px;
 
-        .success-description {
+            margin: 0 auto 30px;
+
             color: var(--muted);
 
-            font-size: 15px;
+            font-size: 13px;
 
-            line-height: 1.7;
-
-            max-width: 550px;
-
-            margin: 0 auto 25px;
+            line-height: 1.8;
         }
 
-        .success-card {
+        .summary-box {
             max-width: 480px;
 
-            margin: auto;
+            margin: 0 auto 25px;
 
             text-align: left;
 
-            padding: 20px 22px;
+            background: #faf8f3;
 
-            border-radius: 17px;
+            border: 1px solid #eee7da;
 
-            border: 1px solid var(--border);
-
-            background: #fafaf9;
+            padding: 22px;
         }
 
-        .success-row {
+        .summary-row {
             display: flex;
+
             justify-content: space-between;
+
             gap: 20px;
 
             padding: 11px 0;
 
-            border-bottom: 1px dashed #ddd;
+            border-bottom: 1px solid #ebe6dc;
 
-            font-size: 13px;
+            font-size: 12px;
         }
 
-        .success-row:last-child {
+        .summary-row:last-child {
             border-bottom: 0;
         }
 
-        .success-row strong {
-            color: var(--navy);
+        .summary-row span:first-child {
+            color: var(--muted);
         }
 
-        .success-row span {
-            color: #596579;
-
+        .summary-row span:last-child {
             text-align: right;
+
+            font-weight: 600;
         }
 
-        .success-message {
-            margin-top: 22px;
+        /* =====================================================
+           FINAL CTA
+        ====================================================== */
 
-            color: #596579;
+        .final-cta {
+            min-height: 500px;
 
-            font-size: 14px;
-        }
+            position: relative;
 
-        .success-message strong {
-            color: var(--gold);
-        }
+            display: flex;
 
-        .restart-button {
-            margin-top: 25px;
+            align-items: center;
 
-            border: 1px solid #dfe3e8;
-
-            background: white;
-
-            color: var(--navy);
-
-            padding: 11px 22px;
-
-            border-radius: 11px;
-
-            font-weight: 700;
-
-            cursor: pointer;
-
-            transition: .25s ease;
-        }
-
-        .restart-button:hover {
-            border-color: var(--gold);
-
-            background: var(--gold-soft);
-        }
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-            background: var(--navy);
-
-            border-top: 1px solid rgba(214,168,79,.25);
-
-            padding: 30px 20px;
+            justify-content: center;
 
             text-align: center;
-        }
 
-        .footer-brand {
             color: white;
 
-            font-weight: 800;
+            background:
+                linear-gradient(
+                    rgba(7,17,31,.78),
+                    rgba(7,17,31,.86)
+                ),
+                url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=85")
+                center/cover;
+        }
+
+        .final-content {
+            position: relative;
+
+            z-index: 2;
+
+            padding: 60px 20px;
+        }
+
+        .final-content .eyebrow {
+            justify-content: center;
+        }
+
+        .final-content .section-title {
+            font-size: clamp(50px, 7vw, 90px);
+
+            max-width: 850px;
+
+            margin: auto auto 30px;
+        }
+
+        .final-content p {
+            max-width: 600px;
+
+            margin: auto auto 35px;
+
+            color: rgba(255,255,255,.72);
+
+            line-height: 1.8;
 
             font-size: 14px;
         }
 
-        .footer-brand span {
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        footer {
+            background: #040b14;
+
+            color: white;
+
+            padding: 65px 5% 25px;
+        }
+
+        .footer-grid {
+            max-width: 1250px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1.5fr 1fr 1fr 1fr;
+
+            gap: 50px;
+
+            padding-bottom: 45px;
+
+            border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+
+        .footer-brand p {
+            max-width: 330px;
+
+            margin-top: 20px;
+
+            color: rgba(255,255,255,.48);
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+        .footer-column h4 {
+            color: var(--gold-light);
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+
+            display: grid;
+
+            gap: 12px;
+        }
+
+        .footer-column li,
+        .footer-column a {
+            color: rgba(255,255,255,.55);
+
+            font-size: 12px;
+
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
             color: var(--gold-light);
         }
 
-        footer p {
-            color: #71839a;
+        .footer-bottom {
+            max-width: 1250px;
 
-            font-size: 11px;
+            margin: 22px auto 0;
 
-            margin-top: 6px;
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            color: rgba(255,255,255,.35);
+
+            font-size: 10px;
         }
 
-        /* =========================================================
+        /* =====================================================
+           FLOATING BUTTON
+        ====================================================== */
+
+        .floating-top {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            z-index: 900;
+
+            width: 43px;
+            height: 43px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(201,164,92,.5);
+
+            background: rgba(7,17,31,.9);
+
+            color: var(--gold-light);
+
+            cursor: pointer;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform: translateY(15px);
+
+            transition: var(--transition);
+        }
+
+        .floating-top.show {
+            opacity: 1;
+
+            visibility: visible;
+
+            transform: translateY(0);
+        }
+
+        .floating-top:hover {
+            background: var(--gold);
+
+            color: var(--navy);
+        }
+
+        /* =====================================================
+           REVEAL ANIMATION
+        ====================================================== */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        /* =====================================================
            RESPONSIVE
-        ========================================================= */
+        ====================================================== */
 
-        @media (max-width: 700px) {
+        @media(max-width: 1100px) {
 
-            .header-container {
-                min-height: 72px;
-                width: min(100% - 24px, 1180px);
+            .destinations-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
-            .header-badge {
-                display: none;
+            .why-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
-            .brand-name {
-                font-size: 18px;
+            .registration-layout {
+                grid-template-columns: 1fr;
             }
 
-            .brand-subtitle {
-                font-size: 8px;
+            .registration-copy {
+                position: static;
             }
 
-            .brand-logo {
-                width: 45px;
-                height: 45px;
+            .footer-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 850px) {
+
+            .nav-menu {
+                position: fixed;
+
+                top: 0;
+                right: 0;
+
+                width: min(320px, 85%);
+
+                height: 100vh;
+
+                background: rgba(7,17,31,.98);
+
+                backdrop-filter: blur(20px);
+
+                padding:
+                    110px
+                    35px
+                    40px;
+
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 28px;
+
+                transform: translateX(100%);
+
+                transition: transform .4s ease;
+            }
+
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+
+            .nav-menu a {
+                font-size: 15px;
+            }
+
+            .menu-toggle {
+                display: block;
+
+                position: relative;
+
+                z-index: 1002;
+            }
+
+            .experience-layout {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+            }
+
+            .experience-image {
+                min-height: 500px;
+            }
+
+            .experience-main-image {
+                height: 480px;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .package.featured {
+                transform: none;
+            }
+        }
+
+        @media(max-width: 650px) {
+
+            .header {
+                padding:
+                    14px 20px;
+            }
+
+            .logo-text strong {
+                font-size: 23px;
+            }
+
+            .logo-symbol {
+                width: 40px;
+                height: 40px;
             }
 
             .hero {
-                min-height: 350px;
+                min-height: 760px;
+
+                background-position:
+                    63% center;
+            }
+
+            .hero-content {
+                width: 88%;
+
+                padding-top: 70px;
             }
 
             .hero h1 {
-                letter-spacing: -1.5px;
+                font-size: 58px;
+
+                letter-spacing: -1px;
             }
 
-            .hero p {
+            .hero-description {
                 font-size: 14px;
             }
 
-            main {
-                padding: 25px 12px 45px;
-            }
-
-            .form-top {
-                padding: 25px 20px;
-            }
-
-            .form-body {
-                padding: 20px 15px 25px;
-            }
-
-            .required-note {
-                display: none;
-            }
-
-            .grid-2 {
-                grid-template-columns: 1fr;
-                gap: 0;
+            .hero-bottom {
+                left: 7%;
+                right: 7%;
             }
 
             .section {
-                padding: 19px 16px;
+                padding:
+                    80px 6%;
             }
 
-            .options-grid {
+            .destinations-grid {
                 grid-template-columns: 1fr;
             }
 
-            .availability {
+            .destination-card {
+                min-height: 400px;
+            }
+
+            .why-grid {
                 grid-template-columns: 1fr;
             }
 
-            #mensajeGracias {
-                padding: 40px 20px;
+            .form-card {
+                padding: 28px 20px;
             }
 
-            .success-title {
-                font-size: 28px;
-            }
-        }
-
-        @media (max-width: 420px) {
-
-            .hero-content {
-                width: calc(100% - 30px);
+            .form-grid {
+                grid-template-columns: 1fr;
             }
 
-            .hero h1 {
-                font-size: 34px;
+            .form-group.full {
+                grid-column: auto;
             }
 
-            .form-title h2 {
-                font-size: 19px;
+            .preference-grid {
+                grid-template-columns: 1fr;
             }
 
-            .form-icon {
-                width: 46px;
-                height: 46px;
+            .experience-main-image {
+                width: 90%;
+
+                height: 430px;
             }
 
-            .option-content {
-                min-height: 65px;
+            .experience-small-image {
+                width: 45%;
+
+                height: 190px;
             }
-        }
 
-        /* =========================================================
-           ACCESSIBILITY
-        ========================================================= */
+            .experience-badge {
+                width: 85px;
+                height: 85px;
 
-        @media (prefers-reduced-motion: reduce) {
+                font-size: 7px;
+            }
 
-            *,
-            *::before,
-            *::after {
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: .01ms !important;
-                scroll-behavior: auto !important;
+            .footer-grid {
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+
+            .hero-actions {
+                align-items: stretch;
+
+                flex-direction: column;
+
+                width: 100%;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
             }
         }
 
@@ -1186,78 +1862,115 @@
 
 <body>
 
-<!-- =============================================================
+<!-- =========================================================
      HEADER
-============================================================= -->
+========================================================== -->
 
-<header class="header">
+<header class="header" id="header">
 
-    <div class="header-container">
+    <nav class="nav">
 
-        <div class="brand">
+        <a href="#inicio" class="logo">
 
-            <div class="brand-logo">
-                <img
-                    src="Imagenes/DTCG.jpeg"
-                    alt="Destination Connect"
-                    onerror="this.style.display='none'"
-                >
+            <div class="logo-symbol">
+                <i class="fa-solid fa-compass"></i>
             </div>
 
-            <div>
-                <div class="brand-name">
-                    Destination<span>Connect</span>
-                </div>
-
-                <div class="brand-subtitle">
-                    Agencia de Viajes
-                </div>
+            <div class="logo-text">
+                <strong>TOURS EMBLEMA</strong>
+                <span>Viajes & Experiencias</span>
             </div>
 
+        </a>
+
+        <ul class="nav-menu" id="navMenu">
+
+            <li>
+                <a href="#destinos">Destinos</a>
+            </li>
+
+            <li>
+                <a href="#experiencias">Experiencias</a>
+            </li>
+
+            <li>
+                <a href="#paquetes">Paquetes</a>
+            </li>
+
+            <li>
+                <a href="#nosotros">Nosotros</a>
+            </li>
+
+            <li>
+                <a href="#registro" class="nav-button">
+                    Comenzar mi viaje
+                </a>
+            </li>
+
+        </ul>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Abrir menú">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================== -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content reveal">
+
+        <div class="hero-tag">
+            Tu próxima aventura comienza aquí
         </div>
 
-        <div class="header-badge">
+        <h1>
+            Descubre el mundo
+            <em>de una forma diferente.</em>
+        </h1>
 
-            <span class="status-dot"></span>
+        <p class="hero-description">
+            En Tours Emblema creamos experiencias que van más allá
+            de un simple viaje. Descubre destinos extraordinarios,
+            vive nuevas aventuras y convierte cada recorrido en una
+            historia que recordarás para siempre.
+        </p>
 
-            <span>
-                Atención <strong>personalizada</strong>
-            </span>
+        <div class="hero-actions">
+
+            <a href="#registro" class="btn btn-gold">
+                Comenzar mi viaje
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="#destinos" class="btn btn-outline">
+                Explorar destinos
+            </a>
 
         </div>
 
     </div>
 
-</header>
+    <div class="hero-bottom">
 
-
-<!-- =============================================================
-     HERO
-============================================================= -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <div class="hero-kicker">
-            ✦ DESTINATION CONNECT
+        <div class="scroll-indicator">
+            <span class="scroll-line"></span>
+            Descubre
         </div>
 
-        <h1>
-            Tu próximo viaje
-            <span>comienza aquí.</span>
-        </h1>
-
-        <p>
-            Déjanos conocer tus preferencias y nuestro equipo
-            encontrará las mejores opciones para crear una experiencia
-            de viaje pensada para ti.
-        </p>
-
-        <div class="hero-decoration">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="hero-number">
+            01 / 04
         </div>
 
     </div>
@@ -1265,489 +1978,938 @@
 </section>
 
 
-<!-- =============================================================
-     MAIN
-============================================================= -->
+<!-- =========================================================
+     DESTINOS
+========================================================== -->
 
-<main>
+<section class="section section-cream" id="destinos">
 
-    <div class="main-wrapper">
+    <div class="section-container">
 
-        <div class="form-card">
+        <div class="section-heading reveal">
 
-            <!-- FORM HEADER -->
+            <div class="eyebrow">
+                Explora
+            </div>
 
-            <div class="form-top">
+            <h2 class="section-title">
+                Destinos que
+                inspiran.
+            </h2>
 
-                <div class="form-title">
+            <p class="section-description">
+                Desde playas paradisíacas hasta ciudades llenas de
+                historia. Encuentra el destino que se adapta a la
+                experiencia que estás buscando.
+            </p>
 
-                    <div class="form-icon">
-                        ✈
+        </div>
+
+
+        <div class="destinations-grid">
+
+            <!-- PLAYAS -->
+
+            <article class="destination-card reveal">
+
+                <img
+                    class="destination-image"
+                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=85"
+                    alt="Playas">
+
+                <div class="destination-info">
+
+                    <div class="destination-number">
+                        01 — DESTINO
                     </div>
 
-                    <div>
-                        <h2>
-                            Registro de viajero
-                        </h2>
+                    <h3>Playas</h3>
 
-                        <p>
-                            Cuéntanos un poco sobre ti
-                        </p>
-                    </div>
+                    <p>
+                        Sol, mar y momentos que se quedan
+                        contigo para siempre.
+                    </p>
 
                 </div>
 
-                <div class="required-note">
-                    <span>*</span> Campos obligatorios
+            </article>
+
+
+            <!-- INTERNACIONAL -->
+
+            <article class="destination-card reveal">
+
+                <img
+                    class="destination-image"
+                    src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1000&q=85"
+                    alt="Europa">
+
+                <div class="destination-info">
+
+                    <div class="destination-number">
+                        02 — DESTINO
+                    </div>
+
+                    <h3>Internacional</h3>
+
+                    <p>
+                        Descubre nuevas culturas y lugares
+                        extraordinarios.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- MÉXICO -->
+
+            <article class="destination-card reveal">
+
+                <img
+                    class="destination-image"
+                    src="https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=1000&q=85"
+                    alt="México">
+
+                <div class="destination-info">
+
+                    <div class="destination-number">
+                        03 — DESTINO
+                    </div>
+
+                    <h3>México</h3>
+
+                    <p>
+                        Descubre la riqueza, cultura y belleza
+                        de nuestro país.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- PUEBLOS -->
+
+            <article class="destination-card reveal">
+
+                <img
+                    class="destination-image"
+                    src="https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=1000&q=85"
+                    alt="Pueblo mágico">
+
+                <div class="destination-info">
+
+                    <div class="destination-number">
+                        04 — DESTINO
+                    </div>
+
+                    <h3>Pueblos</h3>
+
+                    <p>
+                        Historia, gastronomía y lugares llenos
+                        de encanto.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     EXPERIENCIAS
+========================================================== -->
+
+<section class="section" id="experiencias">
+
+    <div class="section-container">
+
+        <div class="experience-layout">
+
+            <div class="experience-image reveal">
+
+                <img
+                    class="experience-main-image"
+                    src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1300&q=85"
+                    alt="Experiencia de viaje">
+
+                <img
+                    class="experience-small-image"
+                    src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=85"
+                    alt="Experiencia">
+
+                <div class="experience-badge">
+                    Vive<br>
+                    algo<br>
+                    diferente
                 </div>
 
             </div>
 
 
-            <!-- FORM BODY -->
+            <div class="reveal">
 
-            <div class="form-body">
+                <div class="eyebrow">
+                    Más que un viaje
+                </div>
 
-                <div id="formularioWrapper">
+                <h2 class="section-title">
+                    Creamos
+                    experiencias.
+                </h2>
 
-                    <form id="formularioViajes">
-
-                        <!-- =================================================
-                             SECTION 1
-                        ================================================== -->
-
-                        <section class="section">
-
-                            <div class="section-header">
-
-                                <div class="section-number">
-                                    01
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        Datos personales
-                                    </h3>
-
-                                    <p>
-                                        Información básica de contacto
-                                    </p>
-                                </div>
-
-                            </div>
+                <p class="section-description">
+                    Un gran viaje comienza mucho antes de llegar
+                    al destino. Por eso buscamos que cada detalle
+                    forme parte de una experiencia memorable.
+                </p>
 
 
-                            <div class="grid-2">
+                <div class="experience-list">
 
-                                <div class="field">
+                    <div class="experience-item">
 
-                                    <label
-                                        class="field-label"
-                                        for="nombre"
-                                    >
-                                        Nombre completo
-                                        <span class="required">*</span>
-                                    </label>
+                        <div class="experience-icon">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
 
-                                    <div class="input-wrap">
+                        <div>
+                            <h4>Destinos especiales</h4>
 
-                                        <span class="input-icon">
-                                            👤
-                                        </span>
+                            <p>
+                                Lugares seleccionados para que
+                                descubras nuevas perspectivas.
+                            </p>
+                        </div>
 
-                                        <input
-                                            class="with-icon"
-                                            type="text"
-                                            id="nombre"
-                                            placeholder="Ej. María Pérez"
-                                            autocomplete="name"
-                                            required
-                                        >
-
-                                    </div>
-
-                                </div>
+                    </div>
 
 
-                                <div class="field">
+                    <div class="experience-item">
 
-                                    <label
-                                        class="field-label"
-                                        for="edad"
-                                    >
-                                        Edad
-                                    </label>
+                        <div class="experience-icon">
+                            <i class="fa-solid fa-hotel"></i>
+                        </div>
 
-                                    <div class="input-wrap">
+                        <div>
+                            <h4>Hospedaje</h4>
 
-                                        <span class="input-icon">
-                                            #
-                                        </span>
+                            <p>
+                                Opciones de hospedaje pensadas
+                                para complementar tu viaje.
+                            </p>
+                        </div>
 
-                                        <input
-                                            class="with-icon"
-                                            type="number"
-                                            id="edad"
-                                            placeholder="28"
-                                            min="1"
-                                            max="120"
-                                        >
-
-                                    </div>
-
-                                </div>
-
-                            </div>
+                    </div>
 
 
-                            <div class="grid-2">
+                    <div class="experience-item">
 
-                                <div class="field">
+                        <div class="experience-icon">
+                            <i class="fa-solid fa-route"></i>
+                        </div>
 
-                                    <label
-                                        class="field-label"
-                                        for="estadoCivil"
-                                    >
-                                        Estado civil
-                                    </label>
+                        <div>
+                            <h4>Experiencias</h4>
 
-                                    <select id="estadoCivil">
+                            <p>
+                                Planea actividades que conviertan
+                                cada día en una nueva aventura.
+                            </p>
+                        </div>
 
-                                        <option value="">
-                                            Selecciona una opción
-                                        </option>
+                    </div>
 
-                                        <option value="soltero">
-                                            Soltero/a
-                                        </option>
+                </div>
 
-                                        <option value="casado">
-                                            Casado/a
-                                        </option>
+            </div>
 
-                                        <option value="divorciado">
-                                            Divorciado/a
-                                        </option>
+        </div>
 
-                                        <option value="viudo">
-                                            Viudo/a
-                                        </option>
+    </div>
 
-                                        <option value="union_libre">
-                                            Unión Libre
-                                        </option>
-
-                                    </select>
-
-                                </div>
+</section>
 
 
-                                <div class="field">
+<!-- =========================================================
+     PAQUETES
+========================================================== -->
 
-                                    <label
-                                        class="field-label"
-                                        for="telefono"
-                                    >
-                                        Teléfono
-                                        <span class="required">*</span>
-                                    </label>
+<section class="section section-dark" id="paquetes">
 
-                                    <div class="input-wrap">
+    <div class="section-container">
 
-                                        <span class="input-icon">
-                                            ☎
-                                        </span>
+        <div class="section-heading reveal">
 
-                                        <input
-                                            class="with-icon"
-                                            type="tel"
-                                            id="telefono"
-                                            placeholder="+52 123 456 7890"
-                                            autocomplete="tel"
-                                            required
-                                        >
+            <div class="eyebrow">
+                Elige tu experiencia
+            </div>
 
-                                    </div>
+            <h2 class="section-title">
+                Viaja a tu manera.
+            </h2>
 
-                                </div>
+            <p class="section-description">
+                Diferentes niveles de experiencia para diferentes
+                formas de descubrir el mundo.
+            </p>
 
-                            </div>
-
-                        </section>
+        </div>
 
 
-                        <!-- =================================================
-                             SECTION 2
-                        ================================================== -->
+        <div class="packages-grid">
 
-                        <section class="section">
+            <!-- ESENCIAL -->
 
-                            <div class="section-header">
+            <article class="package reveal">
 
-                                <div class="section-number">
-                                    02
-                                </div>
+                <span class="package-label">
+                    Esencial
+                </span>
 
-                                <div>
-                                    <h3>
-                                        Preferencias de viaje
-                                    </h3>
+                <h3>Essential</h3>
 
-                                    <p>
-                                        Elige el tipo de experiencia que buscas
-                                    </p>
-                                </div>
+                <p>
+                    Para quienes quieren comenzar una nueva
+                    aventura y descubrir nuevos destinos.
+                </p>
 
-                            </div>
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Selección de destinos
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Opciones de hospedaje
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Asesoría de viaje
+                    </li>
+
+                </ul>
+
+                <a href="#registro" class="btn btn-outline">
+                    Solicitar información
+                </a>
+
+            </article>
 
 
-                            <div class="field">
+            <!-- PREMIUM -->
 
-                                <label class="field-label">
-                                    ¿Qué tipo de viaje te interesa más?
-                                    <span class="required">*</span>
+            <article class="package featured reveal">
+
+                <span class="package-label">
+                    Más elegido
+                </span>
+
+                <h3>Premium</h3>
+
+                <p>
+                    Una experiencia más completa para quienes
+                    buscan comodidad y momentos especiales.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Destinos seleccionados
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Hospedaje
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Experiencias
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Atención personalizada
+                    </li>
+
+                </ul>
+
+                <a href="#registro" class="btn btn-gold">
+                    Quiero conocerlo
+                </a>
+
+            </article>
+
+
+            <!-- DIAMANTE -->
+
+            <article class="package reveal">
+
+                <span class="package-label">
+                    Experiencia superior
+                </span>
+
+                <h3>Diamante</h3>
+
+                <p>
+                    Una propuesta pensada para quienes quieren
+                    hacer de su viaje una experiencia especial.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Atención personalizada
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Experiencias especiales
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Hospedaje seleccionado
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Planeación integral
+                    </li>
+
+                </ul>
+
+                <a href="#registro" class="btn btn-outline">
+                    Descubrir Diamante
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     POR QUÉ NOSOTROS
+========================================================== -->
+
+<section class="section section-cream" id="nosotros">
+
+    <div class="section-container">
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Tours Emblema
+            </div>
+
+            <h2 class="section-title">
+                Tu viaje,
+                nuestra atención.
+            </h2>
+
+            <p class="section-description">
+                Queremos que la planeación sea parte de la emoción
+                y que tu experiencia comience desde el primer
+                momento.
+            </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+            <article class="why-card reveal">
+
+                <div class="why-icon">
+                    <i class="fa-solid fa-compass"></i>
+                </div>
+
+                <h3>Explora</h3>
+
+                <p>
+                    Descubre opciones de destinos y experiencias
+                    para encontrar el viaje que estás buscando.
+                </p>
+
+            </article>
+
+
+            <article class="why-card reveal">
+
+                <div class="why-icon">
+                    <i class="fa-solid fa-gem"></i>
+                </div>
+
+                <h3>Calidad</h3>
+
+                <p>
+                    Buscamos crear una experiencia cuidando cada
+                    detalle de tu aventura.
+                </p>
+
+            </article>
+
+
+            <article class="why-card reveal">
+
+                <div class="why-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <h3>Atención</h3>
+
+                <p>
+                    Queremos acompañarte durante el proceso de
+                    planeación de tu próximo viaje.
+                </p>
+
+            </article>
+
+
+            <article class="why-card reveal">
+
+                <div class="why-icon">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+                <h3>Momentos</h3>
+
+                <p>
+                    Porque al final de cada viaje lo que permanece
+                    son las historias y recuerdos.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     REGISTRO / FIREBASE
+========================================================== -->
+
+<section class="section registration" id="registro">
+
+    <div class="section-container">
+
+        <div class="registration-layout">
+
+            <!-- INFORMACIÓN -->
+
+            <div class="registration-copy reveal">
+
+                <div class="eyebrow">
+                    Comienza aquí
+                </div>
+
+                <h2 class="section-title">
+                    Diseñemos tu
+                    próximo viaje.
+                </h2>
+
+                <p>
+                    Cuéntanos un poco sobre ti y sobre el tipo
+                    de experiencia que estás buscando.
+                    Nuestro equipo podrá conocer mejor tus
+                    preferencias.
+                </p>
+
+
+                <div class="contact-points">
+
+                    <div class="contact-point">
+
+                        <div class="contact-point-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+
+                        <span>
+                            Destinos nacionales e internacionales
+                        </span>
+
+                    </div>
+
+
+                    <div class="contact-point">
+
+                        <div class="contact-point-icon">
+                            <i class="fa-solid fa-umbrella-beach"></i>
+                        </div>
+
+                        <span>
+                            Playas, ciudades y experiencias
+                        </span>
+
+                    </div>
+
+
+                    <div class="contact-point">
+
+                        <div class="contact-point-icon">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <span>
+                            Atención pensada para tu viaje
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORMULARIO -->
+
+            <div class="form-card reveal">
+
+                <!-- FORM -->
+
+                <div id="formContainer">
+
+                    <div class="form-header">
+
+                        <span>
+                            Tu próxima aventura
+                        </span>
+
+                        <h3>
+                            Regístrate con nosotros
+                        </h3>
+
+                        <p>
+                            Completa tus datos y cuéntanos qué
+                            tipo de viaje tienes en mente.
+                        </p>
+
+                    </div>
+
+
+                    <form id="travelForm">
+
+                        <div class="form-grid">
+
+                            <!-- NOMBRE -->
+
+                            <div class="form-group full">
+
+                                <label for="nombre">
+                                    Nombre completo
+                                    <span>*</span>
                                 </label>
 
+                                <input
+                                    type="text"
+                                    id="nombre"
+                                    name="nombre"
+                                    class="form-control"
+                                    placeholder="Escribe tu nombre completo"
+                                    autocomplete="name"
+                                    required>
 
-                                <div
-                                    class="options-grid"
-                                    id="grupoViajes"
-                                >
+                            </div>
 
-                                    <label class="option">
+
+                            <!-- EDAD -->
+
+                            <div class="form-group">
+
+                                <label for="edad">
+                                    Edad
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="edad"
+                                    name="edad"
+                                    class="form-control"
+                                    min="18"
+                                    max="100"
+                                    placeholder="Ej. 30"
+                                    required>
+
+                            </div>
+
+
+                            <!-- ESTADO CIVIL -->
+
+                            <div class="form-group">
+
+                                <label for="estadoCivil">
+                                    Estado civil
+                                    <span>*</span>
+                                </label>
+
+                                <select
+                                    id="estadoCivil"
+                                    name="estadoCivil"
+                                    class="form-control"
+                                    required>
+
+                                    <option value="">
+                                        Selecciona una opción
+                                    </option>
+
+                                    <option value="Soltero/a">
+                                        Soltero/a
+                                    </option>
+
+                                    <option value="Casado/a">
+                                        Casado/a
+                                    </option>
+
+                                    <option value="Unión libre">
+                                        Unión libre
+                                    </option>
+
+                                    <option value="Divorciado/a">
+                                        Divorciado/a
+                                    </option>
+
+                                    <option value="Viudo/a">
+                                        Viudo/a
+                                    </option>
+
+                                    <option value="Prefiero no decirlo">
+                                        Prefiero no decirlo
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- TELEFONO -->
+
+                            <div class="form-group full">
+
+                                <label for="telefono">
+                                    Teléfono
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="telefono"
+                                    name="telefono"
+                                    class="form-control"
+                                    placeholder="Ej. 55 1234 5678"
+                                    autocomplete="tel"
+                                    required>
+
+                            </div>
+
+
+                            <!-- PREFERENCIA -->
+
+                            <div class="form-group full">
+
+                                <label>
+                                    ¿Qué tipo de viaje buscas?
+                                    <span>*</span>
+                                </label>
+
+                                <div class="preference-grid">
+
+                                    <div class="preference-option">
 
                                         <input
                                             type="radio"
+                                            id="internacional"
                                             name="preferenciaViaje"
                                             value="Internacional"
-                                            required
-                                        >
+                                            required>
 
-                                        <div class="option-content">
+                                        <label for="internacional">
 
-                                            <div class="option-icon">
-                                                🌎
-                                            </div>
+                                            <i class="fa-solid fa-earth-americas"></i>
 
-                                            <div class="option-text">
+                                            Internacional
 
-                                                <strong>
-                                                    Internacional
-                                                </strong>
+                                        </label>
 
-                                                <span>
-                                                    Descubre otros países
-                                                </span>
-
-                                            </div>
-
-                                        </div>
-
-                                    </label>
+                                    </div>
 
 
-                                    <label class="option">
+                                    <div class="preference-option">
 
                                         <input
                                             type="radio"
+                                            id="nacional"
                                             name="preferenciaViaje"
-                                            value="Nacional"
-                                        >
+                                            value="Nacional">
 
-                                        <div class="option-content">
+                                        <label for="nacional">
 
-                                            <div class="option-icon">
-                                                🇲🇽
-                                            </div>
+                                            <i class="fa-solid fa-location-dot"></i>
 
-                                            <div class="option-text">
+                                            Nacional
 
-                                                <strong>
-                                                    Nacional
-                                                </strong>
+                                        </label>
 
-                                                <span>
-                                                    Conoce México
-                                                </span>
-
-                                            </div>
-
-                                        </div>
-
-                                    </label>
+                                    </div>
 
 
-                                    <label class="option">
+                                    <div class="preference-option">
 
                                         <input
                                             type="radio"
+                                            id="playas"
                                             name="preferenciaViaje"
-                                            value="Playas"
-                                        >
+                                            value="Playas">
 
-                                        <div class="option-content">
+                                        <label for="playas">
 
-                                            <div class="option-icon">
-                                                🏝️
-                                            </div>
+                                            <i class="fa-solid fa-umbrella-beach"></i>
 
-                                            <div class="option-text">
+                                            Playas
 
-                                                <strong>
-                                                    Playas
-                                                </strong>
+                                        </label>
 
-                                                <span>
-                                                    Sol, mar y descanso
-                                                </span>
-
-                                            </div>
-
-                                        </div>
-
-                                    </label>
+                                    </div>
 
 
-                                    <label class="option">
+                                    <div class="preference-option">
 
                                         <input
                                             type="radio"
+                                            id="pueblos"
                                             name="preferenciaViaje"
-                                            value="Pueblos Mágicos"
-                                        >
+                                            value="Pueblos Mágicos">
 
-                                        <div class="option-content">
+                                        <label for="pueblos">
 
-                                            <div class="option-icon">
-                                                🏘️
-                                            </div>
+                                            <i class="fa-solid fa-mountain-sun"></i>
 
-                                            <div class="option-text">
+                                            Pueblos Mágicos
 
-                                                <strong>
-                                                    Pueblos Mágicos
-                                                </strong>
+                                        </label>
 
-                                                <span>
-                                                    Cultura y tradición
-                                                </span>
-
-                                            </div>
-
-                                        </div>
-
-                                    </label>
+                                    </div>
 
                                 </div>
 
                             </div>
 
-                        </section>
 
+                            <!-- DISPONIBILIDAD -->
 
-                        <!-- =================================================
-                             SECTION 3
-                        ================================================== -->
+                            <div class="form-group full">
 
-                        <section class="section">
-
-                            <div class="section-header">
-
-                                <div class="section-number">
-                                    03
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        Disponibilidad
-                                    </h3>
-
-                                    <p>
-                                        Indícanos cuándo prefieres viajar
-                                    </p>
-                                </div>
-
-                            </div>
-
-
-                            <div class="field">
-
-                                <label class="field-label">
-
+                                <label>
                                     ¿Cuándo prefieres viajar?
-
-                                    <span class="required">*</span>
-
+                                    <span>*</span>
                                 </label>
 
+                                <div class="preference-grid">
 
-                                <div class="availability">
-
-                                    <label>
+                                    <div class="preference-option">
 
                                         <input
                                             type="radio"
+                                            id="entreSemana"
                                             name="disponibilidad"
                                             value="Entre semana"
-                                            required
-                                        >
+                                            required>
 
-                                        <div class="availability-box">
-                                            📅 Entre semana
-                                        </div>
+                                        <label for="entreSemana">
 
-                                    </label>
+                                            <i class="fa-solid fa-calendar-week"></i>
+
+                                            Entre semana
+
+                                        </label>
+
+                                    </div>
 
 
-                                    <label>
+                                    <div class="preference-option">
 
                                         <input
                                             type="radio"
+                                            id="finSemana"
                                             name="disponibilidad"
-                                            value="Fin de semana"
-                                        >
+                                            value="Fin de semana">
 
-                                        <div class="availability-box">
-                                            🗓️ Fin de semana
-                                        </div>
+                                        <label for="finSemana">
 
-                                    </label>
+                                            <i class="fa-solid fa-calendar-days"></i>
+
+                                            Fin de semana
+
+                                        </label>
+
+                                    </div>
 
                                 </div>
 
                             </div>
 
-                        </section>
+                        </div>
 
 
                         <!-- ERROR -->
 
                         <div
                             class="error-message"
-                            id="errorMessage"
-                        >
+                            id="errorMessage">
+
+                            <i class="fa-solid fa-circle-exclamation"></i>
+
                             <span id="errorText">
-                                Error al guardar los datos.
+                                Ocurrió un error.
                             </span>
+
                         </div>
 
 
-                        <!-- BUTTON -->
+                        <!-- SUBMIT -->
 
-                        <div class="submit-area">
+                        <button
+                            type="submit"
+                            class="btn btn-gold submit-button"
+                            id="submitButton">
 
-                            <button
-                                type="submit"
-                                class="submit-button"
-                                id="btnEnviar"
-                            >
-                                ✈ Confirmar registro
-                            </button>
+                            <span id="submitText">
+                                Confirmar mi registro
+                            </span>
 
-                            <div class="security-note">
-                                🔒 Tu información será utilizada únicamente
-                                para dar seguimiento a tu solicitud.
-                            </div>
+                            <i
+                                id="submitIcon"
+                                class="fa-solid fa-arrow-right">
+                            </i>
+
+                        </button>
+
+
+                        <div class="privacy-note">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            Tus datos serán utilizados únicamente
+                            para dar seguimiento a tu solicitud.
 
                         </div>
 
@@ -1756,98 +2918,95 @@
                 </div>
 
 
-                <!-- =========================================================
+                <!-- =================================================
                      SUCCESS
-                ========================================================== -->
+                ================================================== -->
 
-                <div id="mensajeGracias">
+                <div
+                    class="success-screen"
+                    id="successScreen">
 
                     <div class="success-icon">
-                        ✓
-                    </div>
 
-                    <h2 class="success-title">
-                        ¡<span>Registro completado!</span>
-                    </h2>
-
-                    <p class="success-description">
-                        Hemos recibido correctamente tu información.
-                        Nuestro equipo revisará tus preferencias y se
-                        pondrá en contacto contigo en las próximas
-                        <strong>24 horas</strong>.
-                    </p>
-
-
-                    <div class="success-card">
-
-                        <div class="success-row">
-
-                            <strong>
-                                👤 Nombre
-                            </strong>
-
-                            <span id="resNombre">
-                                ---
-                            </span>
-
-                        </div>
-
-
-                        <div class="success-row">
-
-                            <strong>
-                                ☎ Teléfono
-                            </strong>
-
-                            <span id="resTelefono">
-                                ---
-                            </span>
-
-                        </div>
-
-
-                        <div class="success-row">
-
-                            <strong>
-                                🧳 Preferencia
-                            </strong>
-
-                            <span id="resPreferencia">
-                                ---
-                            </span>
-
-                        </div>
-
-
-                        <div class="success-row">
-
-                            <strong>
-                                📅 Disponibilidad
-                            </strong>
-
-                            <span id="resDisponibilidad">
-                                ---
-                            </span>
-
-                        </div>
+                        <i class="fa-solid fa-check"></i>
 
                     </div>
 
+                    <h3>
+                        ¡Registro recibido!
+                    </h3>
 
-                    <p class="success-message">
-                        Gracias por confiar en
-                        <strong>Destination Connect</strong>.
-                        <br>
-                        Estamos listos para ayudarte a crear
-                        tu próxima experiencia.
+                    <p>
+                        Gracias por confiar en Tours Emblema.
+                        Hemos recibido tus datos y tu solicitud
+                        quedó registrada correctamente.
                     </p>
+
+
+                    <div class="summary-box">
+
+                        <div class="summary-row">
+
+                            <span>
+                                Nombre
+                            </span>
+
+                            <span id="summaryNombre">
+                                —
+                            </span>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Teléfono
+                            </span>
+
+                            <span id="summaryTelefono">
+                                —
+                            </span>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Preferencia
+                            </span>
+
+                            <span id="summaryPreferencia">
+                                —
+                            </span>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Disponibilidad
+                            </span>
+
+                            <span id="summaryDisponibilidad">
+                                —
+                            </span>
+
+                        </div>
+
+                    </div>
 
 
                     <button
-                        class="restart-button"
-                        onclick="reiniciarFormulario()"
-                    >
-                        ← Realizar otro registro
+                        class="btn btn-gold"
+                        onclick="reiniciarFormulario()">
+
+                        Registrar otra persona
+
+                        <i class="fa-solid fa-rotate-right"></i>
+
                     </button>
 
                 </div>
@@ -1858,36 +3017,217 @@
 
     </div>
 
-</main>
+</section>
 
 
-<!-- =============================================================
+<!-- =========================================================
+     FINAL CTA
+========================================================== -->
+
+<section class="final-cta">
+
+    <div class="final-content reveal">
+
+        <div class="eyebrow">
+            Tours Emblema
+        </div>
+
+        <h2 class="section-title">
+            El mundo te espera.
+        </h2>
+
+        <p>
+            No dejes que tu próxima aventura se quede solamente
+            en un sueño. Empieza a descubrir nuevas experiencias.
+        </p>
+
+        <a
+            href="#registro"
+            class="btn btn-gold">
+
+            Quiero viajar
+
+            <i class="fa-solid fa-plane"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
      FOOTER
-============================================================= -->
+========================================================== -->
 
 <footer>
 
-    <div class="footer-brand">
-        Destination<span>Connect</span>
+    <div class="footer-grid">
+
+        <div class="footer-brand">
+
+            <div class="logo">
+
+                <div class="logo-symbol">
+                    <i class="fa-solid fa-compass"></i>
+                </div>
+
+                <div class="logo-text">
+
+                    <strong>
+                        TOURS EMBLEMA
+                    </strong>
+
+                    <span>
+                        Viajes & Experiencias
+                    </span>
+
+                </div>
+
+            </div>
+
+            <p>
+                Creamos experiencias para descubrir nuevos
+                lugares, vivir nuevas aventuras y construir
+                recuerdos inolvidables.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Explora
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="#destinos">
+                        Destinos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#experiencias">
+                        Experiencias
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#paquetes">
+                        Paquetes
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Información
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="#nosotros">
+                        Nosotros
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#registro">
+                        Registro
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#inicio">
+                        Inicio
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Contacto
+            </h4>
+
+            <ul>
+
+                <li>
+                    <span>
+                        Atención personalizada
+                    </span>
+                </li>
+
+                <li>
+                    <span>
+                        México
+                    </span>
+                </li>
+
+                <li>
+                    <span>
+                        Viajes & Experiencias
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
     </div>
 
-    <p>
-        © 2026 Destination Connect · Agencia de Viajes
-        · Tu viaje comienza aquí.
-    </p>
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 Tours Emblema. Todos los derechos reservados.
+        </span>
+
+        <span>
+            Viaja. Descubre. Vive.
+        </span>
+
+    </div>
 
 </footer>
 
 
-<!-- =============================================================
-     FIREBASE + JAVASCRIPT
-============================================================= -->
+<!-- =========================================================
+     BOTÓN ARRIBA
+========================================================== -->
+
+<button
+    class="floating-top"
+    id="floatingTop"
+    aria-label="Volver arriba">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
 
 <script>
 
-    /* =============================================================
+    /* ========================================================
        FIREBASE
-    ============================================================= */
+    ========================================================= */
 
     const firebaseConfig = {
 
@@ -1915,23 +3255,56 @@
     };
 
 
-    firebase.initializeApp(firebaseConfig);
+    /* ========================================================
+       INICIALIZAR FIREBASE
+    ========================================================= */
 
-    const db = firebase.firestore();
+    let db = null;
+
+    try {
+
+        firebase.initializeApp(firebaseConfig);
+
+        db = firebase.firestore();
+
+        console.log(
+            "Firebase conectado correctamente."
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Error inicializando Firebase:",
+            error
+        );
+
+    }
 
 
-    /* =============================================================
+    /* ========================================================
        ELEMENTOS
-    ============================================================= */
+    ========================================================= */
 
-    const formWrapper =
-        document.getElementById("formularioWrapper");
+    const header =
+        document.getElementById("header");
 
-    const mensajeGracias =
-        document.getElementById("mensajeGracias");
+    const navMenu =
+        document.getElementById("navMenu");
 
-    const btnEnviar =
-        document.getElementById("btnEnviar");
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const floatingTop =
+        document.getElementById("floatingTop");
+
+    const travelForm =
+        document.getElementById("travelForm");
+
+    const formContainer =
+        document.getElementById("formContainer");
+
+    const successScreen =
+        document.getElementById("successScreen");
 
     const errorMessage =
         document.getElementById("errorMessage");
@@ -1939,311 +3312,192 @@
     const errorText =
         document.getElementById("errorText");
 
-    const formulario =
-        document.getElementById("formularioViajes");
+    const submitButton =
+        document.getElementById("submitButton");
+
+    const submitText =
+        document.getElementById("submitText");
+
+    const submitIcon =
+        document.getElementById("submitIcon");
 
 
-    /* =============================================================
-       OCULTAR ERROR AL MODIFICAR FORMULARIO
-    ============================================================= */
+    /* ========================================================
+       MENÚ MOBILE
+    ========================================================= */
 
-    document
-        .querySelectorAll("input, select, textarea")
-        .forEach(element => {
+    menuToggle.addEventListener(
+        "click",
+        () => {
 
-            element.addEventListener("input", () => {
+            navMenu.classList.toggle(
+                "active"
+            );
 
-                errorMessage.style.display = "none";
-
-            });
-
-            element.addEventListener("change", () => {
-
-                errorMessage.style.display = "none";
-
-            });
-
-        });
-
-
-    /* =============================================================
-       SUBMIT
-    ============================================================= */
-
-    formulario.addEventListener(
-        "submit",
-        async function(e) {
-
-            e.preventDefault();
-
-            errorMessage.style.display = "none";
-
-
-            const nombre =
-                document
-                    .getElementById("nombre")
-                    .value
-                    .trim();
-
-
-            const edad =
-                document
-                    .getElementById("edad")
-                    .value
-                    .trim() || null;
-
-
-            const estadoCivil =
-                document
-                    .getElementById("estadoCivil")
-                    .value || null;
-
-
-            const telefono =
-                document
-                    .getElementById("telefono")
-                    .value
-                    .trim();
-
-
-            /* =====================================================
-               VALIDACIONES
-            ===================================================== */
-
-            if (!nombre || !telefono) {
-
-                mostrarError(
-                    "⚠️ Por favor, completa los campos obligatorios."
+            const active =
+                navMenu.classList.contains(
+                    "active"
                 );
 
-                return;
-            }
-
-
-            const preferenciaRadio =
-                document.querySelector(
-                    'input[name="preferenciaViaje"]:checked'
-                );
-
-
-            if (!preferenciaRadio) {
-
-                mostrarError(
-                    "⚠️ Selecciona el tipo de viaje que más te interesa."
-                );
-
-                return;
-            }
-
-
-            const disponibilidadRadio =
-                document.querySelector(
-                    'input[name="disponibilidad"]:checked'
-                );
-
-
-            if (!disponibilidadRadio) {
-
-                mostrarError(
-                    "⚠️ Selecciona cuándo prefieres viajar."
-                );
-
-                return;
-            }
-
-
-            /* =====================================================
-               DATOS
-            ===================================================== */
-
-            const datosCliente = {
-
-                nombre: nombre,
-
-                edad:
-                    edad
-                        ? parseInt(edad)
-                        : null,
-
-                estadoCivil:
-                    estadoCivil,
-
-                telefono:
-                    telefono,
-
-                preferenciaViaje:
-                    preferenciaRadio.value,
-
-                disponibilidad:
-                    disponibilidadRadio.value,
-
-                fechaRegistro:
-                    new Date().toISOString(),
-
-                timestamp:
-                    firebase.firestore.FieldValue
-                        .serverTimestamp(),
-
-                estado:
-                    "pendiente",
-
-                operador:
-                    null,
-
-                comentario:
-                    null
-
-            };
-
-
-            /* =====================================================
-               ESTADO BOTÓN
-            ===================================================== */
-
-            btnEnviar.disabled = true;
-
-            btnEnviar.textContent =
-                "⏳ Guardando información...";
-
-
-            try {
-
-                /* =================================================
-                   GUARDAR EN FIRESTORE
-                ================================================= */
-
-                const docRef =
-                    await db
-                        .collection("clientes")
-                        .add(datosCliente);
-
-
-                console.log(
-                    "Cliente guardado:",
-                    docRef.id
-                );
-
-
-                /* =================================================
-                   RESUMEN
-                ================================================= */
-
-                document
-                    .getElementById("resNombre")
-                    .textContent =
-                    nombre;
-
-
-                document
-                    .getElementById("resTelefono")
-                    .textContent =
-                    telefono;
-
-
-                document
-                    .getElementById("resPreferencia")
-                    .textContent =
-                    preferenciaRadio.value;
-
-
-                document
-                    .getElementById("resDisponibilidad")
-                    .textContent =
-                    disponibilidadRadio.value;
-
-
-                /* =================================================
-                   MOSTRAR ÉXITO
-                ================================================= */
-
-                formWrapper.style.display =
-                    "none";
-
-                mensajeGracias.style.display =
-                    "block";
-
-
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-
-
-            } catch (error) {
-
-                console.error(
-                    "Error al guardar:",
-                    error
-                );
-
-
-                let mensajeError =
-                    "❌ No fue posible guardar tu registro. ";
-
-
-                if (
-                    error.code ===
-                        "permission-denied" ||
-                    error.message
-                        .toLowerCase()
-                        .includes("permission")
-                ) {
-
-                    mensajeError +=
-                        "Verifica las reglas de Firestore.";
-
-                }
-
-                else if (
-                    error.code === "unavailable"
-                ) {
-
-                    mensajeError +=
-                        "El servicio no está disponible. " +
-                        "Revisa tu conexión a internet.";
-
-                }
-
-                else {
-
-                    mensajeError +=
-                        error.message ||
-                        "Intenta nuevamente más tarde.";
-
-                }
-
-
-                mostrarError(
-                    mensajeError
-                );
-
-            }
-
-            finally {
-
-                btnEnviar.disabled =
-                    false;
-
-                btnEnviar.textContent =
-                    "✈ Confirmar registro";
-
-            }
+            menuToggle.innerHTML =
+                active
+                    ? '<i class="fa-solid fa-xmark"></i>'
+                    : '<i class="fa-solid fa-bars"></i>';
 
         }
     );
 
 
-    /* =============================================================
-       MOSTRAR ERROR
-    ============================================================= */
+    /* CERRAR MENÚ AL HACER CLICK */
 
-    function mostrarError(mensaje) {
+    document.querySelectorAll(
+        ".nav-menu a"
+    ).forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                navMenu.classList.remove(
+                    "active"
+                );
+
+                menuToggle.innerHTML =
+                    '<i class="fa-solid fa-bars"></i>';
+
+            }
+        );
+
+    });
+
+
+    /* ========================================================
+       HEADER AL HACER SCROLL
+    ========================================================= */
+
+    function handleScroll() {
+
+        if (window.scrollY > 50) {
+
+            header.classList.add(
+                "scrolled"
+            );
+
+        } else {
+
+            header.classList.remove(
+                "scrolled"
+            );
+
+        }
+
+
+        if (window.scrollY > 500) {
+
+            floatingTop.classList.add(
+                "show"
+            );
+
+        } else {
+
+            floatingTop.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+
+    window.addEventListener(
+        "scroll",
+        handleScroll
+    );
+
+    handleScroll();
+
+
+    /* ========================================================
+       BOTÓN ARRIBA
+    ========================================================= */
+
+    floatingTop.addEventListener(
+        "click",
+        () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+
+    /* ========================================================
+       ANIMACIONES REVEAL
+    ========================================================= */
+
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal"
+        );
+
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(
+                    entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.classList.add(
+                                "visible"
+                            );
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold: 0.10
+            }
+        );
+
+
+    revealElements.forEach(
+        element => {
+
+            revealObserver.observe(
+                element
+            );
+
+        }
+    );
+
+
+    /* ========================================================
+       ERROR
+    ========================================================= */
+
+    function mostrarError(
+        mensaje
+    ) {
 
         errorText.textContent =
             mensaje;
 
-        errorMessage.style.display =
-            "block";
+        errorMessage.classList.add(
+            "show"
+        );
 
         errorMessage.scrollIntoView({
             behavior: "smooth",
@@ -2253,37 +3507,459 @@
     }
 
 
-    /* =============================================================
+    function ocultarError() {
+
+        errorMessage.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    /* ========================================================
+       VALIDAR TELEFONO
+    ========================================================= */
+
+    function validarTelefono(
+        telefono
+    ) {
+
+        const limpio =
+            telefono.replace(
+                /\D/g,
+                ""
+            );
+
+        return (
+            limpio.length >= 10 &&
+            limpio.length <= 15
+        );
+
+    }
+
+
+    /* ========================================================
+       FORMATO TELEFONO
+    ========================================================= */
+
+    document
+        .getElementById("telefono")
+        .addEventListener(
+            "input",
+            function() {
+
+                let valor =
+                    this.value.replace(
+                        /\D/g,
+                        ""
+                    );
+
+                if (
+                    valor.length > 10
+                ) {
+
+                    valor =
+                        valor.substring(
+                            0,
+                            10
+                        );
+
+                }
+
+                if (
+                    valor.length > 6
+                ) {
+
+                    valor =
+                        valor.substring(0,3)
+                        + " "
+                        + valor.substring(3,6)
+                        + " "
+                        + valor.substring(6);
+
+                } else if (
+                    valor.length > 3
+                ) {
+
+                    valor =
+                        valor.substring(0,3)
+                        + " "
+                        + valor.substring(3);
+
+                }
+
+                this.value =
+                    valor;
+
+            }
+        );
+
+
+    /* ========================================================
+       SUBMIT FORM
+    ========================================================= */
+
+    travelForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+            ocultarError();
+
+
+            /* -----------------------------------------------
+               DATOS
+            ------------------------------------------------ */
+
+            const nombre =
+                document
+                    .getElementById("nombre")
+                    .value
+                    .trim();
+
+            const edad =
+                parseInt(
+                    document
+                        .getElementById("edad")
+                        .value
+                );
+
+            const estadoCivil =
+                document
+                    .getElementById("estadoCivil")
+                    .value;
+
+            const telefono =
+                document
+                    .getElementById("telefono")
+                    .value
+                    .trim();
+
+            const preferencia =
+                document.querySelector(
+                    'input[name="preferenciaViaje"]:checked'
+                );
+
+            const disponibilidad =
+                document.querySelector(
+                    'input[name="disponibilidad"]:checked'
+                );
+
+
+            /* -----------------------------------------------
+               VALIDACIONES
+            ------------------------------------------------ */
+
+            if (
+                nombre.length < 3
+            ) {
+
+                mostrarError(
+                    "Por favor escribe tu nombre completo."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                isNaN(edad) ||
+                edad < 18 ||
+                edad > 100
+            ) {
+
+                mostrarError(
+                    "La edad debe estar entre 18 y 100 años."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                !estadoCivil
+            ) {
+
+                mostrarError(
+                    "Selecciona tu estado civil."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                !validarTelefono(
+                    telefono
+                )
+            ) {
+
+                mostrarError(
+                    "Ingresa un número de teléfono válido."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                !preferencia
+            ) {
+
+                mostrarError(
+                    "Selecciona qué tipo de viaje estás buscando."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                !disponibilidad
+            ) {
+
+                mostrarError(
+                    "Selecciona cuándo prefieres viajar."
+                );
+
+                return;
+
+            }
+
+
+            if (!db) {
+
+                mostrarError(
+                    "No fue posible conectar con el sistema. Intenta nuevamente."
+                );
+
+                return;
+
+            }
+
+
+            /* -----------------------------------------------
+               ESTADO LOADING
+            ------------------------------------------------ */
+
+            submitButton.classList.add(
+                "loading"
+            );
+
+            submitText.textContent =
+                "Guardando registro...";
+
+            submitIcon.className =
+                "fa-solid fa-spinner fa-spin";
+
+
+            try {
+
+                /* -------------------------------------------
+                   OBJETO FIRESTORE
+                -------------------------------------------- */
+
+                const cliente = {
+
+                    nombre:
+                        nombre,
+
+                    edad:
+                        edad,
+
+                    estadoCivil:
+                        estadoCivil,
+
+                    telefono:
+                        telefono,
+
+                    preferenciaViaje:
+                        preferencia.value,
+
+                    disponibilidad:
+                        disponibilidad.value,
+
+                    fechaRegistro:
+                        new Date()
+                            .toLocaleString(
+                                "es-MX"
+                            ),
+
+                    timestamp:
+                        firebase.firestore
+                            .FieldValue
+                            .serverTimestamp(),
+
+                    estado:
+                        "pendiente",
+
+                    operador:
+                        null,
+
+                    comentario:
+                        null
+
+                };
+
+
+                /* -------------------------------------------
+                   GUARDAR EN FIRESTORE
+                -------------------------------------------- */
+
+                const documento =
+                    await db
+                        .collection("clientes")
+                        .add(cliente);
+
+
+                console.log(
+                    "Cliente registrado:",
+                    documento.id
+                );
+
+
+                /* -------------------------------------------
+                   MOSTRAR RESUMEN
+                -------------------------------------------- */
+
+                document
+                    .getElementById(
+                        "summaryNombre"
+                    )
+                    .textContent =
+                        nombre;
+
+                document
+                    .getElementById(
+                        "summaryTelefono"
+                    )
+                    .textContent =
+                        telefono;
+
+                document
+                    .getElementById(
+                        "summaryPreferencia"
+                    )
+                    .textContent =
+                        preferencia.value;
+
+                document
+                    .getElementById(
+                        "summaryDisponibilidad"
+                    )
+                    .textContent =
+                        disponibilidad.value;
+
+
+                /* -------------------------------------------
+                   CAMBIAR PANTALLA
+                -------------------------------------------- */
+
+                formContainer.style.display =
+                    "none";
+
+                successScreen.classList.add(
+                    "show"
+                );
+
+
+                document
+                    .getElementById("registro")
+                    .scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+
+            } catch (error) {
+
+                console.error(
+                    "Error guardando:",
+                    error
+                );
+
+
+                mostrarError(
+                    "No pudimos guardar tu registro. Verifica tu conexión e intenta nuevamente."
+                );
+
+
+                submitButton.classList.remove(
+                    "loading"
+                );
+
+                submitText.textContent =
+                    "Confirmar mi registro";
+
+                submitIcon.className =
+                    "fa-solid fa-arrow-right";
+
+            }
+
+        }
+    );
+
+
+    /* ========================================================
        REINICIAR FORMULARIO
-    ============================================================= */
+    ========================================================= */
 
-    window.reiniciarFormulario =
-        function() {
+    function reiniciarFormulario() {
 
-            formWrapper.style.display =
-                "block";
+        travelForm.reset();
 
-            mensajeGracias.style.display =
-                "none";
+        successScreen.classList.remove(
+            "show"
+        );
 
-            formulario.reset();
+        formContainer.style.display =
+            "block";
 
-            errorMessage.style.display =
-                "none";
+        ocultarError();
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
+
+        submitButton.classList.remove(
+            "loading"
+        );
+
+        submitText.textContent =
+            "Confirmar mi registro";
+
+        submitIcon.className =
+            "fa-solid fa-arrow-right";
+
+
+        document
+            .getElementById("registro")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "start"
             });
 
-        };
+    }
 
 
-    /* =============================================================
-       VERIFICAR FIRESTORE
-    ============================================================= */
+    /* ========================================================
+       VERIFICAR CONEXIÓN FIREBASE
+    ========================================================= */
 
     async function verificarConexion() {
+
+        if (!db) {
+
+            console.warn(
+                "Firebase no está disponible."
+            );
+
+            return;
+
+        }
 
         try {
 
@@ -2293,20 +3969,14 @@
                 .get();
 
             console.log(
-                "✅ Firestore conectado correctamente."
+                "Firestore funcionando correctamente."
             );
 
-        }
+        } catch (error) {
 
-        catch (error) {
-
-            console.warn(
-                "Error de conexión con Firestore:",
+            console.error(
+                "No se pudo verificar Firestore:",
                 error
-            );
-
-            mostrarError(
-                "⚠️ No se pudo verificar la conexión con la base de datos."
             );
 
         }
@@ -2315,6 +3985,52 @@
 
 
     verificarConexion();
+
+
+    /* ========================================================
+       AÑO AUTOMÁTICO
+    ========================================================= */
+
+    /*
+       Si posteriormente agregas un elemento con
+       id="currentYear", automáticamente aparecerá
+       el año actual.
+    */
+
+    const currentYear =
+        document.getElementById(
+            "currentYear"
+        );
+
+    if (currentYear) {
+
+        currentYear.textContent =
+            new Date().getFullYear();
+
+    }
+
+
+    /* ========================================================
+       EVITAR ERROR POR IMAGENES
+    ========================================================= */
+
+    document
+        .querySelectorAll("img")
+        .forEach(
+            image => {
+
+                image.addEventListener(
+                    "error",
+                    function() {
+
+                        this.style.background =
+                            "#d9d2c4";
+
+                    }
+                );
+
+            }
+        );
 
 </script>
 
