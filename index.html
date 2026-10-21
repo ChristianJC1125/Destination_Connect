@@ -11,6 +11,9 @@
 
     <meta name="theme-color" content="#00383C">
 
+    <!-- FAVICON (ICONO DE LA PESTAÑA) -->
+    <link rel="icon" type="image/png" href="Imagenes/WhatsApp_Image_2026-10-01_at_4.33.13_PM-removebg-preview.png">
+
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -301,38 +304,61 @@
         }
         .carousel-dots span.active{background:var(--aqua);transform:scale(1.35)}
 
-        /* EXPERIENCE */
-        .experience-layout{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-        .experience-image{position:relative;min-height:560px}
-        .experience-main-image{
-            width:86%;height:530px;object-fit:cover;border-radius:22px;
-            box-shadow:var(--shadow)
+        /* EXPERIENCE NUEVAS TARJETAS */
+        .experience-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
         }
-        .experience-small-image{
-            position:absolute;width:42%;height:220px;object-fit:cover;
-            right:0;bottom:0;border:9px solid var(--mist);border-radius:20px
+        .exp-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border: 1px solid var(--line);
         }
-        .experience-badge{
-            position:absolute;top:35px;right:0;width:95px;height:95px;border-radius:50%;
-            display:flex;align-items:center;justify-content:center;text-align:center;
-            background:var(--aqua);color:white;font-size:8px;font-weight:800;
-            letter-spacing:1px;text-transform:uppercase;line-height:1.45;
-            box-shadow:0 12px 28px rgba(0,155,158,.28)
+        .exp-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
         }
-        .experience-list{display:grid;gap:20px;margin-top:30px}
-        .experience-item{
-            display:grid;grid-template-columns:46px 1fr;gap:15px;
-            padding-bottom:20px;border-bottom:1px solid var(--line)
+        .exp-img-wrapper {
+            height: 220px;
+            overflow: hidden;
         }
-        .experience-icon{
-            width:42px;height:42px;border:1px solid var(--aqua-soft);
-            color:var(--aqua);border-radius:50%;display:flex;
-            align-items:center;justify-content:center;background:#F4FFFF
+        .exp-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
-        .experience-item h4{
-            font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;margin-bottom:4px
+        .exp-card:hover .exp-img-wrapper img {
+            transform: scale(1.08);
         }
-        .experience-item p{color:var(--muted);font-size:12px;line-height:1.7}
+        .exp-content {
+            padding: 30px 25px 25px;
+            position: relative;
+        }
+        .exp-icon {
+            position: absolute;
+            top: -25px;
+            right: 25px;
+            width: 50px; height: 50px;
+            background: var(--aqua);
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 8px 20px rgba(0,155,158,.3);
+        }
+        .exp-content h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px; font-weight: 600;
+            color: var(--deep); margin-bottom: 10px;
+        }
+        .exp-content p {
+            font-size: 13px; color: var(--muted); line-height: 1.7;
+        }
 
         /* PACKAGES */
         .packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -360,17 +386,123 @@
         .package .check-list{margin-top:18px;padding-top:18px;border-top:1px solid rgba(157,255,255,.12)}
         .package .check-list li{font-size:10px;color:var(--mint)}
 
-        /* WHY US */
-        .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
-        .why-card{
-            padding:28px 22px;border:1px solid var(--line);border-top:3px solid var(--aqua);
-            background:white;border-radius:18px;box-shadow:var(--shadow-soft);
-            transition:var(--transition)
+        /* NOSOTROS - MISION Y VISION */
+        .mv-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:22px;
+            margin-top:48px;
         }
-        .why-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-        .why-icon{font-size:23px;color:var(--aqua);margin-bottom:18px}
-        .why-card h3{font-family:'Cormorant Garamond',serif;font-size:25px;margin-bottom:8px}
-        .why-card p{font-size:11px;line-height:1.75;color:var(--muted)}
+        .mv-card{
+            position:relative;
+            padding:40px 36px;
+            border-radius:22px;
+            background:white;
+            border:1px solid var(--line);
+            box-shadow:var(--shadow-soft);
+            overflow:hidden;
+            transition:var(--transition);
+        }
+        .mv-card::before{
+            content:"";
+            position:absolute;
+            top:0;left:0;
+            width:4px;height:100%;
+            background:var(--aqua);
+            transition:var(--transition);
+        }
+        .mv-card:hover{
+            transform:translateY(-6px);
+            box-shadow:var(--shadow);
+            border-color:var(--aqua-soft);
+        }
+        .mv-card:hover::before{width:6px;background:var(--aqua-soft);}
+        .mv-vision::before{background:var(--teal);}
+        .mv-icon{
+            width:54px;height:54px;
+            border-radius:16px;
+            background:rgba(0,155,158,.10);
+            color:var(--aqua);
+            display:flex;align-items:center;justify-content:center;
+            font-size:22px;
+            margin-bottom:20px;
+        }
+        .mv-label{
+            display:inline-block;
+            font-size:10px;font-weight:800;
+            letter-spacing:3px;text-transform:uppercase;
+            color:var(--aqua);
+            margin-bottom:12px;
+        }
+        .mv-card h3{
+            font-family:'Cormorant Garamond',serif;
+            font-size:32px;font-weight:600;
+            line-height:1.1;
+            color:var(--deep);
+            margin-bottom:14px;
+        }
+        .mv-card p{
+            font-size:14px;
+            line-height:1.85;
+            color:var(--muted);
+        }
+        .values-header{
+            text-align:center;
+            margin-top:80px;
+            margin-bottom:38px;
+        }
+        .values-title{
+            font-family:'Cormorant Garamond',serif;
+            font-size:clamp(34px,4vw,48px);
+            font-weight:600;
+            color:var(--deep);
+            margin-top:6px;
+        }
+        .values-grid{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:16px;
+        }
+        .value-card{
+            padding:28px 24px;
+            border-radius:18px;
+            background:white;
+            border:1px solid var(--line);
+            border-top:3px solid var(--aqua);
+            box-shadow:var(--shadow-soft);
+            transition:var(--transition);
+        }
+        .value-card:hover{
+            transform:translateY(-6px);
+            box-shadow:var(--shadow);
+            border-top-color:var(--aqua-soft);
+        }
+        .value-icon{
+            width:44px;height:44px;
+            border-radius:12px;
+            background:rgba(0,155,158,.10);
+            color:var(--aqua);
+            display:flex;align-items:center;justify-content:center;
+            font-size:18px;
+            margin-bottom:16px;
+            transition:var(--transition);
+        }
+        .value-card:hover .value-icon{
+            background:var(--aqua);
+            color:white;
+        }
+        .value-card h4{
+            font-family:'Cormorant Garamond',serif;
+            font-size:20px;font-weight:600;
+            color:var(--deep);
+            margin-bottom:8px;
+            line-height:1.2;
+        }
+        .value-card p{
+            font-size:12px;
+            line-height:1.7;
+            color:var(--muted);
+        }
 
         /* FAQ */
         .faq-grid{display:grid;gap:12px;max-width:850px;margin:auto}
@@ -498,7 +630,7 @@
         .final-content .section-title{font-size:clamp(48px,7vw,82px);max-width:820px;margin:auto auto 25px}
         .final-content p{max-width:590px;margin:auto auto 30px;color:rgba(255,255,255,.75);line-height:1.8;font-size:13px}
 
-        /* FOOTER */
+        /* FOOTER & ALIADOS */
         footer{background:var(--deep);color:white;padding:58px 5% 22px}
         .footer-grid{
             max-width:1220px;margin:auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;
@@ -509,9 +641,125 @@
         .footer-column ul{list-style:none;display:grid;gap:10px}
         .footer-column li,.footer-column a{color:rgba(255,255,255,.55);font-size:11px;transition:var(--transition)}
         .footer-column a:hover{color:var(--mint)}
+        
+        /* ALIADOS COMERCIALES */
+        .footer-aliados {
+            max-width: 1220px;
+            margin: 40px auto 0;
+            padding: 30px 0;
+            border-top: 1px solid rgba(157,255,255,.12);
+            border-bottom: 1px solid rgba(157,255,255,.12);
+            text-align: center;
+        }
+        .footer-aliados h4 {
+            color: var(--mint);
+            font-size: 10px; letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .aliados-track {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .aliado-item {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            height: 60px;
+            display: flex; align-items: center; justify-content: center;
+            transition: var(--transition);
+        }
+        .aliado-item:hover { transform: scale(1.05); }
+        .aliado-item img {
+            max-height: 100%; max-width: 120px; object-fit: contain;
+        }
+
         .footer-bottom{
             max-width:1220px;margin:20px auto 0;display:flex;justify-content:space-between;
             gap:20px;color:rgba(255,255,255,.35);font-size:9px
+        }
+
+        /* MODAL DESTINOS */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 56, 60, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            transform: translateY(30px);
+            transition: var(--transition);
+            box-shadow: 0 30px 90px rgba(0,0,0,0.3);
+        }
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px; right: 15px;
+            width: 36px; height: 36px;
+            background: white; color: var(--deep);
+            border: none; border-radius: 50%;
+            cursor: pointer; z-index: 10;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+        .modal-close:hover { background: var(--danger); color: white; }
+        .modal-carousel {
+            position: relative;
+            height: 350px;
+            background: #eee;
+            overflow: hidden;
+        }
+        .modal-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.4s ease;
+        }
+        .modal-track img {
+            width: 100%; height: 100%; object-fit: cover; flex-shrink: 0;
+        }
+        .modal-btn {
+            position: absolute;
+            top: 50%; transform: translateY(-50%);
+            width: 36px; height: 36px;
+            background: rgba(255,255,255,0.8); color: var(--deep);
+            border: none; border-radius: 50%; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .modal-btn.prev { left: 15px; }
+        .modal-btn.next { right: 15px; }
+        .modal-info {
+            padding: 30px;
+        }
+        .modal-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px; color: var(--deep); margin-bottom: 10px;
+        }
+        .modal-info p {
+            font-size: 14px; color: var(--muted); line-height: 1.7;
         }
 
         /* FLOATING + REVEAL */
@@ -533,6 +781,8 @@
             .registration-copy{position:static}
             .footer-grid{grid-template-columns:repeat(2,1fr)}
             .carousel-slide{flex:0 0 calc(33.333% - 10px)}
+            .values-grid{grid-template-columns:repeat(2,1fr);}
+            .experience-cards-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media(max-width:850px){
             .nav-menu{
@@ -545,11 +795,14 @@
             .nav-menu.active{transform:translateX(0)}
             .nav-menu a{font-size:14px}
             .menu-toggle{display:block;position:relative;z-index:1002}
-            .experience-layout{grid-template-columns:1fr;gap:45px}
             .packages-grid{grid-template-columns:1fr}
             .package.featured{transform:none}
             .carousel-slide{flex:0 0 calc(50% - 7px)}
             .carousel-btn{opacity:1}
+            .mv-grid{grid-template-columns:1fr;}
+            .experience-cards-grid { grid-template-columns: 1fr; }
+            .aliados-track { gap: 15px; }
+            .aliado-item { height: 50px; padding: 8px 15px; }
         }
         @media(max-width:650px){
             .header{padding:9px 18px}
@@ -563,15 +816,10 @@
             .hero-actions{align-items:stretch;flex-direction:column;width:100%}
             .hero-actions .btn{width:100%}
             .section{padding:72px 6%}
-            .why-grid{grid-template-columns:1fr}
             .form-card{padding:26px 18px}
             .form-grid{grid-template-columns:1fr}
             .form-group.full{grid-column:auto}
             .preference-grid{grid-template-columns:1fr}
-            .experience-image{min-height:460px}
-            .experience-main-image{width:90%;height:410px}
-            .experience-small-image{width:45%;height:175px}
-            .experience-badge{width:78px;height:78px;font-size:7px}
             .footer-grid{grid-template-columns:1fr;gap:30px}
             .footer-bottom{flex-direction:column}
             .floating-top{bottom:14px;right:14px}
@@ -579,6 +827,11 @@
             .carousel-slide-info h4{font-size:21px}
             .destination-row-header h3{font-size:25px}
             .hero-bottom{bottom:22px}
+            .mv-card{padding:30px 24px;}
+            .mv-card h3{font-size:26px;}
+            .values-grid{grid-template-columns:1fr;}
+            .values-header{margin-top:60px;}
+            .modal-carousel { height: 250px; }
         }
 
     </style>
@@ -594,7 +847,6 @@
     <nav class="nav">
 
         <a href="#inicio" class="logo">
-            <!-- 🔽 REEMPLAZA ESTA URL POR LA DE TU LOGO 🔽 -->
             <img src="Imagenes/WhatsApp_Image_2026-10-01_at_4.33.13_PM-removebg-preview.png"
                  alt="DESTIVA TRAVEL"
                  class="logo-image">
@@ -859,41 +1111,39 @@
 
                             <div class="form-group full">
                                 <label>
-                                    ¿Acorde a tu disponibilidad cuando podrías  tomar una llamada? <span>*</span>
+                                    ¿Acorde a tu disponibilidad cuando podrías tomar una llamada? <span>*</span>
                                 </label>
-<div class="preference-grid">
+                                <div class="preference-grid">
 
-  <div class="preference-option">
-    <input type="radio" id="entreSemanaM"
-           name="disponibilidad"
-           value="Entre semana - Mañana (9am-12pm)" required>
-    <label for="entreSemanaM">
-      <i class="fa-solid fa-sun"></i>
-      Entre semana (9am - 12pm)
-    </label>
-  </div>
+                                  <div class="preference-option">
+                                    <input type="radio" id="entreSemanaM"
+                                           name="disponibilidad"
+                                           value="Entre semana - Mañana (9am-12pm)" required>
+                                    <label for="entreSemanaM">
+                                      <i class="fa-solid fa-sun"></i>
+                                      Entre semana (9am - 12pm)
+                                    </label>
+                                  </div>
 
-  <div class="preference-option">
-    <input type="radio" id="entreSemanaT"
-           name="disponibilidad"
-           value="Entre semana - Tarde (12pm-6pm)" required>
-    <label for="entreSemanaT">
-      <i class="fa-solid fa-cloud-sun"></i>
-      Entre semana (12pm - 6pm)
-    </label>
-  </div>
+                                  <div class="preference-option">
+                                    <input type="radio" id="entreSemanaT"
+                                           name="disponibilidad"
+                                           value="Entre semana - Tarde (12pm-6pm)">
+                                    <label for="entreSemanaT">
+                                      <i class="fa-solid fa-cloud-sun"></i>
+                                      Entre semana (12pm - 6pm)
+                                    </label>
+                                  </div>
 
-</div>
-
-                                    <div class="preference-option">
-                                        <input type="radio" id="finSemana"
-                                               name="disponibilidad"
-                                               value="Fin de semana">
-                                        <label for="finSemana">
-                                            <i class="fa-solid fa-calendar-days"></i>
-                                            Fin de semana
-                                        </label>
-                                    </div>
+                                  <div class="preference-option">
+                                      <input type="radio" id="finSemana"
+                                             name="disponibilidad"
+                                             value="Fin de semana">
+                                      <label for="finSemana">
+                                          <i class="fa-solid fa-calendar-days"></i>
+                                          Fin de semana
+                                      </label>
+                                  </div>
 
                                 </div>
                             </div>
@@ -1028,7 +1278,7 @@
                             </div>
                         </div>
                         <div class="carousel-slide">
-                            <img src="Imagenes/Los Cabos" alt="Los Cabos">
+                            <img src="Imagenes/Los Cabos.jpg" alt="Los Cabos">
                             <div class="carousel-slide-info">
                                 <div class="mini-tag">México</div>
                                 <h4>Los Cabos</h4>
@@ -1076,7 +1326,7 @@
                             </div>
                         </div>
                         <div class="carousel-slide">
-                            <img src="Imagenes/sayulita" alt="Sayulita">
+                            <img src="Imagenes/sayulita.jpg" alt="Sayulita">
                             <div class="carousel-slide-info">
                                 <div class="mini-tag">Nayarit</div>
                                 <h4>Sayulita</h4>
@@ -1432,7 +1682,7 @@
                             </div>
                         </div>
                         <div class="carousel-slide">
-                            <img src="Imagenes/Luxury Resort" alt="Resort Riviera">
+                            <img src="Imagenes/Luxury Resort.jpg" alt="Resort Riviera">
                             <div class="carousel-slide-info">
                                 <div class="mini-tag">Riviera Maya</div>
                                 <h4>Luxury Resort</h4>
@@ -1773,7 +2023,7 @@
                             </div>
                         </div>
                         <div class="carousel-slide">
-                            <img src="Imagenes/Los Cabos" alt="Los Cabos">
+                            <img src="Imagenes/Los Cabos.jpg" alt="Los Cabos">
                             <div class="carousel-slide-info">
                                 <div class="mini-tag">México</div>
                                 <h4>Los Cabos</h4>
@@ -1807,75 +2057,48 @@
 <section class="section" id="experiencias">
 
     <div class="section-container">
+        
+        <div class="section-heading reveal" style="text-align:center; max-width:100%; margin-bottom: 50px;">
+            <div class="eyebrow" style="justify-content:center;">Más que un viaje</div>
+            <h2 class="section-title" style="margin: auto;">Creamos experiencias inolvidables.</h2>
+        </div>
 
-        <div class="experience-layout">
-
-            <div class="experience-image reveal">
-
-                <img class="experience-main-image"
-                     src="https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg?auto=compress&cs=tinysrgb&w=1300"
-                     alt="Experiencia de viaje">
-
-                <img class="experience-small-image"
-                     src="https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800"
-                     alt="Experiencia">
-
-                <div class="experience-badge">
-                    Vive<br>algo<br>diferente
+        <div class="experience-cards-grid reveal">
+            <!-- Tarjeta 1 -->
+            <div class="exp-card">
+                <div class="exp-img-wrapper">
+                    <img src="https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Destinos Especiales">
                 </div>
-
+                <div class="exp-content">
+                    <div class="exp-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <h4>Destinos Especiales</h4>
+                    <p>Lugares seleccionados para que descubras nuevas perspectivas. Desde rincones ocultos hasta maravillas del mundo, te llevamos a dónde siempre quisiste estar.</p>
+                </div>
             </div>
 
-            <div class="reveal">
-
-                <div class="eyebrow">Más que un viaje</div>
-
-                <h2 class="section-title">
-                    Creamos experiencias.
-                </h2>
-
-                <p class="section-description">
-                    Un gran viaje comienza mucho antes de llegar
-                    al destino. Por eso buscamos que cada detalle
-                    forme parte de una experiencia memorable.
-                </p>
-
-                <div class="experience-list">
-
-                    <div class="experience-item">
-                        <div class="experience-icon">
-                            <i class="fa-solid fa-map-location-dot"></i>
-                        </div>
-                        <div>
-                            <h4>Destinos especiales</h4>
-                            <p>Lugares seleccionados para que descubras nuevas perspectivas.</p>
-                        </div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="experience-icon">
-                            <i class="fa-solid fa-hotel"></i>
-                        </div>
-                        <div>
-                            <h4>Hospedaje</h4>
-                            <p>Opciones de hospedaje pensadas para complementar tu viaje.</p>
-                        </div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="experience-icon">
-                            <i class="fa-solid fa-route"></i>
-                        </div>
-                        <div>
-                            <h4>Experiencias</h4>
-                            <p>Planea actividades que conviertan cada día en una nueva aventura.</p>
-                        </div>
-                    </div>
-
+            <!-- Tarjeta 2 -->
+            <div class="exp-card">
+                <div class="exp-img-wrapper">
+                    <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hospedaje de Lujo">
                 </div>
-
+                <div class="exp-content">
+                    <div class="exp-icon"><i class="fa-solid fa-hotel"></i></div>
+                    <h4>Hospedaje de Lujo</h4>
+                    <p>Hoteles de clase mundial, resorts Todo Incluido y suites frente al mar. Descansa en espacios diseñados para tu máximo confort y relajación.</p>
+                </div>
             </div>
 
+            <!-- Tarjeta 3 -->
+            <div class="exp-card">
+                <div class="exp-img-wrapper">
+                    <img src="https://images.pexels.com/photos/37530/divers-scuba-diver-underwater-37530.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Actividades y Aventura">
+                </div>
+                <div class="exp-content">
+                    <div class="exp-icon"><i class="fa-solid fa-person-hiking"></i></div>
+                    <h4>Actividades y Aventura</h4>
+                    <p>Buceo, tours gastronómicos, safaris o caminatas. Planeamos las experiencias que más buscas para que cada día sea una nueva aventura.</p>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -2027,8 +2250,9 @@
 
     <div class="section-container">
 
-        <!-- INTRO -->
+        <!-- INTRO CON LOGO -->
         <div class="section-heading reveal" style="text-align:center; max-width:100%;">
+            <img src="Imagenes/WhatsApp_Image_2026-10-01_at_4.33.13_PM-removebg-preview.png" alt="Destiva Logo" style="height: 90px; margin: 0 auto 20px; object-fit: contain;">
             <div class="eyebrow" style="justify-content:center;">Destiva Experience</div>
             <h2 class="section-title" style="max-width:800px; margin:auto;">
                 Más que una agencia de viajes.
@@ -2044,7 +2268,7 @@
 
             <!-- MISIÓN -->
             <article class="mv-card mv-mission">
-                <div class="mv-icon">
+                <div class="mv-icon" style="background: rgba(0,155,158,.1);">
                     <i class="fa-solid fa-compass"></i>
                 </div>
                 <span class="mv-label">Misión</span>
@@ -2059,10 +2283,10 @@
 
             <!-- VISIÓN -->
             <article class="mv-card mv-vision">
-                <div class="mv-icon">
+                <div class="mv-icon" style="background: rgba(0,56,60,.1); color: var(--teal);">
                     <i class="fa-solid fa-binoculars"></i>
                 </div>
-                <span class="mv-label">Visión</span>
+                <span class="mv-label" style="color: var(--teal);">Visión</span>
                 <h3>Ser la marca de referencia en el sector turístico.</h3>
                 <p>
                     Aspiramos a construir una comunidad de viajeros que
@@ -2238,32 +2462,21 @@
 
 
 <!-- =========================================================
-     FOOTER
+     FOOTER Y ALIADOS
 ========================================================== -->
 <footer>
-
     <div class="footer-grid">
-
+        <!-- Info Marca -->
         <div class="footer-brand">
-
             <div class="logo">
-                <div class="logo-symbol">
-                    <i class="fa-solid fa-compass"></i>
-                </div>
-                <div class="logo-text">
-                    <strong>DESTIVA EXPERIENCE</strong>
-                    <span>Viajes & Experiencias</span>
-                </div>
+                <img src="Imagenes/WhatsApp_Image_2026-10-01_at_4.33.13_PM-removebg-preview.png" alt="Destiva" style="height: 60px; margin-bottom: 15px;">
             </div>
-
             <p>
-                Creamos experiencias para descubrir nuevos
-                lugares, vivir nuevas aventuras y construir
-                recuerdos inolvidables.
+                Creamos experiencias para descubrir nuevos lugares, vivir nuevas aventuras y construir recuerdos inolvidables.
             </p>
-
         </div>
 
+        <!-- Enlaces -->
         <div class="footer-column">
             <h4>Explora</h4>
             <ul>
@@ -2290,15 +2503,46 @@
                 <li><span>Viajes & Experiencias</span></li>
             </ul>
         </div>
+    </div>
 
+    <!-- ALIADOS COMERCIALES -->
+    <div class="footer-aliados">
+        <h4>ALIADOS COMERCIALES</h4>
+        <div class="aliados-track">
+            <div class="aliado-item"><img src="Imagenes/logo-fontan.png" alt="Fontán Reforma"></div>
+            <div class="aliado-item"><img src="Imagenes/logo-dcg.png" alt="DCG"></div>
+            <div class="aliado-item"><img src="Imagenes/logo-sheraton.png" alt="Sheraton"></div>
+            <div class="aliado-item"><img src="Imagenes/logo-viaja-y-vuela.png" alt="Viaja y Vuela"></div>
+            <div class="aliado-item"><img src="Imagenes/logo-sandos.png" alt="Sandos"></div>
+            <div class="aliado-item"><img src="Imagenes/logo-marival.png" alt="Marival Emotions"></div>
+            <div class="aliado-item"><img src="Imagenes/logo-amdetur.png" alt="Amdetur"></div>
+        </div>
     </div>
 
     <div class="footer-bottom">
         <span>© 2026 Destiva Experience. Todos los derechos reservados.</span>
         <span>Viaja. Descubre. Vive.</span>
     </div>
-
 </footer>
+
+<!-- MODAL PARA DESTINOS (SE LLENA CON JS) -->
+<div class="modal-overlay" id="destinoModal">
+    <div class="modal-content">
+        <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-carousel">
+            <div class="modal-track" id="modalTrack">
+                <!-- Las imágenes se inyectan aquí con JavaScript -->
+            </div>
+            <button class="modal-btn prev" id="modalPrev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="modal-btn next" id="modalNext"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="modal-info">
+            <h3 id="modalTitle">Cancún</h3>
+            <p id="modalDesc">Descubre las mejores playas y actividades.</p>
+            <a href="#registro" class="btn btn-gold" id="modalCTA" style="margin-top: 15px; display: inline-flex;">Quiero cotizar este destino</a>
+        </div>
+    </div>
+</div>
 
 
 <!-- =========================================================
@@ -2497,7 +2741,6 @@
             }
         }
 
-        // ✅ CORREGIDO: antes y siguiente en el orden correcto
         prevBtn.addEventListener("click", prevSlide);
         nextBtn.addEventListener("click", nextSlide);
 
@@ -2524,7 +2767,6 @@
             isDragging = false;
         });
 
-        // ✅ CORREGIDO: recalcula y resetea índice al redimensionar
         let resizeTimer;
         window.addEventListener("resize", () => {
             clearTimeout(resizeTimer);
@@ -2540,7 +2782,7 @@
         buildDots();
         updateCarousel();
 
-        // Recalcular cuando carguen las imágenes (importante porque usas rutas locales)
+        // Recalcular cuando carguen las imágenes
         window.addEventListener("load", () => {
             buildDots();
             updateCarousel();
@@ -2716,18 +2958,117 @@
     verificarConexion();
 
 
-    /* ============ AÑO AUTOMÁTICO ============ */
-    const currentYear = document.getElementById("currentYear");
-    if (currentYear) {
-        currentYear.textContent = new Date().getFullYear();
-    }
-
-
     /* ============ EVITAR ERROR POR IMÁGENES ============ */
     document.querySelectorAll("img").forEach(image => {
         image.addEventListener("error", function() {
             this.style.background = "#d9d2c4";
         });
+    });
+
+
+    /* ============ LÓGICA DEL MODAL DE DESTINOS ============ */
+    const modal = document.getElementById('destinoModal');
+    const modalClose = document.getElementById('modalClose');
+    const modalTrack = document.getElementById('modalTrack');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    let modalIndex = 0;
+
+    // Datos para el modal (Puedes personalizar y agregar más destinos aquí)
+    const destinosData = {
+        "Cancún": {
+            desc: "Disfruta de aguas turquesa, arena blanca y una vibrante vida nocturna. Ideal para el descanso, deportes acuáticos y visitar los famosos cenotes de la Riviera Maya.",
+            imgs: [
+                "Imagenes/cancun-things-to-do-guide.jpg",
+                "Imagenes/islamujeres.jpg",
+                "Imagenes/RIVERA.jfif"
+            ]
+        },
+        "París": {
+            desc: "La ciudad de la luz te espera con su icónica Torre Eiffel, el Museo del Louvre, paseos por el Sena y la mejor gastronomía y moda del mundo.",
+            imgs: [
+                "Imagenes/PARIS.jfif",
+                "Imagenes/Torre Eiffel.jfif",
+                "Imagenes/ROMA.jpg"
+            ]
+        }
+        // Agrega más destinos aquí...
+    };
+
+    // Abrir Modal al dar clic en cualquier tarjeta
+    document.querySelectorAll('.carousel-slide').forEach(slide => {
+        slide.addEventListener('click', () => {
+            // Obtener el nombre del destino de la tarjeta
+            const destinoNombre = slide.querySelector('h4').innerText;
+            const imgSrc = slide.querySelector('img').src;
+            
+            // Si el destino tiene datos especiales, los cargamos, sino, usamos el genérico
+            let data = destinosData[destinoNombre] || {
+                desc: slide.querySelector('p').innerText + " Descubre todo lo que este hermoso lugar tiene para ti con Destiva Experience.",
+                imgs: [imgSrc] // Solo muestra la imagen de la tarjeta
+            };
+
+            // Inyectar título y descripción
+            modalTitle.innerText = destinoNombre;
+            modalDesc.innerText = data.desc;
+
+            // Inyectar imágenes
+            modalTrack.innerHTML = '';
+            data.imgs.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                modalTrack.appendChild(img);
+            });
+
+            // Reiniciar posición
+            modalIndex = 0;
+            updateModalTrack();
+
+            // Mostrar modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo
+        });
+    });
+
+    // Cerrar modal
+    modalClose.addEventListener('click', () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+
+    // Cerrar al hacer clic fuera del contenido
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Controles del carrusel del modal
+    document.getElementById('modalPrev').addEventListener('click', () => {
+        const total = modalTrack.children.length;
+        if (total > 0) {
+            modalIndex = (modalIndex > 0) ? modalIndex - 1 : total - 1;
+            updateModalTrack();
+        }
+    });
+
+    document.getElementById('modalNext').addEventListener('click', () => {
+        const total = modalTrack.children.length;
+        if (total > 0) {
+            modalIndex = (modalIndex < total - 1) ? modalIndex + 1 : 0;
+            updateModalTrack();
+        }
+    });
+
+    function updateModalTrack() {
+        modalTrack.style.transform = `translateX(-${modalIndex * 100}%)`;
+    }
+
+    // Al dar clic en el CTA del modal, se cierra y lleva al registro
+    document.getElementById('modalCTA').addEventListener('click', () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
     });
 
 </script>
