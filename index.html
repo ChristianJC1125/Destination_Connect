@@ -637,16 +637,16 @@
             gap:45px;padding-bottom:40px;border-bottom:1px solid rgba(157,255,255,.12)
         }
         
-        /* --- AJUSTES DEL LOGO DEL FOOTER --- */
+        /* --- AJUSTES DEL LOGO Y TEXTO CENTRADOS --- */
         .footer-brand {
             display: flex;
             flex-direction: column;
-            align-items: center; 
-            text-align: center;  
+            align-items: center; /* Centra el logo y el texto */
+            text-align: center;  /* Centra el texto de la descripción */
         }
 
         .footer-logo {
-            height: 110px; 
+            height: 120px; /* Tamaño adecuado */
             width: auto;
             object-fit: contain;
             margin-bottom: 20px;
@@ -654,7 +654,13 @@
             mix-blend-mode: screen; 
         }
 
-        .footer-brand p{max-width:330px;margin-top:0;color:rgba(255,255,255,.48);font-size:11px;line-height:1.8}
+        .footer-brand p{
+            max-width:330px;
+            margin-top:0;
+            color:rgba(255,255,255,.48);
+            font-size:11px;
+            line-height:1.8;
+        }
         /* ----------------------------------- */
 
         .footer-column h4{color:var(--mint);font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
@@ -860,6 +866,9 @@
 
 <body>
 
+<!-- =========================================================
+     HEADER
+========================================================== -->
 <header class="header" id="header">
 
     <nav class="nav">
@@ -2478,14 +2487,20 @@
 </section>
 
 
+<!-- =========================================================
+     FOOTER Y ALIADOS
+========================================================== -->
 <footer>
-    <div class="footer-top">
-        <img src="Imagenes/LOGODESTIVA.2-.png" class="footer-logo" alt="Destiva Travel">
-        <p>
-            Creamos experiencias para descubrir nuevos lugares, vivir nuevas aventuras y construir recuerdos inolvidables.
-        </p>
-    </div>
-    <div class="footer-links-grid">
+    <div class="footer-grid">
+        <!-- Info Marca (Logo y Texto centrados) -->
+        <div class="footer-brand">
+            <img src="Imagenes/LOGODESTIVA.2.jpeg" class="footer-logo" alt="Destiva Travel">
+            <p>
+                Creamos experiencias para descubrir nuevos lugares, vivir nuevas aventuras y construir recuerdos inolvidables.
+            </p>
+        </div>
+
+        <!-- Enlaces -->
         <div class="footer-column">
             <h4>Explora</h4>
             <ul>
@@ -2514,6 +2529,7 @@
         </div>
     </div>
 
+    <!-- ALIADOS COMERCIALES -->
     <div class="footer-aliados">
         <h4>ALIADOS COMERCIALES</h4>
         <div class="aliados-track">
