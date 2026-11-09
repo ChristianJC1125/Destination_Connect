@@ -325,6 +325,7 @@
         .exp-img-wrapper {
             height: 220px;
             overflow: hidden;
+            position: relative;
         }
         .exp-img-wrapper img {
             width: 100%;
@@ -2090,7 +2091,7 @@
 
         <div class="experience-cards-grid reveal">
             <!-- Tarjeta 1 -->
-            <div class="exp-card">
+            <div class="exp-card" style="cursor: pointer;" onclick="abrirExperiencia('destinos')">
                 <div class="exp-img-wrapper">
                     <img src="https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Destinos Especiales">
                 </div>
@@ -2102,7 +2103,7 @@
             </div>
 
             <!-- Tarjeta 2 -->
-            <div class="exp-card">
+            <div class="exp-card" style="cursor: pointer;" onclick="abrirExperiencia('hospedaje')">
                 <div class="exp-img-wrapper">
                     <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hospedaje de Lujo">
                 </div>
@@ -2114,7 +2115,7 @@
             </div>
 
             <!-- Tarjeta 3 -->
-            <div class="exp-card">
+            <div class="exp-card" style="cursor: pointer;" onclick="abrirExperiencia('aventura')">
                 <div class="exp-img-wrapper">
                     <img src="Imagenes/aventura.jpg">
                 </div>
@@ -2181,7 +2182,7 @@
                     </ul>
                 </div>
 
-                <a href="#registro" class="btn btn-outline" style="margin-top:20px;">
+                <a href="#registro" class="btn btn-outline" style="margin-top:20px;" onclick="redirigirConOrigen('Paquete Essential')">
                     Solicitar información
                 </a>
 
@@ -2218,7 +2219,7 @@
                     </ul>
                 </div>
 
-                <a href="#registro" class="btn btn-gold" style="margin-top:20px;">
+                <a href="#registro" class="btn btn-gold" style="margin-top:20px;" onclick="redirigirConOrigen('Paquete Premium')">
                     Quiero conocerlo
                 </a>
 
@@ -2255,12 +2256,60 @@
                     </ul>
                 </div>
 
-                <a href="#registro" class="btn btn-outline" style="margin-top:20px;">
+                <a href="#registro" class="btn btn-outline" style="margin-top:20px;" onclick="redirigirConOrigen('Paquete Diamante')">
                     Descubrir Diamante
                 </a>
 
             </article>
 
+        </div>
+
+        <!-- NUEVOS FLYERS Y VIDEOS DE ALIADOS -->
+        <div class="section-heading reveal" style="margin-top: 60px; margin-bottom: 30px;">
+            <div class="eyebrow">Alianzas Exclusivas</div>
+            <h2 class="section-title">Conoce nuestras promociones.</h2>
+        </div>
+
+        <div class="experience-cards-grid reveal" style="margin-bottom: 40px;">
+            <!-- Flyer Sandos -->
+            <div class="exp-card" style="cursor: pointer;" onclick="redirigirConOrigen('Paquete - Sandos')">
+                <div class="exp-img-wrapper">
+                    <!-- REEMPLAZA ESTA URL CON LA IMAGEN DE TU FLYER DE SANDOS -->
+                    <img src="Imagenes/flyer-sandos.jpg" alt="Flyer Sandos">
+                </div>
+                <div class="exp-content" style="padding: 20px;">
+                    <h4 style="font-size: 22px;">Promo Sandos</h4>
+                    <p>Haz clic para más información y cotizar.</p>
+                </div>
+            </div>
+
+            <!-- Flyer Amatte -->
+            <div class="exp-card" style="cursor: pointer;" onclick="redirigirConOrigen('Paquete - Amatte')">
+                <div class="exp-img-wrapper">
+                    <!-- REEMPLAZA ESTA URL CON LA IMAGEN DE TU FLYER DE AMATTE -->
+                    <img src="Imagenes/flyer-amatte.jpg" alt="Flyer Amatte">
+                </div>
+                <div class="exp-content" style="padding: 20px;">
+                    <h4 style="font-size: 22px;">Promo Amatte</h4>
+                    <p>Haz clic para más información y cotizar.</p>
+                </div>
+            </div>
+
+            <!-- Video de Promoción -->
+            <div class="exp-card" style="cursor: pointer;" onclick="redirigirConOrigen('Video - Promociones')">
+                <div class="exp-img-wrapper">
+                    <!-- REEMPLAZA ESTA URL CON UNA MINIATURA DE TU VIDEO -->
+                    <img src="https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Video Promocional">
+                    <!-- Ícono de Play superpuesto -->
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,56,60,0.7); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                </div>
+                <div class="exp-content" style="padding: 20px;">
+                    <h4 style="font-size: 22px;">Ver Video</h4>
+                    <p>Descubre lo que tenemos para ti.</p>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -2278,10 +2327,11 @@
         <!-- INTRO CON LOGO -->
 
         <div class="section-heading reveal" style="text-align:center; max-width:100%; margin-bottom: 30px; margin-top: -90px;">
-            <img src="Imagenes/Logotipo de viaje Destiva Travel.png" alt="Destiva Logo" style="height: 400px; margin: -100px auto -50px; object-fit: contain; display: block;">
-            <div class="eyebrow" style="justify-content:center;">Destiva Experience</div>
-            <h2 class="section-title" style="margin: 10px auto 15px; filter: drop-shadow(0px 10px 15px rgba(0, 56, 60, 0.15));">
-                Más que una agencia de viajes.
+        <img src="Imagenes/Logotipo de viaje Destiva en dorado y verde teal.png" alt="Destiva Logo" style="height: 350px; margin: 20px auto 20px; object-fit: contain; display: block;">
+        <div class="eyebrow" style="justify-content:center;">Destiva Experience</div>
+        <h2 class="section-title" style="margin: 10px auto 15px; filter: drop-shadow(0px 10px 15px rgba(0, 56, 60, 0.15));">
+        Más que una agencia de viajes.
+    </h2>
             </h2>
             <p class="section-description" style="margin:0 auto; max-width:640px;">
                 Somos un equipo que cree en el poder de viajar para transformar
@@ -2564,6 +2614,19 @@
             <h3 id="modalTitle">Cancún</h3>
             <p id="modalDesc">Descubre las mejores playas y actividades.</p>
             <a href="#registro" class="btn btn-gold" id="modalCTA" style="margin-top: 15px; display: inline-flex;">Quiero cotizar este destino</a>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL PARA EXPERIENCIAS (DESTINOS, HOSPEDAJE, AVENTURA) -->
+<div class="modal-overlay" id="experienceModal">
+    <div class="modal-content" style="max-width: 900px;">
+        <button class="modal-close" id="expModalClose"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-info" style="padding: 40px;">
+            <h3 id="expModalTitle" style="color: var(--deep); margin-bottom: 20px;">Título</h3>
+            <div id="expModalContent" style="font-size: 14px; line-height: 1.8; color: var(--muted);">
+                <!-- Contenido inyectado por JS -->
+            </div>
         </div>
     </div>
 </div>
@@ -2904,6 +2967,8 @@
         submitIcon.className = "fa-solid fa-spinner fa-spin";
 
         try {
+            const origen = document.getElementById('origenRegistro') ? document.getElementById('origenRegistro').value : 'Directo';
+
             const cliente = {
                 nombre: nombre,
                 edad: edad,
@@ -2911,6 +2976,7 @@
                 telefono: telefono,
                 preferenciaViaje: preferencia.value,
                 disponibilidad: disponibilidad.value,
+                origen: origen, // <-- ESTO ES LO NUEVO
                 fechaRegistro: new Date().toLocaleString("es-MX"),
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 estado: "pendiente",
@@ -3379,6 +3445,105 @@
     document.getElementById('modalCTA').addEventListener('click', () => {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
+    });
+
+
+    /* ============ LÓGICA DE EXPERIENCIAS Y ORIGEN ============ */
+
+    // 1. Función para redirigir y capturar el origen
+    function redirigirConOrigen(origen) {
+        // Rellenar un campo oculto que vamos a crear en el formulario
+        let inputOrigen = document.getElementById('origenRegistro');
+        if (!inputOrigen) {
+            // Si no existe, lo creamos dinámicamente
+            inputOrigen = document.createElement('input');
+            inputOrigen.type = 'hidden';
+            inputOrigen.id = 'origenRegistro';
+            inputOrigen.name = 'origenRegistro';
+            document.getElementById('travelForm').appendChild(inputOrigen);
+        }
+        inputOrigen.value = origen;
+        
+        // Desplazarse al formulario
+        document.getElementById('registro').scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+
+    // 2. Configuración de los datos de las Experiencias
+    const experienceData = {
+        'destinos': {
+            titulo: 'Los Destinos Más Visitados',
+            contenido: `
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Cancún:</strong> Playas de arena blanca y vida nocturna.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Riviera Maya:</strong> Cenotes, selva y arqueología.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Los Cabos:</strong> Desierto, mar y golf.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>París:</strong> La ciudad de la luz y el romanticismo.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Maldivas:</strong> Bungalows sobre el agua y lujo.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Ciudad de México:</strong> Cultura, historia y gastronomía.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>San Miguel de Allende:</strong> Encanto colonial.</li>
+                </ul>
+                <p style="margin-top: 15px;"><em>Y muchos destinos más esperándote en nuestra sección de Destinos.</em></p>
+            `
+        },
+        'hospedaje': {
+            titulo: 'Hoteles de Lujo en Nuestros Destinos',
+            contenido: `
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Grand Resort Cancún:</strong> Todo incluido frente al mar.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Luxury Resort Riviera Maya:</strong> Suites con vista al Caribe.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Overwater Resort Maldivas:</strong> Bungalows sobre el océano.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Luxury Palm Dubái:</strong> Lujo y excentricidad en el desierto.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Beach Resort Los Cabos:</strong> Infinity pool y spa.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Tropical Resort Punta Cana:</strong> Palmeras y todo incluido.</li>
+                </ul>
+                <p style="margin-top: 15px;"><em>Contamos con alianzas con cadenas como Sandos, Sheraton y más.</em></p>
+            `
+        },
+        'aventura': {
+            titulo: 'Actividades y Aventura',
+            contenido: `
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Buceo y Snorkel:</strong> En los arrecifes de Cozumel y Cancún.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Tours Gastronómicos:</strong> En Oaxaca, Puebla y CDMX.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Safaris:</strong> En Kenia y África.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Caminatas y Trekking:</strong> En Barrancas del Cobre o el Everest.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Surf:</strong> En Sayulita y San Blas.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Ecoturismo:</strong> En la Huasteca Potosina y Sierra Gorda.</li>
+                </ul>
+                <p style="margin-top: 15px;"><em>¡Planeamos la aventura perfecta para ti!</em></p>
+            `
+        }
+    };
+
+    // 3. Funciones del Modal de Experiencias
+    const expModal = document.getElementById('experienceModal');
+    const expModalTitle = document.getElementById('expModalTitle');
+    const expModalContent = document.getElementById('expModalContent');
+    const expModalClose = document.getElementById('expModalClose');
+
+    function abrirExperiencia(tipo) {
+        const data = experienceData[tipo];
+        if(data) {
+            expModalTitle.innerText = data.titulo;
+            expModalContent.innerHTML = data.contenido;
+            expModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    expModalClose.addEventListener('click', () => {
+        expModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+
+    expModal.addEventListener('click', (e) => {
+        if (e.target === expModal) {
+            expModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
     });
 
 </script>
