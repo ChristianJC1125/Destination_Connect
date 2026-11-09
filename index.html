@@ -459,11 +459,25 @@
             color:var(--deep);
             margin-top:6px;
         }
-        .values-grid{
-            display:grid;
-            grid-template-columns:repeat(4,1fr);
-            gap:16px;
+        
+        /* PIRÁMIDE DE VALORES */
+        .pyramid-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto;
         }
+        .pyramid-grid .value-card {
+            width: calc(33.333% - 11px); /* 3 columnas por defecto */
+            margin-bottom: 16px;
+        }
+        /* Centrar la primera y última tarjeta */
+        .pyramid-grid .pyramid-center {
+            margin: 0 33.333%; /* Empuja la tarjeta al centro */
+        }
+
         .value-card{
             padding:28px 24px;
             border-radius:18px;
@@ -707,7 +721,7 @@
             gap:20px;color:rgba(255,255,255,.35);font-size:9px
         }
 
-        /* MODAL DESTINOS */
+        /* MODAL DESTINOS Y EXPERIENCIAS */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -778,6 +792,8 @@
         .modal-btn.next { right: 15px; }
         .modal-info {
             padding: 30px;
+            max-height: 400px;
+            overflow-y: auto;
         }
         .modal-info h3 {
             font-family: 'Cormorant Garamond', serif;
@@ -806,8 +822,9 @@
             .registration-copy{position:static}
             .footer-grid{grid-template-columns:repeat(2,1fr)}
             .carousel-slide{flex:0 0 calc(33.333% - 10px)}
-            .values-grid{grid-template-columns:repeat(2,1fr);}
             .experience-cards-grid { grid-template-columns: repeat(2, 1fr); }
+            .pyramid-grid .value-card { width: calc(50% - 8px); }
+            .pyramid-grid .pyramid-center { margin: 0; width: 100%; }
         }
         @media(max-width:850px){
             .nav-menu{
@@ -854,10 +871,10 @@
             .hero-bottom{bottom:22px}
             .mv-card{padding:30px 24px;}
             .mv-card h3{font-size:26px;}
-            .values-grid{grid-template-columns:1fr;}
             .values-header{margin-top:60px;}
             .modal-carousel { height: 250px; }
             .footer-logo { height: 90px; } /* Tamaño del logo en celular */
+            .pyramid-grid .value-card { width: 100%; }
         }
 
     </style>
@@ -2272,42 +2289,56 @@
 
         <div class="experience-cards-grid reveal" style="margin-bottom: 40px;">
             <!-- Flyer Sandos -->
-            <div class="exp-card" style="cursor: pointer;" onclick="redirigirConOrigen('Paquete - Sandos')">
+            <div class="exp-card" style="cursor: pointer;" onclick="abrirMedia('sandos')">
                 <div class="exp-img-wrapper">
                     <!-- REEMPLAZA ESTA URL CON LA IMAGEN DE TU FLYER DE SANDOS -->
                     <img src="Imagenes/flyer-sandos.jpg" alt="Flyer Sandos">
                 </div>
                 <div class="exp-content" style="padding: 20px;">
                     <h4 style="font-size: 22px;">Promo Sandos</h4>
-                    <p>Haz clic para más información y cotizar.</p>
+                    <p>Haz clic para ver el flyer y más imágenes.</p>
                 </div>
             </div>
 
             <!-- Flyer Amatte -->
-            <div class="exp-card" style="cursor: pointer;" onclick="redirigirConOrigen('Paquete - Amatte')">
+            <div class="exp-card" style="cursor: pointer;" onclick="abrirMedia('amatte')">
                 <div class="exp-img-wrapper">
                     <!-- REEMPLAZA ESTA URL CON LA IMAGEN DE TU FLYER DE AMATTE -->
                     <img src="Imagenes/flyer-amatte.jpg" alt="Flyer Amatte">
                 </div>
                 <div class="exp-content" style="padding: 20px;">
                     <h4 style="font-size: 22px;">Promo Amatte</h4>
-                    <p>Haz clic para más información y cotizar.</p>
+                    <p>Haz clic para ver el flyer y más imágenes.</p>
                 </div>
             </div>
 
-            <!-- Video de Promoción -->
-            <div class="exp-card" style="cursor: pointer;" onclick="redirigirConOrigen('Video - Promociones')">
+            <!-- Video 1 -->
+            <div class="exp-card" style="cursor: pointer;" onclick="abrirMedia('video1')">
                 <div class="exp-img-wrapper">
                     <!-- REEMPLAZA ESTA URL CON UNA MINIATURA DE TU VIDEO -->
-                    <img src="https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Video Promocional">
-                    <!-- Ícono de Play superpuesto -->
+                    <img src="Imagenes/amatte.mp4" alt="Video 1">
                     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,56,60,0.7); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
                         <i class="fa-solid fa-play"></i>
                     </div>
                 </div>
                 <div class="exp-content" style="padding: 20px;">
-                    <h4 style="font-size: 22px;">Ver Video</h4>
-                    <p>Descubre lo que tenemos para ti.</p>
+                    <h4 style="font-size: 22px;">Video Promocional 1</h4>
+                    <p>Descubre nuestros destinos en video.</p>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="exp-card" style="cursor: pointer;" onclick="abrirMedia('video2')">
+                <div class="exp-img-wrapper">
+                    <!-- REEMPLAZA ESTA URL CON UNA MINIATURA DE TU VIDEO -->
+                    <img src="Imagenes/sandos-caracol.mp4" alt="Video 2">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,56,60,0.7); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                </div>
+                <div class="exp-content" style="padding: 20px;">
+                    <h4 style="font-size: 22px;">Video Promocional 2</h4>
+                    <p>Más experiencias para ti.</p>
                 </div>
             </div>
         </div>
@@ -2380,50 +2411,50 @@
             <h3 class="values-title">Nuestros valores.</h3>
         </div>
 
-        <div class="values-grid reveal">
-
-            <article class="value-card">
+        <!-- VALORES EN PIRÁMIDE -->
+        <div class="pyramid-grid reveal">
+            <!-- Fila 1 (Centro) -->
+            <div class="value-card pyramid-center">
                 <div class="value-icon"><i class="fa-solid fa-handshake"></i></div>
                 <h4>Confianza y transparencia</h4>
                 <p>Información clara, comunicación honesta y compromiso con cada acuerdo.</p>
-            </article>
+            </div>
 
-            <article class="value-card">
+            <!-- Fila 2 (Izquierda y Derecha) -->
+            <div class="value-card">
                 <div class="value-icon"><i class="fa-solid fa-user-check"></i></div>
                 <h4>Compromiso con el cliente</h4>
                 <p>Escuchamos y acompañamos para ofrecer alternativas acordes a tus necesidades.</p>
-            </article>
-
-            <article class="value-card">
+            </div>
+            <div class="value-card">
                 <div class="value-icon"><i class="fa-solid fa-gem"></i></div>
                 <h4>Excelencia y calidad</h4>
                 <p>Profesionalismo, atención al detalle y una experiencia satisfactoria.</p>
-            </article>
+            </div>
 
-            <article class="value-card">
+            <!-- Fila 3 (Izquierda, Centro, Derecha) -->
+            <div class="value-card">
                 <div class="value-icon"><i class="fa-solid fa-lightbulb"></i></div>
                 <h4>Innovación</h4>
                 <p>Exploramos nuevas ideas para las necesidades cambiantes del viajero.</p>
-            </article>
-
-            <article class="value-card">
+            </div>
+            <div class="value-card">
                 <div class="value-icon"><i class="fa-solid fa-compass"></i></div>
                 <h4>Libertad y descubrimiento</h4>
                 <p>Promovemos explorar nuevos horizontes y ampliar perspectivas.</p>
-            </article>
-
-            <article class="value-card">
+            </div>
+            <div class="value-card">
                 <div class="value-icon"><i class="fa-solid fa-heart"></i></div>
                 <h4>Cercanía y empatía</h4>
                 <p>Atención cálida, personalizada y orientada a relaciones de largo plazo.</p>
-            </article>
+            </div>
 
-            <article class="value-card">
+            <!-- Fila 4 (Centro abajo) -->
+            <div class="value-card pyramid-center">
                 <div class="value-icon"><i class="fa-solid fa-seedling"></i></div>
                 <h4>Crecimiento y responsabilidad</h4>
                 <p>Crecemos de forma sostenible, generando valor para clientes y organización.</p>
-            </article>
-
+            </div>
         </div>
 
     </div>
@@ -2622,7 +2653,14 @@
 <div class="modal-overlay" id="experienceModal">
     <div class="modal-content" style="max-width: 900px;">
         <button class="modal-close" id="expModalClose"><i class="fa-solid fa-xmark"></i></button>
-        <div class="modal-info" style="padding: 40px;">
+        <div class="modal-carousel">
+            <div class="modal-track" id="expModalTrack">
+                <!-- Las imágenes se inyectan aquí con JavaScript -->
+            </div>
+            <button class="modal-btn prev" id="expModalPrev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="modal-btn next" id="expModalNext"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="modal-info">
             <h3 id="expModalTitle" style="color: var(--deep); margin-bottom: 20px;">Título</h3>
             <div id="expModalContent" style="font-size: 14px; line-height: 1.8; color: var(--muted);">
                 <!-- Contenido inyectado por JS -->
@@ -2631,6 +2669,23 @@
     </div>
 </div>
 
+<!-- MODAL PARA FLYERS Y VIDEOS -->
+<div class="modal-overlay" id="mediaModal">
+    <div class="modal-content" style="max-width: 900px;">
+        <button class="modal-close" id="mediaModalClose"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-carousel" style="background: #000; height: 500px; display: flex; align-items: center;">
+            <div class="modal-track" id="mediaTrack" style="align-items: center;">
+                <!-- Aquí se inyectan las imágenes o videos -->
+            </div>
+            <button class="modal-btn prev" id="mediaPrev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="modal-btn next" id="mediaNext"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="modal-info" style="text-align: center; padding: 20px;">
+            <h3 id="mediaTitle" style="margin-bottom: 10px;">Título</h3>
+            <a href="#registro" class="btn btn-gold" onclick="redirigirConOrigen('Desde Modal Promociones')">Quiero cotizar</a>
+        </div>
+    </div>
+</div>
 
 <!-- =========================================================
      BOTÓN ARRIBA
@@ -3475,13 +3530,29 @@
     const experienceData = {
         'destinos': {
             titulo: 'Los Destinos Más Visitados',
+            imgs: [
+                "Imagenes/cancun-things-to-do-guide.jpg",
+                "Imagenes/PARIS.jfif",
+                "Imagenes/maldivas.jfif",
+                "Imagenes/ciudad-de-mexico-destino-unico-y-capital-cultural-de-america1.jpg",
+                "Imagenes/San-Miguel-de-Allende.jpeg"
+            ],
             contenido: `
                 <ul style="list-style-type: none; padding-left: 0;">
                     <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Cancún:</strong> Playas de arena blanca y vida nocturna.</li>
                     <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Riviera Maya:</strong> Cenotes, selva y arqueología.</li>
                     <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Los Cabos:</strong> Desierto, mar y golf.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>París:</strong> La ciudad de la luz y el romanticismo.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Puerto Vallarta:</strong> Malecón, playas y ambiente.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Punta Cana:</strong> Playas infinitas y resorts.</li>
                     <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Maldivas:</strong> Bungalows sobre el agua y lujo.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Isla Mujeres:</strong> Aguas cristalinas y arrecifes.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Huatulco:</strong> Bahías escondidas y tranquilidad.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Sayulita:</strong> Surf, bohemia y playa.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Mazatlán:</strong> Malecón y atardeceres.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>París:</strong> La ciudad de la luz y el romanticismo.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Roma:</strong> Historia y arte en cada esquina.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Londres:</strong> Tradición y modernidad.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Nueva York:</strong> La ciudad que nunca duerme.</li>
                     <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Ciudad de México:</strong> Cultura, historia y gastronomía.</li>
                     <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>San Miguel de Allende:</strong> Encanto colonial.</li>
                 </ul>
@@ -3490,20 +3561,36 @@
         },
         'hospedaje': {
             titulo: 'Hoteles de Lujo en Nuestros Destinos',
+            imgs: [
+                "Imagenes/GrandResort.jpg",
+                "Imagenes/Overwater Resort.jpeg",
+                "Imagenes/Beach Resort.avif",
+                "Imagenes/Tropical.webp"
+            ],
             contenido: `
                 <ul style="list-style-type: none; padding-left: 0;">
                     <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Grand Resort Cancún:</strong> Todo incluido frente al mar.</li>
                     <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Luxury Resort Riviera Maya:</strong> Suites con vista al Caribe.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Overwater Resort Maldivas:</strong> Bungalows sobre el océano.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Luxury Palm Dubái:</strong> Lujo y excentricidad en el desierto.</li>
                     <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Beach Resort Los Cabos:</strong> Infinity pool y spa.</li>
                     <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Tropical Resort Punta Cana:</strong> Palmeras y todo incluido.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Overwater Resort Maldivas:</strong> Bungalows sobre el océano.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Luxury Palm Dubái:</strong> Lujo y excentricidad en el desierto.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Ocean Resort Cozumel:</strong> Buceo y arrecifes.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Bays Resort Huatulco:</strong> Bahías privadas.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Pacific Resort Ixtapa:</strong> Playa y golf.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Bay Resort Puerto Vallarta:</strong> Todo incluido y spa.</li>
                 </ul>
                 <p style="margin-top: 15px;"><em>Contamos con alianzas con cadenas como Sandos, Sheraton y más.</em></p>
             `
         },
         'aventura': {
             titulo: 'Actividades y Aventura',
+            imgs: [
+                "Imagenes/Barrancas del Cobre.jfif",
+                "Imagenes/Safari en Kenia.jfif",
+                "Imagenes/TULUM.jpg",
+                "Imagenes/Huastecapotosina.jfif"
+            ],
             contenido: `
                 <ul style="list-style-type: none; padding-left: 0;">
                     <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Buceo y Snorkel:</strong> En los arrecifes de Cozumel y Cancún.</li>
@@ -3512,6 +3599,8 @@
                     <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Caminatas y Trekking:</strong> En Barrancas del Cobre o el Everest.</li>
                     <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Surf:</strong> En Sayulita y San Blas.</li>
                     <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Ecoturismo:</strong> En la Huasteca Potosina y Sierra Gorda.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Alpinismo:</strong> En el Izta-Popo y Nevado de Toluca.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Ruinas y Cultura:</strong> En Tulum y Cañón del Sumidero.</li>
                 </ul>
                 <p style="margin-top: 15px;"><em>¡Planeamos la aventura perfecta para ti!</em></p>
             `
@@ -3523,16 +3612,55 @@
     const expModalTitle = document.getElementById('expModalTitle');
     const expModalContent = document.getElementById('expModalContent');
     const expModalClose = document.getElementById('expModalClose');
+    
+    // Elementos del carrusel del modal de experiencias
+    const expModalTrack = document.getElementById('expModalTrack');
+    const expModalPrev = document.getElementById('expModalPrev');
+    const expModalNext = document.getElementById('expModalNext');
+    let expModalIndex = 0;
 
     function abrirExperiencia(tipo) {
         const data = experienceData[tipo];
         if(data) {
             expModalTitle.innerText = data.titulo;
             expModalContent.innerHTML = data.contenido;
+            
+            // Inyectar imágenes en el carrusel
+            expModalTrack.innerHTML = '';
+            if (data.imgs && data.imgs.length > 0) {
+                data.imgs.forEach(src => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    expModalTrack.appendChild(img);
+                });
+                expModalIndex = 0;
+                updateExpModalTrack();
+            }
+
             expModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
     }
+
+    function updateExpModalTrack() {
+        expModalTrack.style.transform = `translateX(-${expModalIndex * 100}%)`;
+    }
+
+    expModalPrev.addEventListener('click', () => {
+        const total = expModalTrack.children.length;
+        if (total > 0) {
+            expModalIndex = (expModalIndex > 0) ? expModalIndex - 1 : total - 1;
+            updateExpModalTrack();
+        }
+    });
+
+    expModalNext.addEventListener('click', () => {
+        const total = expModalTrack.children.length;
+        if (total > 0) {
+            expModalIndex = (expModalIndex < total - 1) ? expModalIndex + 1 : 0;
+            updateExpModalTrack();
+        }
+    });
 
     expModalClose.addEventListener('click', () => {
         expModal.classList.remove('active');
@@ -3543,6 +3671,120 @@
         if (e.target === expModal) {
             expModal.classList.remove('active');
             document.body.style.overflow = 'auto';
+        }
+    });
+
+
+    /* ============ LÓGICA DEL MODAL DE MEDIA (FLYERS Y VIDEOS) ============ */
+    const mediaModal = document.getElementById('mediaModal');
+    const mediaModalClose = document.getElementById('mediaModalClose');
+    const mediaTrack = document.getElementById('mediaTrack');
+    const mediaTitle = document.getElementById('mediaTitle');
+    let mediaIndex = 0;
+
+    // Configuración de tus medios (Aquí pones las rutas de tus 5 imágenes y tus videos)
+    const mediaData = {
+        'sandos': {
+            titulo: 'Promociones Sandos',
+            items: [
+                'Imagenes/flyer-sandos.jpg', // El flyer principal
+                'Imagenes/sandos-2.jpg',     // Extra 1
+                'Imagenes/sandos-3.jpg',     // Extra 2
+                'Imagenes/sandos-4.jpg',     // Extra 3
+                'Imagenes/sandos-5.jpg'      // Extra 4
+            ]
+        },
+        'amatte': {
+            titulo: 'Promociones Amatte',
+            items: [
+                'Imagenes/flyer-amatte.jpg',
+                'Imagenes/amatte-2.jpg',
+                'Imagenes/amatte-3.jpg',
+                'Imagenes/amatte-4.jpg',
+                'Imagenes/amatte-5.jpg'
+            ]
+        },
+        'video1': {
+            titulo: 'Video Promocional 1',
+            items: [
+                // Aquí puedes poner la URL de un video de YouTube (usando iframe) o un archivo mp4
+                '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" frameborder="0" allowfullscreen></iframe>'
+            ]
+        },
+        'video2': {
+            titulo: 'Video Promocional 2',
+            items: [
+                // Aquí puedes poner la URL de un video de YouTube o un archivo mp4
+                '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>'
+            ]
+        }
+    };
+
+    function abrirMedia(tipo) {
+        const data = mediaData[tipo];
+        if (!data) return;
+
+        mediaTitle.innerText = data.titulo;
+        mediaTrack.innerHTML = '';
+
+        data.items.forEach(item => {
+            // Si es un iframe (video), lo insertamos tal cual
+            if (item.startsWith('<iframe')) {
+                const div = document.createElement('div');
+                div.style.width = '100%';
+                div.style.height = '100%';
+                div.style.flexShrink = '0';
+                div.innerHTML = item;
+                mediaTrack.appendChild(div);
+            } else {
+                // Si es una imagen, creamos la etiqueta img
+                const img = document.createElement('img');
+                img.src = item;
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'contain'; // Para que la imagen no se deforme
+                img.style.flexShrink = '0';
+                img.style.background = '#000';
+                mediaTrack.appendChild(img);
+            }
+        });
+
+        mediaIndex = 0;
+        updateMediaTrack();
+        mediaModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function updateMediaTrack() {
+        // Calculamos el ancho del 100% del contenedor para mover el track
+        mediaTrack.style.transform = `translateX(-${mediaIndex * 100}%)`;
+    }
+
+    mediaModalClose.addEventListener('click', () => {
+        mediaModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+
+    mediaModal.addEventListener('click', (e) => {
+        if (e.target === mediaModal) {
+            mediaModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    document.getElementById('mediaPrev').addEventListener('click', () => {
+        const total = mediaTrack.children.length;
+        if (total > 0) {
+            mediaIndex = (mediaIndex > 0) ? mediaIndex - 1 : total - 1;
+            updateMediaTrack();
+        }
+    });
+
+    document.getElementById('mediaNext').addEventListener('click', () => {
+        const total = mediaTrack.children.length;
+        if (total > 0) {
+            mediaIndex = (mediaIndex < total - 1) ? mediaIndex + 1 : 0;
+            updateMediaTrack();
         }
     });
 
