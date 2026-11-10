@@ -880,6 +880,61 @@
             .pyramid-grid .value-card, .pyramid-grid .value-card:nth-child(n+4) { width: 100%; }
         }
 
+        /* =========================================================
+           ESTILOS PARA LA SECCIÓN DE PROMOCIONES (TRAPECIO)
+        ========================================================= */
+        .promo-pyramid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .promo-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .promo-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--line);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .promo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+        .promo-row.top-row .promo-card {
+            width: calc(50% - 10px); /* 2 tarjetas arriba */
+        }
+        .promo-row.bottom-row .promo-card {
+            width: calc(33.333% - 14px); /* 3 tarjetas abajo */
+        }
+        .play-overlay {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,56,60,0.7);
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 24px;
+            pointer-events: none; /* Para que el clic pase a la tarjeta */
+        }
+        
+        /* Responsive para celulares en promociones */
+        @media(max-width: 850px) {
+            .promo-row { flex-direction: column; }
+            .promo-row.top-row .promo-card, 
+            .promo-row.bottom-row .promo-card {
+                width: 100%;
+            }
+        }
+
     </style>
 </head>
 
@@ -2290,66 +2345,75 @@
             <h2 class="section-title">Conoce nuestras promociones.</h2>
         </div>
 
-        <div class="experience-cards-grid reveal" style="margin-bottom: 40px;">
-            <!-- Flyer Sandos -->
-            <div class="exp-card" style="cursor: pointer;" onclick="abrirMedia('sandos')">
-                <div class="exp-img-wrapper">
-                    <!-- REEMPLAZA ESTA URL CON LA IMAGEN DE TU FLYER DE SANDOS -->
-                    <img src="Imagenes/flyer-sandos.jpg" alt="Flyer Sandos">
-                </div>
-                <div class="exp-content" style="padding: 20px;">
-                    <h4 style="font-size: 22px;">Promo Sandos</h4>
-                    <p>Haz clic para ver el flyer y más imágenes.</p>
-                </div>
-            </div>
-
-            <!-- Flyer Amatte -->
-            <div class="exp-card" style="cursor: pointer;" onclick="abrirMedia('amatte')">
-                <div class="exp-img-wrapper">
-                    <!-- REEMPLAZA ESTA URL CON LA IMAGEN DE TU FLYER DE AMATTE -->
-                    <img src="Imagenes/flyer-amatte.jpg" alt="Flyer Amatte">
-                </div>
-                <div class="exp-content" style="padding: 20px;">
-                    <h4 style="font-size: 22px;">Promo Amatte</h4>
-                    <p>Haz clic para ver el flyer y más imágenes.</p>
-                </div>
-            </div>
-
-            <!-- Video 1 -->
-            <div class="exp-card" style="cursor: pointer;" onclick="abrirMedia('video1')">
-                <div class="exp-img-wrapper">
-                    <!-- REEMPLAZA ESTA URL CON UNA MINIATURA DE TU VIDEO -->
-                    <img src="Imagenes/amatte.mp4" alt="Video 1">
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,56,60,0.7); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
-                        <i class="fa-solid fa-play"></i>
+        <!-- CONTENEDOR EN FORMA DE TRAPECIO INVERTIDO (2 ARRIBA, 3 ABAJO) -->
+        <div class="promo-pyramid reveal" style="margin-bottom: 40px;">
+            
+            <!-- FILA 1: Los 2 Videos Arriba -->
+            <div class="promo-row top-row">
+                <!-- Video 1 -->
+                <div class="exp-card promo-card" onclick="abrirMedia('video1')">
+                    <div class="exp-img-wrapper">
+                        <!-- IMAGEN DE PORTADA PARA EL VIDEO 1 -->
+                        <img src="Imagenes/logo-amatte.png" alt="Video 1">
+                        <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                    <div class="exp-content" style="padding: 20px; background: white;">
+                        <h4 style="font-size: 22px; color: var(--deep); margin-bottom: 5px;">Video Promocional 1</h4>
+                        <p style="font-size: 13px; color: var(--muted);">Descubre nuestros destinos en video.</p>
                     </div>
                 </div>
-                <div class="exp-content" style="padding: 20px;">
-                    <h4 style="font-size: 22px;">Video Promocional 1</h4>
-                    <p>Descubre nuestros destinos en video.</p>
+
+                <!-- Video 2 -->
+                <div class="exp-card promo-card" onclick="abrirMedia('video2')">
+                    <div class="exp-img-wrapper">
+                        <!-- IMAGEN DE PORTADA PARA EL VIDEO 2 -->
+                        <img src="Imagenes/sandoscaracol.2.jpg" alt="Video 2">
+                        <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                    <div class="exp-content" style="padding: 20px; background: white;">
+                        <h4 style="font-size: 22px; color: var(--deep); margin-bottom: 5px;">Video Promocional 2</h4>
+                        <p style="font-size: 13px; color: var(--muted);">Más experiencias para ti.</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Video 2 -->
-            <div class="exp-card" style="cursor: pointer;" onclick="abrirMedia('video2')">
-                <div class="exp-img-wrapper">
-                    <!-- REEMPLAZA ESTA URL CON UNA MINIATURA DE TU VIDEO -->
-                    <img src="Imagenes/sandos-caracol.mp4" alt="Video 2">
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,56,60,0.7); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
-                        <i class="fa-solid fa-play"></i>
+            <!-- FILA 2: Los 3 Flyers Abajo -->
+            <div class="promo-row bottom-row">
+                <!-- Flyer Sandos -->
+                <div class="exp-card promo-card" onclick="abrirMedia('sandos')">
+                    <div class="exp-img-wrapper">
+                        <img src="Imagenes/flyer-sandos.jpg" alt="Flyer Sandos">
+                    </div>
+                    <div class="exp-content" style="padding: 20px; background: white;">
+                        <h4 style="font-size: 22px; color: var(--deep); margin-bottom: 5px;">Promo Sandos</h4>
+                        <p style="font-size: 13px; color: var(--muted);">Haz clic para ver el flyer y más imágenes.</p>
                     </div>
                 </div>
-                <div class="exp-content" style="padding: 20px;">
-                    <h4 style="font-size: 22px;">Video Promocional 2</h4>
-                    <p>Más experiencias para ti.</p>
+
+                <!-- Flyer Amatte -->
+                <div class="exp-card promo-card" onclick="abrirMedia('amatte')">
+                    <div class="exp-img-wrapper">
+                        <img src="Imagenes/flyer-amatte.jpg" alt="Flyer Amatte">
+                    </div>
+                    <div class="exp-content" style="padding: 20px; background: white;">
+                        <h4 style="font-size: 22px; color: var(--deep); margin-bottom: 5px;">Promo Amatte</h4>
+                        <p style="font-size: 13px; color: var(--muted);">Haz clic para ver el flyer y más imágenes.</p>
+                    </div>
+                </div>
+
+                <!-- Flyer Acapulco -->
+                <div class="exp-card promo-card" onclick="abrirMedia('acapulco')">
+                    <div class="exp-img-wrapper">
+                        <img src="Imagenes/flyer-acapulco.jpg" alt="Flyer Acapulco">
+                    </div>
+                    <div class="exp-content" style="padding: 20px; background: white;">
+                        <h4 style="font-size: 22px; color: var(--deep); margin-bottom: 5px;">Promo Acapulco</h4>
+                        <p style="font-size: 13px; color: var(--muted);">Haz clic para ver el flyer y más imágenes.</p>
+                    </div>
                 </div>
             </div>
+
         </div>
-
-    </div>
-
-</section>
-
 
 <!-- =========================================================
      NOSOTROS — MISIÓN, VISIÓN Y VALORES
@@ -3713,6 +3777,18 @@
                 'Imagenes/amatte-5.jpg'
             ]
         },
+
+        'acapulco': {
+            titulo: 'Promociones Acapulco',
+            items: [
+                'Imagenes/flyer-acapulco.jpg',
+                'Imagenes/acapulco-2.jpg',
+                'Imagenes/acapulco-3.jpg',
+                'Imagenes/acapulco-4.jpg',
+                'Imagenes/acapulco-5.jpg'
+            ]
+        },
+        
         'video1': {
             titulo: 'Video Promocional 1',
             items: [
