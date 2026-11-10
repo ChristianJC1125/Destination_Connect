@@ -883,6 +883,57 @@
             .pyramid-grid .value-card, .pyramid-grid .value-card:nth-child(n+4) { width: 100%; }
         }
 
+        .promo-pyramid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .promo-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .promo-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--line);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .promo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+        .promo-row.top-row .promo-card {
+            width: calc(50% - 10px); /* 2 tarjetas arriba */
+        }
+        .promo-row.bottom-row .promo-card {
+            width: calc(33.333% - 14px); /* 3 tarjetas abajo */
+        }
+        .play-overlay {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,56,60,0.7);
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 24px;
+            pointer-events: none;
+        }
+        
+        @media(max-width: 850px) {
+            .promo-row { flex-direction: column; }
+            .promo-row.top-row .promo-card, 
+            .promo-row.bottom-row .promo-card {
+                width: 100%;
+            }
+        }
+
     </style>
 </head>
 
