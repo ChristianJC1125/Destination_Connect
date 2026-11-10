@@ -202,7 +202,10 @@
         .hero-number{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--mint)}
 
         /* SECTIONS */
-        .section{padding:50px 5%} 
+        .section{
+            padding: 50px 5%; 
+            width: 100%; /* Esto hace que ocupe todo el ancho */
+        } 
         .section-dark{background:var(--deep);color:white}
         .section-cream{background:var(--mist)}
         .section-wine{background:var(--teal);color:white}
@@ -2360,6 +2363,11 @@
 
         </div>
 
+    </div>
+
+</section>
+
+
 <!-- =========================================================
      NOSOTROS — MISIÓN, VISIÓN Y VALORES
 ========================================================== -->
@@ -2367,14 +2375,20 @@
 
     <div class="section-container">
 
+        <!-- INTRO CON LOGO -->
         <div class="section-heading reveal" style="text-align:center; max-width:100%; margin-bottom: 30px; margin-top: -80px;">
-        <img src="Imagenes/Logotipo de viaje Destiva en dorado y verde teal.png" alt="Destiva Logo" style="height: 250px; margin: 10px auto 10px; object-fit: contain; display: block;">
-        <div class="eyebrow" style="justify-content:center;">Destiva Experience</div>
-        <h2 class="section-title" style="margin: 10px auto 15px; filter: drop-shadow(0px 10px 15px rgba(0, 56, 60, 0.15));">
-        Más que una agencia de viajes.
-    </h2>
+            
+            <img src="Imagenes/Logotipo de viaje Destiva en dorado y verde teal.png" alt="Destiva Logo" style="height: 250px; margin: 10px auto 10px; object-fit: contain; display: block;">
+            
+            <div class="eyebrow" style="justify-content:center;">Destiva Experience</div>
+            
+            <!-- AQUÍ OBLIGAMOS AL TEXTO A SER OSCURO -->
+            <h2 class="section-title" style="margin: 10px auto 15px; color: var(--deep); filter: drop-shadow(0px 10px 15px rgba(0, 56, 60, 0.15));">
+                Más que una agencia de viajes.
             </h2>
-            <p class="section-description" style="margin:0 auto; max-width:640px;">
+            
+            <!-- AQUÍ OBLIGAMOS AL PÁRRAFO A SER GRIS OSCURO -->
+            <p class="section-description" style="margin:0 auto; max-width:640px; color: var(--muted);">
                 Somos un equipo que cree en el poder de viajar para transformar
                 perspectivas. Nuestra razón de ser está en cada historia que
                 ayudamos a crear.
@@ -3722,7 +3736,6 @@
                 'Imagenes/amatte-5.jpg'
             ]
         },
-
         'acapulco': {
             titulo: 'Promociones Acapulco',
             items: [
@@ -3733,7 +3746,6 @@
                 'Imagenes/acapulco-5.jpg'
             ]
         },
-        
         'video1': {
             titulo: 'Video Promocional 1',
             items: [
