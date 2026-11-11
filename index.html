@@ -2392,7 +2392,7 @@
                 <!-- Flyer Amatte -->
                 <div class="exp-card promo-card" onclick="abrirMedia('amatte')">
                     <div class="exp-img-wrapper">
-                        <img src="Imagenes/flyer_amatte.jpg" alt="Flyer Amatte">
+                        <img src="Imagenes/flyer-amatte.jpg" alt="Flyer Amatte">
                     </div>
                     <div class="exp-content" style="padding: 20px; background: white;">
                         <h4 style="font-size: 22px; color: var(--deep); margin-bottom: 5px;">Promo Amatte</h4>
@@ -3577,6 +3577,14 @@
 
     // 1. Función para redirigir y capturar el origen
     function redirigirConOrigen(origen) {
+        // --- NUEVO: Detener y reiniciar todos los videos ---
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            video.pause();
+            video.currentTime = 0;
+        });
+        // ----------------------------------------------------
+
         // Rellenar un campo oculto que vamos a crear en el formulario
         let inputOrigen = document.getElementById('origenRegistro');
         if (!inputOrigen) {
@@ -3589,6 +3597,10 @@
         }
         inputOrigen.value = origen;
         
+        // Cerrar el modal de media para que no se quede abierto
+        document.getElementById('mediaModal').classList.remove('active');
+        document.body.style.overflow = 'auto';
+
         // Desplazarse al formulario
         document.getElementById('registro').scrollIntoView({
             behavior: "smooth",
@@ -3772,7 +3784,7 @@
             items: [
                 'Imagenes/flyer-sandos.jpg', 
                 'Imagenes/sandos-2.jpg',     
-                'Imagenes/sandos-3.jpg',     
+                'Imagenes/sandos-3.jpg',    
                 'Imagenes/sandos-4.jpg',     
                 'Imagenes/sandos-5.jpg'      
             ]
