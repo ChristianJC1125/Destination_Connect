@@ -2852,7 +2852,7 @@
 <div class="modal-overlay" id="mediaModal">
     <div class="modal-content" style="max-width: 900px;">
         <button class="modal-close" id="mediaModalClose"><i class="fa-solid fa-xmark"></i></button>
-        <div class="modal-carousel" style="background: #ffffff; height: 500px; display: flex; align-items: center;">
+        <div class="modal-carousel" style="background: #F8FFFF; height: 500px; display: flex; align-items: center;">
             <div class="modal-track" id="mediaTrack" style="align-items: center;">
                 <!-- Aquí se inyectan las imágenes o videos -->
             </div>
@@ -4207,9 +4207,9 @@
                 img.src = item;
                 img.style.width = '100%';
                 img.style.height = '100%';
-                img.style.objectFit = 'contain'; // Para que la imagen no se deforme
+                img.style.objectFit = 'contain'; 
                 img.style.flexShrink = '0';
-                img.style.background = '#000';
+                img.style.background = '#F8FFFF';
                 mediaTrack.appendChild(img);
             }
         });
