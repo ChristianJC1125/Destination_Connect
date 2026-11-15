@@ -822,6 +822,86 @@
         .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
         .reveal.visible{opacity:1;transform:translateY(0)}
 
+        /* =======================================================
+           TÉRMINOS Y CONDICIONES
+        ======================================================= */
+        .terms-section {
+            background: #F8FFFF;
+            padding: 50px 5%;
+        }
+
+        .terms-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .terms-content {
+            background: white;
+            padding: 40px 50px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--line);
+        }
+
+        .terms-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--deep);
+            margin-bottom: 15px;
+            margin-top: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .terms-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .terms-content p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .terms-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .terms-content ul li {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .terms-content ul li::before {
+            content: "•";
+            color: var(--aqua);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .terms-content .last-updated {
+            font-size: 12px;
+            color: var(--muted);
+            opacity: 0.7;
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        @media (max-width: 650px) {
+            .terms-content {
+                padding: 25px 20px;
+            }
+        }
+
         /* RESPONSIVE */
         @media(max-width:1100px){
             .why-grid{grid-template-columns:repeat(2,1fr)}
@@ -1370,7 +1450,7 @@
                             </div>
                         </div>
                         <div class="carousel-slide">
-                            <img src="Imagenes/RIVERA.jfif" alt="Riviera Maya">
+                            <img src="Imagenes/Riviera Maya.webp" alt="Riviera Maya">
                             <div class="carousel-slide-info">
                                 <div class="mini-tag">México</div>
                                 <h4>Riviera Maya</h4>
@@ -2091,7 +2171,7 @@
                             </div>
                         </div>
                         <div class="carousel-slide">
-                            <img src="Imagenes/Riviera Maya.jfif" alt="Riviera Maya">
+                            <img src="Imagenes/Riviera Maya.webp" alt="Riviera Maya">
                             <div class="carousel-slide-info">
                                 <div class="mini-tag">México</div>
                                 <h4>Riviera Maya</h4>
@@ -2599,6 +2679,50 @@
 
 </section>
 
+<!-- =========================================================
+     TÉRMINOS Y CONDICIONES
+========================================================== -->
+<section class="terms-section" id="terminos">
+    <div class="terms-container reveal">
+        <div class="section-heading" style="text-align: center; margin-bottom: 40px;">
+            <div class="eyebrow" style="justify-content: center;">Información Legal</div>
+            <h2 class="section-title" style="margin: auto;">Términos y Condiciones</h2>
+        </div>
+
+        <div class="terms-content">
+            <h3>1. Aceptación de los Términos</h3>
+            <p>Al acceder y utilizar los servicios de Destiva Experience, usted acepta cumplir con los presentes Términos y Condiciones. Si no está de acuerdo con alguna parte de estos términos, le rogamos no utilizar nuestro sitio web ni nuestros servicios.</p>
+
+            <h3>2. Servicios Ofrecidos</h3>
+            <p>Destiva Experience actúa como una agencia de viajes que ofrece servicios de asesoría, planificación y reserva de viajes, paquetes turísticos, hospedaje y experiencias. La disponibilidad de los servicios está sujeta a cambios sin previo aviso y a la confirmación por parte de nuestros proveedores (hoteles, aerolíneas, etc.).</p>
+
+            <h3>3. Registro y Datos Personales</h3>
+            <p>Para acceder a ciertos servicios, es posible que deba registrarse y proporcionar información personal. Usted se compromete a proporcionar información veraz, exacta y actualizada. El uso de sus datos personales se rige por nuestro Aviso de Privacidad.</p>
+            <ul>
+                <li>Los datos proporcionados en el formulario de registro (nombre, edad, teléfono, preferencias) serán utilizados únicamente para fines de contacto y personalización de la experiencia de viaje.</li>
+                <li>Usted es responsable de mantener la confidencialidad de su información.</li>
+            </ul>
+
+            <h3>4. Reservas y Pagos</h3>
+            <p>Todas las reservas están sujetas a disponibilidad y a la confirmación del pago correspondiente. Los precios mostrados son de carácter informativo y pueden variar según la temporada, la anticipación de la reserva y las políticas del proveedor. Los pagos realizados a través de nuestro sitio son procesados por plataformas seguras de terceros.</p>
+
+            <h3>5. Políticas de Cancelación y Reembolso</h3>
+            <p>Las políticas de cancelación y reembolso varían según el paquete, destino y proveedor del servicio. Cualquier cancelación deberá ser notificada por escrito a nuestro equipo de atención al cliente. Los cargos por cancelación se aplicarán según lo estipulado en la confirmación de la reserva.</p>
+
+            <h3>6. Responsabilidad del Viajero</h3>
+            <p>El viajero es responsable de contar con la documentación necesaria para su viaje (pasaporte, visas, permisos, etc.) y de cumplir con las leyes y regulaciones del destino. Destiva Experience no se hace responsable por la denegación de entrada a un país por falta de documentación.</p>
+
+            <h3>7. Modificaciones</h3>
+            <p>Destiva Experience se reserva el derecho de modificar o actualizar estos Términos y Condiciones en cualquier momento. Las modificaciones entrarán en vigor desde su publicación en el sitio web. Le recomendamos revisar periódicamente esta sección.</p>
+
+            <h3>8. Contacto</h3>
+            <p>Para cualquier duda o aclaración sobre estos Términos y Condiciones, puede ponerse en contacto con nosotros a través de los medios indicados en la sección de contacto de nuestro sitio web.</p>
+
+            <p class="last-updated">Última actualización: Noviembre 2026</p>
+        </div>
+    </div>
+</section>
+
 <section class="final-cta">
 
     <div class="final-content reveal">
@@ -2650,6 +2774,7 @@
             <ul>
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#faq">Preguntas frecuentes</a></li>
+                <li><a href="#terminos">Términos y Condiciones</a></li>
                 <li><a href="#registro">Registro</a></li>
             </ul>
         </div>
@@ -2727,7 +2852,7 @@
 <div class="modal-overlay" id="mediaModal">
     <div class="modal-content" style="max-width: 900px;">
         <button class="modal-close" id="mediaModalClose"><i class="fa-solid fa-xmark"></i></button>
-        <div class="modal-carousel" style="background: #000; height: 500px; display: flex; align-items: center;">
+        <div class="modal-carousel" style="background: #ffffff; height: 500px; display: flex; align-items: center;">
             <div class="modal-track" id="mediaTrack" style="align-items: center;">
                 <!-- Aquí se inyectan las imágenes o videos -->
             </div>
@@ -3188,7 +3313,7 @@
         "Riviera Maya": {
             desc: "La Riviera Maya​ es una zona turística de México, situada en la costa del mar Caribe, en el estado de Quintana Roo. Geográficamente se extiende a lo largo del litoral, desde la localidad de Puerto Morelos al norte, hasta la localidad de Tulum al sur, con unos 210 km de longitud.",
             imgs: [
-                "Imagenes/RIVERA.jfif",
+                "Imagenes/Riviera Maya.webp",
                 "Imagenes/riviera-2.webp",
                 "Imagenes/riviera-3.webp",
                 "Imagenes/riviera-4.webp"
@@ -3198,7 +3323,7 @@
          "Los Cabos": {
             desc: "Cabo San Lucas es un balneario en el extremo sur de la península de Baja California en México, conocido por sus playas, actividades acuáticas y vida nocturna. La Playa El Médano es la principal del Cabo, con restaurantes al aire libre y numerosos bares. Después de la marina, se encuentra el promontorio del Fin de la Tierra, donde está la Playa del Amor y El Arco, una arcada natural en los riscos marinos.",
             imgs: [
-                "Imagenes/Los Cabos",
+                "Imagenes/Los Cabos.jpg",
                 "Imagenes/loscabos-2.png",
                 "Imagenes/loscabos-3.avif",
                 "Imagenes/loscabos-4.webp"
@@ -3578,6 +3703,130 @@
                 "Imagenes/Islas Fiji3.jpg",
                 "Imagenes/Islas Fiji4.avif"
             ]
+        },
+
+        "Isla Mauricio": {
+            desc: "Mauricio es una nación insular en el océano Índico, conocida por sus playas, lagunas y arrecifes. El interior montañoso incluye el Parque Nacional Gargantas del Río Negro, con bosques tropicales, cascadas, senderos de excursión y fauna, como zorros voladores. La capital Port Louis tiene sitios como el hipódromo Champs de Mars, la casa de hacienda Eureka y el Jardín Botánico de Sir Seewoosagur Ramgoolam del siglo XVIII",
+            imgs: [
+                "Imagenes/Isla Mauricio.avif",
+                "Imagenes/Isla Mauricio2.avif",
+                "Imagenes/Isla Mauricio3.avif",
+                "Imagenes/Isla Mauricio4.avif"
+            ]
+        },
+
+        "Toscana": {
+            desc: "Toscana es una región del centro de Italia. Su capital, Florencia, alberga algunas de las obras de arte y arquitectura renacentistas más reconocibles, incluida la estatua de (David) de Miguel Ángel, obras de Botticelli en la Galería Uffizi y la catedral de Santa María de la Flor. Su variado paisaje natural abarca los escabrosos montes Apeninos, las playas de la isla de Elba en el mar Tirreno, y los olivares y viñedos de Chianti.",
+            imgs: [
+                "Imagenes/Toscana.avif",
+                "Imagenes/Toscana2.avif",
+                "Imagenes/Toscana3.avif",
+                "Imagenes/Toscana4.avif"
+            ]
+        },
+
+        "Tulum": {
+            desc: "Paseo en ATV y tirolesas en la selva: Recorre senderos en cuatrimoto, vuela en circuitos de tirolesas y desciende a cenotes ocultos con operadores como Tripadvisor - Tulum Adventure Riviera Maya.Esnórquel y buceo en cenotes: Explora cavernas subterráneas de aguas cristalinas, estalactitas y estalagmitas (como en Cenotes Casa Tortuga).Visitas arqueológicas y naturaleza: Combina la historia maya visitando las ruinas frente al mar de Tulum, Cobá o el sitio arqueológico de Muyil en la reserva de Sian Ka",
+            imgs: [
+                "Imagenes/Tulumaventura.jpg",
+                "Imagenes/Tulumaventura1.webp",
+                "Imagenes/Tulumaventura2.webp",
+                "Imagenes/Tulumaventura4.webp"
+            ]
+        },
+        
+        "Barrancas del Cobre": {
+            desc: "Principales atracciones y actividades, ZipRider: Una de las tirolesas más largas del mundo, con un recorrido de 2,538 metros donde se alcanzan velocidades de 80 a 135 km/h.,Teleférico Barrancas: Uno de los teleféricos más largos del mundo, con 3 kilómetros de cable sin torres intermedias y capacidad para 60 pasajeros,Circuito de Tirolesas: Un recorrido con 7 tirolesas y puentes colgantes sobre los cañones. Vía Ferrata: Incluye tramos de escalada, 5 puentes colgantes, un salto de Tarzán y un rappel de 48 metros.",
+            imgs: [
+                "Imagenes/Barrancas del Cobre.png",
+                "Imagenes/Barrancas del Cobre2.jpg",
+                "Imagenes/Barrancas del Cobre3.jpeg",
+                "Imagenes/Barrancas del Cobre4.jpeg"
+            ]
+        },
+
+        "Nevado de Toluca": {
+            desc: "Senderismo en el Cráter (Laguna del Sol y Laguna de la Luna): Caminatas de 3.5 a 5 horas dentro del cráter volcánico para contemplar sus aguas cristalinas y formaciones rocosas.Ascenso a las Cimas (Pico del Águila o Pico del Fraile): Rutas de mayor exigencia física y técnica para montañistas.Ruta de los Túneles: Un recorrido alternativo de aproximadamente 14 km entre bosques y túneles de piedra en las faldas del volcán.",
+            imgs: [
+                "Imagenes/Nevado de Toluca.jpg",
+                "Imagenes/Nevado de Toluca2.jpg",
+                "Imagenes/Nevado de Toluca3.jpg",
+                "Imagenes/Nevado de Toluca4.jpg"
+            ]
+        },
+
+        "Huasteca Potosina": {
+            desc: "Rafting (aguas bravas): Se practica en el Río Tampaón (rápidos de clase III ideales para disfrutar la adrenalina y el color azul del agua) y en tramos del Río Micos o El Meco. Salto de cascadas: En la Cascada de Micos puedes hacer una secuencia de saltos desde diferentes alturas con chaleco salvavidas y equipo de protección.Rappel y barranquismo: Descenso con cuerdas por las paredes de agua en lugares como la Cascada de Minas Viejas o cerca de la Cascada de Tamul.",
+            imgs: [
+                "Imagenes/Huasteca Potosina1.jpg",
+                "Imagenes/Huasteca Potosina2.jpg",
+                "Imagenes/Huasteca Potosina3.jpg",
+                "Imagenes/Huasteca Potosina4.jpg"
+            ]
+        },
+
+        "Everest Base Camp": {
+            desc: "Duración: 12 a 14 días de caminata (más días en Katmandú para traslados y aclimatación).Altitud máxima: Se alcanzan los 5,364 metros en el Campamento Base y los 5,545 metros en el mirador de Kala Patthar.Ruta y paisaje: Comienza con un vuelo a Lukla, atravesando puentes colgantes, bosques de rododendros, aldeas Sherpa, monasterios tibetanos y la morrena del Glaciar Khumbu.",
+            imgs: [
+                "Imagenes/Everest Base Camp1.jpg",
+                "Imagenes/Everest Base Camp2.avif",
+                "Imagenes/Everest Base Camp3.webp",
+                "Imagenes/Everest Base Camp4.webp"
+            ]
+        },
+
+        "Safari en Kenia": {
+            desc: "Masái Mara: La reserva más famosa de Kenia, hogar de los Cinco Grandes (león, leopardo, elefante, rinoceronte y búfalo) y escenario de la gran migración de ñus.Parque Nacional de Amboseli: Ideal para ver grandes manadas de elefantes con el majestuoso monte Kilimanjaro como fondo despejado.Parque Nacional de Tsavo East y West: Uno de los parques más grandes y antiguos, conocido por sus elefantes rojos y paisajes volcánicos.",
+            imgs: [
+                "Imagenes/Safari en Kenia.png",
+                "Imagenes/Safari en Kenia2.webp",
+                "Imagenes/Safari en Kenia3.jpg",
+                "Imagenes/Safari en Kenia4.webp",
+                "Imagenes/Safari en Kenia5.png"
+            ]
+        },
+
+        "Izta-Popo": {
+            desc: "Senderismo y montañismo: Rutas ideales para principiantes y avanzadas, como el ascenso hacia La Joya, la ruta a la Boca de Tiburón o recorridos por los manantiales.Ecoturismo y recreación: Centros ecoturísticos con lagos, paseos a caballo, ciclismo de montaña, tirolesa y cuatrimotos.Cultura: Visita al museo y registro en el histórico Paso de Cortés.",
+            imgs: [
+                "Imagenes/Izta-Popo.jpg",
+                "Imagenes/Izta-Popo2.jpg",
+                "Imagenes/Izta-Popo3.jpg",
+                "Imagenes/Izta-Popo4.jpg"
+            ]
+        },
+
+        "Cañón del Sumidero": {
+            desc: "Recorrido en lancha por el río Grijalva:• Duración: Alrededor de 2 horas.Embarcaderos principales: Chiapa de Corzo y Cahuaré (cerca de Tuxtla Gutiérrez).Costo referencial: Entre 350 y 400 MXN por persona para el paseo en lancha, más una tarifa de acceso al parque federal de aproximadamente 120-125 MXN.Qué ver: Paredes verticales de roca de hasta 1,000 metros de altura, el famoso Árbol de Navidad (formación de musgo y agua), cocodrilos de pantano, monos araña y diversas aves.",
+            imgs: [
+                "Imagenes/Cañón del Sumidero1.jpg",
+                "Imagenes/Cañón del Sumidero2.jpg",
+                "Imagenes/Cañón del Sumidero3.webp",
+                "Imagenes/Cañón del Sumidero5.jpg",
+                "Imagenes/Cañón del Sumidero4.jpg"
+            ]
+        },
+
+        "Sierra Gorda": {
+            desc: "Kayak y tubing: Recorridos guiados por el río Santa María (en la zona de Arroyo Seco) con rápidos clase 1 y paisajes de la cañada.Cuatrimotos y 4x4 (RZR): Expediciones todoterreno que bajan desde la serranía de San Joaquín hasta el fondo del cañón y el río Extoraz, finalizando en campamentos ecoturísticos.Trekking y senderismo: Rutas de larga distancia como la Travesía Sierra Gorda de 100 km, o caminatas desde el Mirador Cuatro Palos hasta comunidades como Bucareli.Cañonismo y grutas: Exploración de pozas turquesa en Puente de Dios (Río Escanela), la Cueva del Agua en Valle Verde y circuitos con tirolesa y puentes colgantes en Las Trancas.",
+            imgs: [
+                "Imagenes/Cañón del Sumidero1.jpg",
+                "Imagenes/Cañón del Sumidero2.jpg",
+                "Imagenes/Cañón del Sumidero3.webp",
+                "Imagenes/Cañón del Sumidero5.jpg",
+                "Imagenes/Cañón del Sumidero4.jpg"
+            ]
+        },
+
+        "El Chepe": {
+            desc: "• Barrancas del Cobre / Divisadero: Es la parada estelar para admirar los cañones.Parque Aventura Barrancas del Cobre (en Divisadero):Teleférico: Cruza parte de las barrancas con capacidad de 60 pasajeros.Tirolesas y ZipRider: Circuitos de alta velocidad, incluyendo una de las tirolesas más largas del mundo.Vía Ferrata: Incluye rappel (48 metros), puentes colgantes y el salto de Tarzán.Pueblo Mágico de Creel: Puerta de entrada a la Sierra Tarahumara y a la cultura rarámuri",
+            imgs: [
+                "Imagenes/El Chepe1.jpg",
+                "Imagenes/El Chepe2.jpg",
+                "Imagenes/El Chepe3.jpg",
+                "Imagenes/El Chepe4.jpg",
+                "Imagenes/El Chepe5.jpg"
+            ]
         }
 
     };
@@ -3882,21 +4131,31 @@
                 'Imagenes/sandos-caracol10.jpeg'
             ]
         },
+        
         'amatte': {
             titulo: 'Promociones Amatte',
             items: [
-                'Imagenes/flyer_amatte.jpg',
-                'Imagenes/amatte-2.jpg',
-                'Imagenes/amatte-3.jpg',
-                'Imagenes/amatte-4.jpg',
-                'Imagenes/amatte-5.jpg'
+                'Imagenes/FLYERAMATTE.jpeg',
+                'Imagenes/AMATTE.jpeg',
+                'Imagenes/AMATTE1.jpeg',
+                'Imagenes/AMATTE2.jpeg',
+                'Imagenes/AMATTE3.jpeg',
+                'Imagenes/AMATTE4.jpeg',
+                'Imagenes/AMATTE5.jpeg',
+                'Imagenes/AMATTE6.jpeg',
+                'Imagenes/AMATTE7.jpeg',
+                'Imagenes/AMATTE8.jpeg',
+                'Imagenes/AMATTE9.jpeg',
+                'Imagenes/AMATTE10.jpeg',
+                'Imagenes/AMATTE11.jpeg',
+                'Imagenes/AMATTE12.jpg'
             ]
         },
         'acapulco': {
             titulo: 'Promociones Acapulco',
             items: [
-                'Imagenes/flyer_acapulco.jpg',
-                'Imagenes/acapulcoflyerbuenfin.jpeg',
+                'Imagenes/FLYERCOACAPULCO.jpeg',
+                'Imagenes/acapulco1.jpeg',
                 'Imagenes/acapulco1.jpeg',
                 'Imagenes/acapulco2.jpeg',
                 'Imagenes/acapulco3.jpeg',
@@ -3905,7 +4164,7 @@
                 'Imagenes/acapulco6.jpeg',
                 'Imagenes/acapulco7.jpeg',
                 'Imagenes/acapulco8.jpeg',
-                'Imagenes/acapulco9.jp9eg',
+                'Imagenes/acapulco9.jpeg',
                 'Imagenes/acapulco10.jpeg',
                 'Imagenes/acapulco11.jpeg',
                 'Imagenes/acapulco12.jpeg'
