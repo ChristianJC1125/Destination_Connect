@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://destivatravel.vercel.app/sitemap.xml
