@@ -1,6 +1,3 @@
-/* =========================================================
-   FIREBASE
-========================================================= */
 const firebaseConfig = {
     apiKey: "AIzaSyC_XZ7BvaYVsDQNIvxaXdYRA-2mF7SvRL0",
     authDomain: "destination-connect-fd7dd.firebaseapp.com",
@@ -20,7 +17,6 @@ try {
 } catch (error) {
     console.error("Error inicializando Firebase:", error);
 }
-
 
 /* =========================================================
    ELEMENTOS
@@ -456,537 +452,515 @@ document.querySelectorAll("img").forEach(image => {
 /* =========================================================
    DATOS DE DESTINOS PARA MODALES
 ========================================================= */
- const destinosData = {
-        "Cancún": {
-            desc: "Cancún es una ciudad de México ubicada en la península de Yucatán que limita con el mar Caribe y que es conocida por sus playas, los numerosos centros turísticos y la vida nocturna. Se compone de 2 áreas distintas: el área del centro más tradicional y la Zona Hotelera, la franja costera con hoteles altos, clubes nocturnos, tiendas y restaurantes. Cancún también es un destino popular entre estudiantes durante el período de vacaciones universitarias en la primavera.",
-            imgs: [
-                "Imagenes/cancun-things-to-do-guide.jpg",
-                "Imagenes/cancun.2.webp",
-                "Imagenes/cancun-3.jpg",
-                "Imagenes/cancun-4.avif"
-            ]
-        },
+const destinosData = {
+    "Cancún": {
+        desc: "Cancún es una ciudad de México ubicada en la península de Yucatán que limita con el mar Caribe y que es conocida por sus playas, los numerosos centros turísticos y la vida nocturna. Se compone de 2 áreas distintas: el área del centro más tradicional y la Zona Hotelera, la franja costera con hoteles altos, clubes nocturnos, tiendas y restaurantes. Cancún también es un destino popular entre estudiantes durante el período de vacaciones universitarias en la primavera.",
+        imgs: [
+            "Imagenes/cancun-things-to-do-guide.jpg",
+            "Imagenes/cancun.2.webp",
+            "Imagenes/cancun-3.jpg",
+            "Imagenes/cancun-4.avif"
+        ]
+    },
 
-        "Riviera Maya": {
-            desc: "La Riviera Maya​ es una zona turística de México, situada en la costa del mar Caribe, en el estado de Quintana Roo. Geográficamente se extiende a lo largo del litoral, desde la localidad de Puerto Morelos al norte, hasta la localidad de Tulum al sur, con unos 210 km de longitud.",
-            imgs: [
-                "Imagenes/Riviera Maya.webp",
-                "Imagenes/riviera-2.webp",
-                "Imagenes/riviera-3.webp",
-                "Imagenes/riviera-4.webp"
-            ]
-        },
+    "Riviera Maya": {
+        desc: "La Riviera Maya​ es una zona turística de México, situada en la costa del mar Caribe, en el estado de Quintana Roo. Geográficamente se extiende a lo largo del litoral, desde la localidad de Puerto Morelos al norte, hasta la localidad de Tulum al sur, con unos 210 km de longitud.",
+        imgs: [
+            "Imagenes/Riviera Maya.webp",
+            "Imagenes/riviera-2.webp",
+            "Imagenes/riviera-3.webp",
+            "Imagenes/riviera-4.webp"
+        ]
+    },
 
-         "Los Cabos": {
-            desc: "Cabo San Lucas es un balneario en el extremo sur de la península de Baja California en México, conocido por sus playas, actividades acuáticas y vida nocturna. La Playa El Médano es la principal del Cabo, con restaurantes al aire libre y numerosos bares. Después de la marina, se encuentra el promontorio del Fin de la Tierra, donde está la Playa del Amor y El Arco, una arcada natural en los riscos marinos.",
-            imgs: [
-                "Imagenes/Los Cabos.jpg",
-                "Imagenes/loscabos-2.png",
-                "Imagenes/loscabos-3.avif",
-                "Imagenes/loscabos-4.webp"
-            ]
-        },
+    "Los Cabos": {
+        desc: "Cabo San Lucas es un balneario en el extremo sur de la península de Baja California en México, conocido por sus playas, actividades acuáticas y vida nocturna. La Playa El Médano es la principal del Cabo, con restaurantes al aire libre y numerosos bares. Después de la marina, se encuentra el promontorio del Fin de la Tierra, donde está la Playa del Amor y El Arco, una arcada natural en los riscos marinos.",
+        imgs: [
+            "Imagenes/Los Cabos.jpg",
+            "Imagenes/loscabos-2.png",
+            "Imagenes/loscabos-3.avif",
+            "Imagenes/loscabos-4.webp"
+        ]
+    },
 
-         "Puerto Vallarta": {
-            desc: "Cabo San Lucas es un balneario en el extremo sur de la península de Baja California en México, conocido por sus playas, actividades acuáticas y vida nocturna. La Playa El Médano es la principal del Cabo, con restaurantes al aire libre y numerosos bares. Después de la marina, se encuentra el promontorio del Fin de la Tierra, donde está la Playa del Amor y El Arco, una arcada natural en los riscos marinos.",
-            imgs: [
-                "Imagenes/PUERTOVALLARTA.jpg",
-                "Imagenes/puertovallarta-2.jpg",
-                "Imagenes/puertovallarta-3.jpg",
-                "Imagenes/puertovallarta-4.jpeg"
-            ]
-        },
+    "Puerto Vallarta": {
+        desc: "Cabo San Lucas es un balneario en el extremo sur de la península de Baja California en México, conocido por sus playas, actividades acuáticas y vida nocturna. La Playa El Médano es la principal del Cabo, con restaurantes al aire libre y numerosos bares. Después de la marina, se encuentra el promontorio del Fin de la Tierra, donde está la Playa del Amor y El Arco, una arcada natural en los riscos marinos.",
+        imgs: [
+            "Imagenes/PUERTOVALLARTA.jpg",
+            "Imagenes/puertovallarta-2.jpg",
+            "Imagenes/puertovallarta-3.jpg",
+            "Imagenes/puertovallarta-4.jpeg"
+        ]
+    },
 
-       "Punta Cana": {
-            desc: "Punta Cana, el extremo más oriental de República Dominicana, limita con el mar Caribe y con el océano Atlántico. Es una región conocida por sus 32 km de extensión de playas y aguas claras. El área del Bávaro y Punta Cana se combinan para formar lo que se conoce como La Costa del Coco, un área con exclusivos centros turísticos con todo incluido. Es popular por sus tirolesas, el windsurf, el kayak y la navegación.Cabo San Lucas es un balneario en el extremo sur de la península de Baja California en México, conocido por sus playas, actividades acuáticas y vida nocturna. La Playa El Médano es la principal del Cabo, con restaurantes al aire libre y numerosos bares. Después de la marina, se encuentra el promontorio del Fin de la Tierra, donde está la Playa del Amor y El Arco, una arcada natural en los riscos marinos.",
-                imgs: [
-                "Imagenes/puntacana.webp",
-                "Imagenes/puntacana-2.webp",
-                "Imagenes/puntacana-3.jpg",
-                "Imagenes/puntacana-4.webp"
-            ]
-        },
+    "Punta Cana": {
+        desc: "Punta Cana, el extremo más oriental de República Dominicana, limita con el mar Caribe y con el océano Atlántico. Es una región conocida por sus 32 km de extensión de playas y aguas claras. El área del Bávaro y Punta Cana se combinan para formar lo que se conoce como La Costa del Coco, un área con exclusivos centros turísticos con todo incluido. Es popular por sus tirolesas, el windsurf, el kayak y la navegación.Cabo San Lucas es un balneario en el extremo sur de la península de Baja California en México, conocido por sus playas, actividades acuáticas y vida nocturna. La Playa El Médano es la principal del Cabo, con restaurantes al aire libre y numerosos bares. Después de la marina, se encuentra el promontorio del Fin de la Tierra, donde está la Playa del Amor y El Arco, una arcada natural en los riscos marinos.",
+        imgs: [
+            "Imagenes/puntacana.webp",
+            "Imagenes/puntacana-2.webp",
+            "Imagenes/puntacana-3.jpg",
+            "Imagenes/puntacana-4.webp"
+        ]
+    },
 
-        "Maldivas": {
-            desc: "Maldivas es un país tropical en el océano Índico que abarca 26 atolones con forma de anillos que se componen de más de 1,000 islas de coral. Es conocido por las playas, las lagunas azules y los extensos arrecifes. La capital, Malé, tiene un mercado de pescado ajetreado, restaurantes y tiendas en la avenida principal, Majeedhee Magu, y la mezquita del siglo XVII Hukuru Miskiy (también conocida como la Mezquita del Viernes), hecha de coral blanco tallado.",
-            imgs: [
-                "Imagenes/maldivas.jfif",
-                "Imagenes/maldivas-2.avif",
-                "Imagenes/maldivas-4.jpg",
-                "Imagenes/maldivas-4.jpg"
-            ]
-        },
+    "Maldivas": {
+        desc: "Maldivas es un país tropical en el océano Índico que abarca 26 atolones con forma de anillos que se componen de más de 1,000 islas de coral. Es conocido por las playas, las lagunas azules y los extensos arrecifes. La capital, Malé, tiene un mercado de pescado ajetreado, restaurantes y tiendas en la avenida principal, Majeedhee Magu, y la mezquita del siglo XVII Hukuru Miskiy (también conocida como la Mezquita del Viernes), hecha de coral blanco tallado.",
+        imgs: [
+            "Imagenes/maldivas.jfif",
+            "Imagenes/maldivas-2.avif",
+            "Imagenes/maldivas-4.jpg",
+            "Imagenes/maldivas-4.jpg"
+        ]
+    },
 
-        "Isla Mujeres": {
-            desc: "Isla Mujeres es un pueblo mágico e isla en el Mar Caribe, situada a 13 kilómetros de la costa de Cancún en el estado de Quintana Roo, México ",
-            imgs: [
-                "Imagenes/islamujeres.jpg",
-                "Imagenes/islamujeres-2.avif",
-                "Imagenes/islamujeres-3.jpg",
-                "Imagenes/islamujeres-4.jpg"
-            ]
-        },
+    "Isla Mujeres": {
+        desc: "Isla Mujeres es un pueblo mágico e isla en el Mar Caribe, situada a 13 kilómetros de la costa de Cancún en el estado de Quintana Roo, México ",
+        imgs: [
+            "Imagenes/islamujeres.jpg",
+            "Imagenes/islamujeres-2.avif",
+            "Imagenes/islamujeres-3.jpg",
+            "Imagenes/islamujeres-4.jpg"
+        ]
+    },
 
-        "Huatulco": {
-            desc: "Huatulco es una población del estado mexicano de Oaxaca, siendo la cabecera del Municipio de Santa María Huatulco, localizado en la Costa Oaxaqueña. Fue fundada el 8 de enero de 1539 por Pedro de Alvarado, aunque indicios señalan que fue años antes.",
-            imgs: [
-                "Imagenes/huatulco.jpg",
-                "Imagenes/huatulco-2.jpg",
-                "Imagenes/huatulco-3.jpg",
-                "Imagenes/huatulco-4.webp"
-            ]
-        },
-
-
-        "Sayulita": {
-            desc: "Sayulita es una aldea de México en la costa del Pacífico que tiene a sus espaldas las montañas de la Sierra Madre Occidental. Es conocida por sus playas con fuerte oleaje, como la playa Sayulita central. Al oeste, la Playa de los Muertos está más resguardada entre rocas que la protegen. Las galerías de Sayulita venden obras de arte del pueblo indígena huichol. Al suroeste, las Islas Marietas tienen una fauna diversa que incluye ballenas jorobadas y delfines.",
-            imgs: [
-                "Imagenes/sayulita",
-                "Imagenes/sayulita-2.jpg",
-                "Imagenes/sayulita-3.jpg",
-                "Imagenes/sayulita-4.jpg"
-            ]
-        },
-
-        "Mazatlán": {
-            desc: "Mazatlán es un balneario mexicano de la costa del Pacífico en el estado de Sinaloa. Las playas de arena bordean su malecón de 21 km de largo y el lugar es famoso por la pesca de altura. En su Centro Histórico, o Viejo Mazatlán, los sitios icónicos del siglo XIX incluyen el Teatro Ángela Peralta y la altísima basílica de la Inmaculada Concepción. El distrito moderno Zona Dorada es conocido por su vida nocturna y hoteles.",
-            imgs: [
-                "Imagenes/mazatlan.webp",
-                "Imagenes/mazatlan-2.jpg",
-                "Imagenes/mazatlan-3.jpg",
-                "Imagenes/mazatlan-4.jpg"
-            ]
-        },
-
-        "Mazatlan": {
-            desc: "Mazatlán es un balneario mexicano de la costa del Pacífico en el estado de Sinaloa. Las playas de arena bordean su malecón de 21 km de largo y el lugar es famoso por la pesca de altura. En su Centro Histórico, o Viejo Mazatlán, los sitios icónicos del siglo XIX incluyen el Teatro Ángela Peralta y la altísima basílica de la Inmaculada Concepción. El distrito moderno Zona Dorada es conocido por su vida nocturna y hoteles.",
-            imgs: [
-                "Imagenes/mazatlan.webp",
-                "Imagenes/mazatlan-2.jpg",
-                "Imagenes/mazatlan-3.jpg",
-                "Imagenes/mazatlan-4.jpg"
-            ]
-        },
-
-        "San Blas": {
-            desc: "Descubre San Blas, Nayarit: un destino mágico entre arquitectura colonial, manglares y playas vírgenes. San Blas es famoso principalmente por su historia como puerto colonial estratégico en Nayarit, México, por su riqueza natural y por la popular canción de la banda Maná",
-             imgs: [
-                "Imagenes/SANBLAS.jpg",
-                "Imagenes/sanblas-2.jpg",
-                "Imagenes/sanblas-3.jpg",
-                "Imagenes/sanblas-4.avif"
-            ]
-        },
-
-        "París": {
-            desc: "La ciudad de la luz te espera con su icónica Torre Eiffel, el Museo del Louvre, paseos por el Sena y la mejor gastronomía y moda del mundo.",
-            imgs: [
-                "Imagenes/PARIS.jfif",
-                "Imagenes/paris-2.jpg",
-                "Imagenes/paris-3.avif",
-                "Imagenes/paris-4.webp"
-            ]
-        },
-        
-           "Roma": {
-            desc: "Roma, la capital de Italia, es una extensa ciudad cosmopolita que tiene a la vista casi 3,000 años de arte, arquitectura y cultura de influencia mundial. Las ruinas antiguas como las del Foro y el Coliseo evocan el poder del antiguo Imperio Romano. La ciudad del Vaticano, sede central de la Iglesia católica romana, cuenta con la Basílica de San Pedro y los Museos del Vaticano, que albergan obras maestras como los frescos de la Capilla Sixtina de Miguel Ángel.",
-            imgs: [
-                "Imagenes/ROMA.jpg",
-                "Imagenes/roma-2.jpg",
-                "Imagenes/roma-3.jpg",
-                "Imagenes/roma-4.jpg"
-            ]
-        },
+    "Huatulco": {
+        desc: "Huatulco es una población del estado mexicano de Oaxaca, siendo la cabecera del Municipio de Santa María Huatulco, localizado en la Costa Oaxaqueña. Fue fundada el 8 de enero de 1539 por Pedro de Alvarado, aunque indicios señalan que fue años antes.",
+        imgs: [
+            "Imagenes/huatulco.jpg",
+            "Imagenes/huatulco-2.jpg",
+            "Imagenes/huatulco-3.jpg",
+            "Imagenes/huatulco-4.webp"
+        ]
+    },
 
 
-        "Londres": {
-            desc: "Londres, la capital de Inglaterra y del Reino Unido, es una ciudad del siglo XXI con una historia que se remonta a la época romana. En su centro se alzan el imponente Palacio del Parlamento, la torre del icónico reloj Big Ben y la Abadía de Westminster, lugar de las coronaciones monárquicas británicas. Al otro lado del río Támesis, la rueda de observación London Eye ofrece vistas panorámicas del complejo cultural South Bank y de toda la ciudad.",
-            imgs: [
-                "Imagenes/LONDRES.jpg",
-                "Imagenes/londres-2.jpg",
-                "Imagenes/londres-3.jpg",
-                "Imagenes/londres-4.webp"
-            ]
-        },
+    "Sayulita": {
+        desc: "Sayulita es una aldea de México en la costa del Pacífico que tiene a sus espaldas las montañas de la Sierra Madre Occidental. Es conocida por sus playas con fuerte oleaje, como la playa Sayulita central. Al oeste, la Playa de los Muertos está más resguardada entre rocas que la protegen. Las galerías de Sayulita venden obras de arte del pueblo indígena huichol. Al suroeste, las Islas Marietas tienen una fauna diversa que incluye ballenas jorobadas y delfines.",
+        imgs: [
+            "Imagenes/sayulita",
+            "Imagenes/sayulita-2.jpg",
+            "Imagenes/sayulita-3.jpg",
+            "Imagenes/sayulita-4.jpg"
+        ]
+    },
+
+    "Mazatlán": {
+        desc: "Mazatlán es un balneario mexicano de la costa del Pacífico en el estado de Sinaloa. Las playas de arena bordean su malecón de 21 km de largo y el lugar es famoso por la pesca de altura. En su Centro Histórico, o Viejo Mazatlán, los sitios icónicos del siglo XIX incluyen el Teatro Ángela Peralta y la altísima basílica de la Inmaculada Concepción. El distrito moderno Zona Dorada es conocido por su vida nocturna y hoteles.",
+        imgs: [
+            "Imagenes/mazatlan.webp",
+            "Imagenes/mazatlan-2.jpg",
+            "Imagenes/mazatlan-3.jpg",
+            "Imagenes/mazatlan-4.jpg"
+        ]
+    },
+
+    "Mazatlan": {
+        desc: "Mazatlán es un balneario mexicano de la costa del Pacífico en el estado de Sinaloa. Las playas de arena bordean su malecón de 21 km de largo y el lugar es famoso por la pesca de altura. En su Centro Histórico, o Viejo Mazatlán, los sitios icónicos del siglo XIX incluyen el Teatro Ángela Peralta y la altísima basílica de la Inmaculada Concepción. El distrito moderno Zona Dorada es conocido por su vida nocturna y hoteles.",
+        imgs: [
+            "Imagenes/mazatlan.webp",
+            "Imagenes/mazatlan-2.jpg",
+            "Imagenes/mazatlan-3.jpg",
+            "Imagenes/mazatlan-4.jpg"
+        ]
+    },
+
+    "San Blas": {
+        desc: "Descubre San Blas, Nayarit: un destino mágico entre arquitectura colonial, manglares y playas vírgenes. San Blas es famoso principalmente por su historia como puerto colonial estratégico en Nayarit, México, por su riqueza natural y por la popular canción de la banda Maná",
+        imgs: [
+            "Imagenes/SANBLAS.jpg",
+            "Imagenes/sanblas-2.jpg",
+            "Imagenes/sanblas-3.jpg",
+            "Imagenes/sanblas-4.avif"
+        ]
+    },
+
+    "París": {
+        desc: "La ciudad de la luz te espera con su icónica Torre Eiffel, el Museo del Louvre, paseos por el Sena y la mejor gastronomía y moda del mundo.",
+        imgs: [
+            "Imagenes/PARIS.jfif",
+            "Imagenes/paris-2.jpg",
+            "Imagenes/paris-3.avif",
+            "Imagenes/paris-4.webp"
+        ]
+    },
+
+    "Roma": {
+        desc: "Roma, la capital de Italia, es una extensa ciudad cosmopolita que tiene a la vista casi 3,000 años de arte, arquitectura y cultura de influencia mundial. Las ruinas antiguas como las del Foro y el Coliseo evocan el poder del antiguo Imperio Romano. La ciudad del Vaticano, sede central de la Iglesia católica romana, cuenta con la Basílica de San Pedro y los Museos del Vaticano, que albergan obras maestras como los frescos de la Capilla Sixtina de Miguel Ángel.",
+        imgs: [
+            "Imagenes/ROMA.jpg",
+            "Imagenes/roma-2.jpg",
+            "Imagenes/roma-3.jpg",
+            "Imagenes/roma-4.jpg"
+        ]
+    },
 
 
-
-        "Nueva York": {
-            desc: "Nueva York incluye 5 distritos que se ubican donde el río Hudson desemboca en el océano Atlántico. En su centro se encuentra Manhattan, un distrito densamente poblado que se encuentra entre los principales centros comerciales, financieros y culturales del mundo. Sus sitios icónicos incluyen rascacielos, como el Empire State Building, y el amplio Central Park. El teatro Broadway se ubica en la zona del Times Square iluminada con neones.",
-            imgs: [
-                "Imagenes/NUEVA YORK.jfif",
-                "Imagenes/nuevayork-2.jpg",
-                "Imagenes/nuevayork-3.webp",
-                "Imagenes/nuevayork-4.jpg"
-            ]
-        },
-
-
-        "Roma": {
-            desc: "Roma, la capital de Italia, es una extensa ciudad cosmopolita que tiene a la vista casi 3,000 años de arte, arquitectura y cultura de influencia mundial. Las ruinas antiguas como las del Foro y el Coliseo evocan el poder del antiguo Imperio Romano. La ciudad del Vaticano, sede central de la Iglesia católica romana, cuenta con la Basílica de San Pedro y los Museos del Vaticano, que albergan obras maestras como los frescos de la Capilla Sixtina de Miguel Ángel.",
-            imgs: [
-                "Imagenes/ROMA.jpg",
-                "Imagenes/roma-2.jpg",
-                "Imagenes/roma-3.jpg",
-                "Imagenes/roma-4.jpg"
-            ]
-        },
+    "Londres": {
+        desc: "Londres, la capital de Inglaterra y del Reino Unido, es una ciudad del siglo XXI con una historia que se remonta a la época romana. En su centro se alzan el imponente Palacio del Parlamento, la torre del icónico reloj Big Ben y la Abadía de Westminster, lugar de las coronaciones monárquicas británicas. Al otro lado del río Támesis, la rueda de observación London Eye ofrece vistas panorámicas del complejo cultural South Bank y de toda la ciudad.",
+        imgs: [
+            "Imagenes/LONDRES.jpg",
+            "Imagenes/londres-2.jpg",
+            "Imagenes/londres-3.jpg",
+            "Imagenes/londres-4.webp"
+        ]
+    },
 
 
-        "Venecia": {
-            desc: "Venecia, la capital de la región de Véneto en el norte de Italia, abarca más de 100 islas pequeñas en una laguna del mar Adriático. No tiene caminos, sino solo canales, incluida la vía pública del Gran Canal, bordeada de palacios renacentistas y góticos. En la plaza central de San Marcos, se encuentra la basílica de San Marcos, que tiene un suelo de mosaicos bizantinos, y el campanario Campanile con vista a los techos rojos de la ciudad.",
-            imgs: [
-                "Imagenes/Venecia.jfif",
-                "Imagenes/venecia-2.webp",
-                "Imagenes/venecia-3.jpg",
-                "Imagenes/venecia-4.webp"
-            ]
-        },
-
-        "Barcelona": {
-            desc: "Barcelona, la capital cosmopolita de la región de Cataluña en España, es conocida por su arte y arquitectura. La fantástica iglesia de la Sagrada Familia y otros hitos modernistas diseñados por Antoni Gaudí adornan la ciudad. El Museo Picasso y la Fundación Joan Miró muestran el arte moderno de los artistas que dan origen a sus nombres. El Museo de Historia de Barcelona (MUHBA) incluye varios sitios arqueológicos romanos.",
-            imgs: [
-                "Imagenes/barcelona.jfif",
-                "Imagenes/barcelona-2.jpg",
-                "Imagenes/barcelona-3.jpg",
-                "Imagenes/barcelona-4.jpg"
-            ]
-        },
-
-        "Roma": {
-            desc: "Roma, la capital de Italia, es una extensa ciudad cosmopolita que tiene a la vista casi 3,000 años de arte, arquitectura y cultura de influencia mundial. Las ruinas antiguas como las del Foro y el Coliseo evocan el poder del antiguo Imperio Romano. La ciudad del Vaticano, sede central de la Iglesia católica romana, cuenta con la Basílica de San Pedro y los Museos del Vaticano, que albergan obras maestras como los frescos de la Capilla Sixtina de Miguel Ángel.",
-            imgs: [
-                "Imagenes/ROMA.jpg",
-                "Imagenes/roma-2.jpg",
-                "Imagenes/roma-3.jpg",
-                "Imagenes/roma-4.jpg"
-            ]
-        },
-
-        "Ámsterdam": {
-            desc: "Amsterdam es la capital de los Países Bajos, conocida por su patrimonio artístico, su elaborado sistema de canales y sus casas angostas con fachadas de dos aguas, herencias de la Edad de Oro de la ciudad durante el siglo XVII. El Distrito de Museos alberga el Museo van Gogh, obras de Rembrandt y Vermeer en el Rijksmuseum, y arte moderno en el Museo Stedelijk. El ciclismo es clave en la identidad de la ciudad y existen varios senderos para practicarlo. ",
-             imgs: [
-                "Imagenes/amsterdam.webp",
-                "Imagenes/amsterdam-2.jpg",
-                "Imagenes/amsterdam-3.jpg",
-                "Imagenes/amsterdam-4.webp"
-            ]
-        },
+    "Nueva York": {
+        desc: "Nueva York incluye 5 distritos que se ubican donde el río Hudson desemboca en el océano Atlántico. En su centro se encuentra Manhattan, un distrito densamente poblado que se encuentra entre los principales centros comerciales, financieros y culturales del mundo. Sus sitios icónicos incluyen rascacielos, como el Empire State Building, y el amplio Central Park. El teatro Broadway se ubica en la zona del Times Square iluminada con neones.",
+        imgs: [
+            "Imagenes/NUEVA YORK.jfif",
+            "Imagenes/nuevayork-2.jpg",
+            "Imagenes/nuevayork-3.webp",
+            "Imagenes/nuevayork-4.jpg"
+        ]
+    },
 
 
-        "Praga": {
-            desc: "Praga, capital de la República Checa, está dividida por el río Moldava. Conocida como «la ciudad de las cien torres», es famosa por su Plaza de la Ciudad Vieja, el corazón de su centro histórico, con coloridos edificios barrocos, iglesias góticas y el reloj astronómico medieval, que ofrece un espectáculo animado cada hora. El puente peatonal de Carlos, terminado en 1402, está flanqueado por estatuas de santos católicos.",
-            imgs: [
-                "Imagenes/praga.webp",
-                "Imagenes/praga-2.jpg",
-                "Imagenes/praga-3.jpg",
-                "Imagenes/praga-4.jpg"
-            ]
-        },
+    "Venecia": {
+        desc: "Venecia, la capital de la región de Véneto en el norte de Italia, abarca más de 100 islas pequeñas en una laguna del mar Adriático. No tiene caminos, sino solo canales, incluida la vía pública del Gran Canal, bordeada de palacios renacentistas y góticos. En la plaza central de San Marcos, se encuentra la basílica de San Marcos, que tiene un suelo de mosaicos bizantinos, y el campanario Campanile con vista a los techos rojos de la ciudad.",
+        imgs: [
+            "Imagenes/Venecia.jfif",
+            "Imagenes/venecia-2.webp",
+            "Imagenes/venecia-3.jpg",
+            "Imagenes/venecia-4.webp"
+        ]
+    },
 
-        "Estambul": {
-            desc: "",
-            imgs: [
-                "Imagenes/estambul.jpg",
-                "Imagenes/estambul-2.webp",
-                "Imagenes/estambul-3.webp",
-                "Imagenes/estambul-4.jpg"
-            ]
-        },
+    "Barcelona": {
+        desc: "Barcelona, la capital cosmopolita de la región de Cataluña en España, es conocida por su arte y arquitectura. La fantástica iglesia de la Sagrada Familia y otros hitos modernistas diseñados por Antoni Gaudí adornan la ciudad. El Museo Picasso y la Fundación Joan Miró muestran el arte moderno de los artistas que dan origen a sus nombres. El Museo de Historia de Barcelona (MUHBA) incluye varios sitios arqueológicos romanos.",
+        imgs: [
+            "Imagenes/barcelona.jfif",
+            "Imagenes/barcelona-2.jpg",
+            "Imagenes/barcelona-3.jpg",
+            "Imagenes/barcelona-4.jpg"
+        ]
+    },
 
-        "Bali": {
-            desc: "Bali es una paradisíaca isla y provincia de Indonesia, famosa a nivel mundial por sus frondosas montañas volcánicas, sus icónicos arrozales en terrazas, sus playas tropicales y una profunda riqueza cultural y espiritual que le ha valido el apodo de la (Isla de los Dioses). Al ser un oasis predominantemente hinduista dentro del país musulmán más poblado del mundo, ofrece una atmósfera mística única reflejada en sus miles de templos y coloridas ceremonias diarias.",
-            imgs: [
-                "Imagenes/Bali.jpg",
-                "Imagenes/bali-2.webp",
-                "Imagenes/bali-3.webp",
-                "Imagenes/bali-4.webp"
-            ]
-        },
-
-        "Ciudad de México": {
-            desc: "Ciudad de México es la densamente poblada capital de México que se encuentra a gran altura. Es famosa por su Templo Mayor (un templo azteca del siglo XIII), la Catedral Metropolitana de México, de estilo barroco, de los conquistadores españoles y el Palacio Nacional, que alberga murales históricos de Diego Rivera. Todos estos hitos se ubican en torno a la Plaza de la Constitución, la enorme plaza principal conocida también como el Zócalo.",
-            imgs: [
-                "Imagenes/ciudad-de-mexico-destino-unico-y-capital-cultural-de-america1.jpg",
-                "Imagenes/cdmx-2.webp",
-                "Imagenes/cdmx-3.jpg",
-                "Imagenes/cdmx-4.png"
-            ]
-        },
-
-        "Oaxaca": {
-            desc: "Oaxaca es un estado del sur de México conocido por sus culturas indígenas. Su ciudad capital, que lleva el mismo nombre, tiene edificios coloniales, a menudo, construidos con piedra volcánica verde. En la plaza principal, El Zócalo, se alza la catedral de Oaxaca, de estilo barroco. Fuera de la ciudad, los sitios arqueológicos precolombinos incluyen Mitla, Yagul y Monte Albán, la capital zapoteca que data de alrededor del año 500 a. C.",
-            imgs: [
-                "Imagenes/Oaxaca.jfif",
-                "Imagenes/cdmx-2.webp",
-                "Imagenes/cdmx-3.jpg",
-                "Imagenes/cdmx-4.png"
-            ]
-        },
+    "Ámsterdam": {
+        desc: "Amsterdam es la capital de los Países Bajos, conocida por su patrimonio artístico, su elaborado sistema de canales y sus casas angostas con fachadas de dos aguas, herencias de la Edad de Oro de la ciudad durante el siglo XVII. El Distrito de Museos alberga el Museo van Gogh, obras de Rembrandt y Vermeer en el Rijksmuseum, y arte moderno en el Museo Stedelijk. El ciclismo es clave en la identidad de la ciudad y existen varios senderos para practicarlo. ",
+        imgs: [
+            "Imagenes/amsterdam.webp",
+            "Imagenes/amsterdam-2.jpg",
+            "Imagenes/amsterdam-3.jpg",
+            "Imagenes/amsterdam-4.webp"
+        ]
+    },
 
 
-        "San Miguel de Allende": {
-            desc: "San Miguel de Allende, una ciudad de la época colonial en la zona alta central de México, es conocida por su arquitectura barroca española, su activa escena artística y sus festivales culturales. En el centro histórico de adoquines de la ciudad, se encuentra la Parroquia de San Miguel Arcángel, de estilo neogótico, cuyas espectaculares torres rosas se alzan por sobre la plaza principal, El Jardín. Cerca se encuentra la iglesia del Templo de San Francisco con una fachada churrigueresca del siglo XVIII.",
-            imgs: [
-                "Imagenes/San-Miguel-de-Allende.jpeg",
-                "Imagenes/sanmiguel-2.avif",
-                "Imagenes/sanmiguel-3.jpg",
-                "Imagenes/sanmiguel-4.webp"
-            ]
-        },
+    "Praga": {
+        desc: "Praga, capital de la República Checa, está dividida por el río Moldava. Conocida como «la ciudad de las cien torres», es famosa por su Plaza de la Ciudad Vieja, el corazón de su centro histórico, con coloridos edificios barrocos, iglesias góticas y el reloj astronómico medieval, que ofrece un espectáculo animado cada hora. El puente peatonal de Carlos, terminado en 1402, está flanqueado por estatuas de santos católicos.",
+        imgs: [
+            "Imagenes/praga.webp",
+            "Imagenes/praga-2.jpg",
+            "Imagenes/praga-3.jpg",
+            "Imagenes/praga-4.jpg"
+        ]
+    },
+
+    "Estambul": {
+        desc: "",
+        imgs: [
+            "Imagenes/estambul.jpg",
+            "Imagenes/estambul-2.webp",
+            "Imagenes/estambul-3.webp",
+            "Imagenes/estambul-4.jpg"
+        ]
+    },
+
+    "Bali": {
+        desc: "Bali es una paradisíaca isla y provincia de Indonesia, famosa a nivel mundial por sus frondosas montañas volcánicas, sus icónicos arrozales en terrazas, sus playas tropicales y una profunda riqueza cultural y espiritual que le ha valido el apodo de la (Isla de los Dioses). Al ser un oasis predominantemente hinduista dentro del país musulmán más poblado del mundo, ofrece una atmósfera mística única reflejada en sus miles de templos y coloridas ceremonias diarias.",
+        imgs: [
+            "Imagenes/Bali.jpg",
+            "Imagenes/bali-2.webp",
+            "Imagenes/bali-3.webp",
+            "Imagenes/bali-4.webp"
+        ]
+    },
+
+    "Ciudad de México": {
+        desc: "Ciudad de México es la densamente poblada capital de México que se encuentra a gran altura. Es famosa por su Templo Mayor (un templo azteca del siglo XIII), la Catedral Metropolitana de México, de estilo barroco, de los conquistadores españoles y el Palacio Nacional, que alberga murales históricos de Diego Rivera. Todos estos hitos se ubican en torno a la Plaza de la Constitución, la enorme plaza principal conocida también como el Zócalo.",
+        imgs: [
+            "Imagenes/ciudad-de-mexico-destino-unico-y-capital-cultural-de-america1.jpg",
+            "Imagenes/cdmx-2.webp",
+            "Imagenes/cdmx-3.jpg",
+            "Imagenes/cdmx-4.png"
+        ]
+    },
+
+    "Oaxaca": {
+        desc: "Oaxaca es un estado del sur de México conocido por sus culturas indígenas. Su ciudad capital, que lleva el mismo nombre, tiene edificios coloniales, a menudo, construidos con piedra volcánica verde. En la plaza principal, El Zócalo, se alza la catedral de Oaxaca, de estilo barroco. Fuera de la ciudad, los sitios arqueológicos precolombinos incluyen Mitla, Yagul y Monte Albán, la capital zapoteca que data de alrededor del año 500 a. C.",
+        imgs: [
+            "Imagenes/Oaxaca.jfif",
+            "Imagenes/cdmx-2.webp",
+            "Imagenes/cdmx-3.jpg",
+            "Imagenes/cdmx-4.png"
+        ]
+    },
 
 
-        "Guanajuato": {
-            desc: "Ciudad de México es la densamente poblada capital de México que se encuentra a gran altura. Es famosa por su Templo Mayor (un templo azteca del siglo XIII), la Catedral Metropolitana de México, de estilo barroco, de los conquistadores españoles y el Palacio Nacional, que alberga murales históricos de Diego Rivera. Todos estos hitos se ubican en torno a la Plaza de la Constitución, la enorme plaza principal conocida también como el Zócalo.",
-            imgs: [
-                "Imagenes/ciudad-de-mexico-destino-unico-y-capital-cultural-de-america1.jpg",
-                "Imagenes/cdmx-2.webp",
-                "Imagenes/cdmx-3.jpg",
-                "Imagenes/cdmx-4.png"
-            ]
-        },
+    "San Miguel de Allende": {
+        desc: "San Miguel de Allende, una ciudad de la época colonial en la zona alta central de México, es conocida por su arquitectura barroca española, su activa escena artística y sus festivales culturales. En el centro histórico de adoquines de la ciudad, se encuentra la Parroquia de San Miguel Arcángel, de estilo neogótico, cuyas espectaculares torres rosas se alzan por sobre la plaza principal, El Jardín. Cerca se encuentra la iglesia del Templo de San Francisco con una fachada churrigueresca del siglo XVIII.",
+        imgs: [
+            "Imagenes/San-Miguel-de-Allende.jpeg",
+            "Imagenes/sanmiguel-2.avif",
+            "Imagenes/sanmiguel-3.jpg",
+            "Imagenes/sanmiguel-4.webp"
+        ]
+    },
 
 
-        "Tokio": {
-            desc: "Tokio, la ajetreada capital de Japón, mezcla lo ultramoderno y lo tradicional, desde los rascacielos iluminados con neones hasta los templos históricos. El opulento santuario Shinto Meiji es conocido por su puerta altísima y los bosques circundantes. El Palacio Imperial se ubica en medio de grandes jardines públicos. Los distintos museos de la ciudad ofrecen exhibiciones que van desde el arte clásico (en el Museo Nacional de Tokio) hasta un teatro kabuki reconstruido (en el Museo Edo-Tokyo)",
-            imgs: [
-                "Imagenes/Tokio2.webp",
-                "Imagenes/Tokio1.jpg",
-                "Imagenes/tokio-3.webp",
-                "Imagenes/tokio-2.jpg"
-            ]
-        },
-
-        
-        "Dubái": {
-            desc: "Dubái es una ciudad emirato de los Emiratos Árabes Unidos conocida por su lujoso comercio, la arquitectura ultramoderna y su vida nocturna animada. Burj Khalifa, una torre de 830 m de alto, domina el paisaje lleno de rascacielos. A sus pies se encuentra la Fuente de Dubái, con coreografías de chorros y luces al ritmo de la música. En las islas artificiales justo frente a la costa están Atlantis, la Palma, un centro turístico con agua y parques de animales marinos.",
-            imgs: [
-                "Imagenes/Dubái.webp",
-                "Imagenes/Dubái2.jpg",
-                "Imagenes/Dubái3.avif",
-                "Imagenes/Dubái4.jpg"
-            ]
-        },
+    "Guanajuato": {
+        desc: "Ciudad de México es la densamente poblada capital de México que se encuentra a gran altura. Es famosa por su Templo Mayor (un templo azteca del siglo XIII), la Catedral Metropolitana de México, de estilo barroco, de los conquistadores españoles y el Palacio Nacional, que alberga murales históricos de Diego Rivera. Todos estos hitos se ubican en torno a la Plaza de la Constitución, la enorme plaza principal conocida también como el Zócalo.",
+        imgs: [
+            "Imagenes/ciudad-de-mexico-destino-unico-y-capital-cultural-de-america1.jpg",
+            "Imagenes/cdmx-2.webp",
+            "Imagenes/cdmx-3.jpg",
+            "Imagenes/cdmx-4.png"
+        ]
+    },
 
 
-         "Berlín": {
-            desc: "Berlín, capital alemana, data del siglo XIII. Los elementos que recuerdan la turbulenta historia de la ciudad en el siglo XX incluyen el Monumento del Holocausto y los restos del Muro de Berlín con grafitis. Después de dividirse durante la Guerra Fría, la Puerta de Brandeburgo del siglo XVIII se convirtió en un símbolo de la reunificación. La ciudad es conocida por su ambiente artístico y los sitios geográficos modernos, como la Filarmónica de Berlín, construida en 1963, de color dorado y con un diseño de paneles que se desprenden de su techo.",
-            imgs: [
-                "Imagenes/Berlín.jpg",
-                "Imagenes/Berlín2.jpg",
-                "Imagenes/Berlín3.jpg",
-                "Imagenes/Berlín4.jpg"
-            ]
-        },
+    "Tokio": {
+        desc: "Tokio, la ajetreada capital de Japón, mezcla lo ultramoderno y lo tradicional, desde los rascacielos iluminados con neones hasta los templos históricos. El opulento santuario Shinto Meiji es conocido por su puerta altísima y los bosques circundantes. El Palacio Imperial se ubica en medio de grandes jardines públicos. Los distintos museos de la ciudad ofrecen exhibiciones que van desde el arte clásico (en el Museo Nacional de Tokio) hasta un teatro kabuki reconstruido (en el Museo Edo-Tokyo)",
+        imgs: [
+            "Imagenes/Tokio2.webp",
+            "Imagenes/Tokio1.jpg",
+            "Imagenes/tokio-3.webp",
+            "Imagenes/tokio-2.jpg"
+        ]
+    },
 
 
-        "Lisboa": {
-            desc: "Lisboa es la capital costera y montañosa de Portugal. Desde el imponente castillo de San Jorge, la vista abarca los edificios de colores pastel en la ciudad antigua, el estuario del Tajo y el puente colgante 25 de Abril. Cerca, el Museo Nacional del Azulejo exhibe 5 siglos de azulejos de cerámica decorativos. Justo fuera de Lisboa hay una franja de playas en el Atlántico, desde Cascaes hasta Estoril.",
-            imgs: [
-                "Imagenes/Lisboa.jpg",
-                "Imagenes/Lisboa2.avif",
-                "Imagenes/Lisboa3.jpg",
-                "Imagenes/Lisboa4.webp"
-            ]
-        },
-
-        "Seúl": {
-            desc: "Seúl, pronunciado, oficialmente Ciudad Especial de Seúl, es la capital y ciudad más poblada de Corea del Sur desde la creación de esta república en 1948, la capital histórica de Corea desde hace más de 600 años y la ciudad más poblada de la península de Corea. ",
-            imgs: [
-                "Imagenes/Seúl.jpg",
-                "Imagenes/Seúl2.jpg",
-                "Imagenes/Seúl3.jpg",
-                "Imagenes/Seúl4.webp"
-            ]
-        },
-
-        "Singapur": {
-            desc: "Singapur, oficialmente conocida como República de Singapur, es una ciudad-Estado y país insular, situada en el corazón marítimo del Sudeste asiático.",
-            imgs: [
-                "Imagenes/Singapur.jpg",
-                "Imagenes/Singapur.png",
-                "Imagenes/Singapur3.jpg",
-                "Imagenes/Singapur4.jpg"
-            ]
-        },
-
-        "Bora Bora": {
-            desc: "Bora Bora es una pequeña isla del Pacífico Sur al noroeste de Tahití en la Polinesia Francesa. Rodeada de motus (islotes) con orillas de arena y una laguna turquesa protegida por un arrecife de coral, es conocida por el buceo. También es un popular complejo turístico lujoso donde algunos bungalós se ubican sobre pilotes en el agua. En el centro de la isla, se eleva el monte Otemanu, un volcán inactivo de 727 m.",
-            imgs: [
-                "Imagenes/Bora Bora.webp",
-                "Imagenes/Bora Bora2.webp",
-                "Imagenes/Bora Bora3.jpg",
-                "Imagenes/Bora Bora4.jpg"
-            ]
-        },
-
-        "Santorini": {
-            desc: "Santorini es una de las islas Cícladas en el mar Egeo. Fue devastada por una erupción volcánica en el siglo XVI a. C., que dio forma a su paisaje accidentado. Las casas cúbicas encaladas en sus 2 ciudades principales, Fira y Oia, se aferran a los acantilados sobre un cráter subterráneo. Estas tienen vista al mar, las pequeñas islas al oeste y las playas de piedras de lava blancas, rojas y negras.",
-            imgs: [
-                "Imagenes/Santorini.jpg",
-                "Imagenes/Santorini2.avif",
-                "Imagenes/Santorini3.jpg",
-                "Imagenes/Santorini4.jpg"
-            ]
-        },
-
-        "Bacalar": {
-            desc: "Bacalar es una población del estado mexicano de Quintana Roo, situada en el sur de su territorio a unos 40 km al norte de la capital, Chetumal.​Bacalar se encuentra situada en la ribera de la Laguna de Bacalar, la más importante de las lagunas del sur quintanarroense y de gran atractivo turístico.",
-            imgs: [
-                "Imagenes/bacalar.jfif",
-                "Imagenes/Bacalar2.avif",
-                "Imagenes/Bacalar3.avif",
-                "Imagenes/Bacalar4.jpg"
-            ]
-        },
+    "Dubái": {
+        desc: "Dubái es una ciudad emirato de los Emiratos Árabes Unidos conocida por su lujoso comercio, la arquitectura ultramoderna y su vida nocturna animada. Burj Khalifa, una torre de 830 m de alto, domina el paisaje lleno de rascacielos. A sus pies se encuentra la Fuente de Dubái, con coreografías de chorros y luces al ritmo de la música. En las islas artificiales justo frente a la costa están Atlantis, la Palma, un centro turístico con agua y parques de animales marinos.",
+        imgs: [
+            "Imagenes/Dubái.webp",
+            "Imagenes/Dubái2.jpg",
+            "Imagenes/Dubái3.avif",
+            "Imagenes/Dubái4.jpg"
+        ]
+    },
 
 
-        "Seychelles": {
-            desc: "Seychelles es un archipiélago de 115 islas en el océano Índico, frente a África Oriental. Alberga varias playas, arrecifes de coral y reservas naturales, además de animales exóticos, como las tortugas gigantes de Aldabra. En Mahé, un centro que permite visitar otras islas, se encuentra la capital, Victoria. También tiene los bosques tropicales de montaña del Parque Nacional de Morne Seychellois y playas, incluidas Beau Vallon y Anse Takamaka. ",
-            imgs: [
-                "Imagenes/Seychelles.jpg",
-                "Imagenes/Seychelles1.webp",
-                "Imagenes/Seychelles3.webp",
-                "Imagenes/Seychelles4.jpg"
-            ]
-        },
-        
+    "Berlín": {
+        desc: "Berlín, capital alemana, data del siglo XIII. Los elementos que recuerdan la turbulenta historia de la ciudad en el siglo XX incluyen el Monumento del Holocausto y los restos del Muro de Berlín con grafitis. Después de dividirse durante la Guerra Fría, la Puerta de Brandeburgo del siglo XVIII se convirtió en un símbolo de la reunificación. La ciudad es conocida por su ambiente artístico y los sitios geográficos modernos, como la Filarmónica de Berlín, construida en 1963, de color dorado y con un diseño de paneles que se desprenden de su techo.",
+        imgs: [
+            "Imagenes/Berlín.jpg",
+            "Imagenes/Berlín2.jpg",
+            "Imagenes/Berlín3.jpg",
+            "Imagenes/Berlín4.jpg"
+        ]
+    },
 
-        "Islas Fiji": {
-            desc: "Fiyi, un país del Pacífico Sur, es un archipiélago de más de 300 islas. Es famoso por sus paisajes escabrosos, las playas bordeadas de palmeras y los arrecifes de coral con lagunas de aguas cristalinas. Sus islas más importantes, Viti Levu y Vanua Levu, albergan la mayor parte de la población. En Viti Levu, se encuentra la capital, Suva, una ciudad puerto con arquitectura colonial británica. El Museo de Fiyi, en los Jardines Thurston de la época victoriana, tiene exhibiciones etnográficas.",
-            imgs: [
-                "Imagenes/Islas Fiji.jpg",
-                "Imagenes/Islas Fiji2.jpg",
-                "Imagenes/Islas Fiji3.jpg",
-                "Imagenes/Islas Fiji4.avif"
-            ]
-        },
 
-        "Isla Mauricio": {
-            desc: "Mauricio es una nación insular en el océano Índico, conocida por sus playas, lagunas y arrecifes. El interior montañoso incluye el Parque Nacional Gargantas del Río Negro, con bosques tropicales, cascadas, senderos de excursión y fauna, como zorros voladores. La capital Port Louis tiene sitios como el hipódromo Champs de Mars, la casa de hacienda Eureka y el Jardín Botánico de Sir Seewoosagur Ramgoolam del siglo XVIII",
-            imgs: [
-                "Imagenes/Isla Mauricio.avif",
-                "Imagenes/Isla Mauricio2.avif",
-                "Imagenes/Isla Mauricio3.avif",
-                "Imagenes/Isla Mauricio4.avif"
-            ]
-        },
+    "Lisboa": {
+        desc: "Lisboa es la capital costera y montañosa de Portugal. Desde el imponente castillo de San Jorge, la vista abarca los edificios de colores pastel en la ciudad antigua, el estuario del Tajo y el puente colgante 25 de Abril. Cerca, el Museo Nacional del Azulejo exhibe 5 siglos de azulejos de cerámica decorativos. Justo fuera de Lisboa hay una franja de playas en el Atlántico, desde Cascaes hasta Estoril.",
+        imgs: [
+            "Imagenes/Lisboa.jpg",
+            "Imagenes/Lisboa2.avif",
+            "Imagenes/Lisboa3.jpg",
+            "Imagenes/Lisboa4.webp"
+        ]
+    },
 
-        "Toscana": {
-            desc: "Toscana es una región del centro de Italia. Su capital, Florencia, alberga algunas de las obras de arte y arquitectura renacentistas más reconocibles, incluida la estatua de (David) de Miguel Ángel, obras de Botticelli en la Galería Uffizi y la catedral de Santa María de la Flor. Su variado paisaje natural abarca los escabrosos montes Apeninos, las playas de la isla de Elba en el mar Tirreno, y los olivares y viñedos de Chianti.",
-            imgs: [
-                "Imagenes/Toscana.avif",
-                "Imagenes/Toscana2.avif",
-                "Imagenes/Toscana3.avif",
-                "Imagenes/Toscana4.avif"
-            ]
-        },
+    "Seúl": {
+        desc: "Seúl, pronunciado, oficialmente Ciudad Especial de Seúl, es la capital y ciudad más poblada de Corea del Sur desde la creación de esta república en 1948, la capital histórica de Corea desde hace más de 600 años y la ciudad más poblada de la península de Corea. ",
+        imgs: [
+            "Imagenes/Seúl.jpg",
+            "Imagenes/Seúl2.jpg",
+            "Imagenes/Seúl3.jpg",
+            "Imagenes/Seúl4.webp"
+        ]
+    },
 
-        "Tulum": {
-            desc: "Paseo en ATV y tirolesas en la selva: Recorre senderos en cuatrimoto, vuela en circuitos de tirolesas y desciende a cenotes ocultos con operadores como Tripadvisor - Tulum Adventure Riviera Maya.Esnórquel y buceo en cenotes: Explora cavernas subterráneas de aguas cristalinas, estalactitas y estalagmitas (como en Cenotes Casa Tortuga).Visitas arqueológicas y naturaleza: Combina la historia maya visitando las ruinas frente al mar de Tulum, Cobá o el sitio arqueológico de Muyil en la reserva de Sian Ka",
-            imgs: [
-                "Imagenes/Tulumaventura.jpg",
-                "Imagenes/Tulumaventura1.webp",
-                "Imagenes/Tulumaventura2.webp",
-                "Imagenes/Tulumaventura4.webp"
-            ]
-        },
-        
-        "Barrancas del Cobre": {
-            desc: "Principales atracciones y actividades, ZipRider: Una de las tirolesas más largas del mundo, con un recorrido de 2,538 metros donde se alcanzan velocidades de 80 a 135 km/h.,Teleférico Barrancas: Uno de los teleféricos más largos del mundo, con 3 kilómetros de cable sin torres intermedias y capacidad para 60 pasajeros,Circuito de Tirolesas: Un recorrido con 7 tirolesas y puentes colgantes sobre los cañones. Vía Ferrata: Incluye tramos de escalada, 5 puentes colgantes, un salto de Tarzán y un rappel de 48 metros.",
-            imgs: [
-                "Imagenes/Barrancas del Cobre.png",
-                "Imagenes/Barrancas del Cobre2.jpg",
-                "Imagenes/Barrancas del Cobre3.jpeg",
-                "Imagenes/Barrancas del Cobre4.jpeg"
-            ]
-        },
+    "Singapur": {
+        desc: "Singapur, oficialmente conocida como República de Singapur, es una ciudad-Estado y país insular, situada en el corazón marítimo del Sudeste asiático.",
+        imgs: [
+            "Imagenes/Singapur.jpg",
+            "Imagenes/Singapur.png",
+            "Imagenes/Singapur3.jpg",
+            "Imagenes/Singapur4.jpg"
+        ]
+    },
 
-        "Nevado de Toluca": {
-            desc: "Senderismo en el Cráter (Laguna del Sol y Laguna de la Luna): Caminatas de 3.5 a 5 horas dentro del cráter volcánico para contemplar sus aguas cristalinas y formaciones rocosas.Ascenso a las Cimas (Pico del Águila o Pico del Fraile): Rutas de mayor exigencia física y técnica para montañistas.Ruta de los Túneles: Un recorrido alternativo de aproximadamente 14 km entre bosques y túneles de piedra en las faldas del volcán.",
-            imgs: [
-                "Imagenes/Nevado de Toluca.jpg",
-                "Imagenes/Nevado de Toluca2.jpg",
-                "Imagenes/Nevado de Toluca3.jpg",
-                "Imagenes/Nevado de Toluca4.jpg"
-            ]
-        },
+    "Bora Bora": {
+        desc: "Bora Bora es una pequeña isla del Pacífico Sur al noroeste de Tahití en la Polinesia Francesa. Rodeada de motus (islotes) con orillas de arena y una laguna turquesa protegida por un arrecife de coral, es conocida por el buceo. También es un popular complejo turístico lujoso donde algunos bungalós se ubican sobre pilotes en el agua. En el centro de la isla, se eleva el monte Otemanu, un volcán inactivo de 727 m.",
+        imgs: [
+            "Imagenes/Bora Bora.webp",
+            "Imagenes/Bora Bora2.webp",
+            "Imagenes/Bora Bora3.jpg",
+            "Imagenes/Bora Bora4.jpg"
+        ]
+    },
 
-        "Huasteca Potosina": {
-            desc: "Rafting (aguas bravas): Se practica en el Río Tampaón (rápidos de clase III ideales para disfrutar la adrenalina y el color azul del agua) y en tramos del Río Micos o El Meco. Salto de cascadas: En la Cascada de Micos puedes hacer una secuencia de saltos desde diferentes alturas con chaleco salvavidas y equipo de protección.Rappel y barranquismo: Descenso con cuerdas por las paredes de agua en lugares como la Cascada de Minas Viejas o cerca de la Cascada de Tamul.",
-            imgs: [
-                "Imagenes/Huasteca Potosina1.jpg",
-                "Imagenes/Huasteca Potosina2.jpg",
-                "Imagenes/Huasteca Potosina3.jpg",
-                "Imagenes/Huasteca Potosina4.jpeg"
-            ]
-        },
+    "Santorini": {
+        desc: "Santorini es una de las islas Cícladas en el mar Egeo. Fue devastada por una erupción volcánica en el siglo XVI a. C., que dio forma a su paisaje accidentado. Las casas cúbicas encaladas en sus 2 ciudades principales, Fira y Oia, se aferran a los acantilados sobre un cráter subterráneo. Estas tienen vista al mar, las pequeñas islas al oeste y las playas de piedras de lava blancas, rojas y negras.",
+        imgs: [
+            "Imagenes/Santorini.jpg",
+            "Imagenes/Santorini2.avif",
+            "Imagenes/Santorini3.jpg",
+            "Imagenes/Santorini4.jpg"
+        ]
+    },
 
-        "Everest Base Camp": {
-            desc: "Duración: 12 a 14 días de caminata (más días en Katmandú para traslados y aclimatación).Altitud máxima: Se alcanzan los 5,364 metros en el Campamento Base y los 5,545 metros en el mirador de Kala Patthar.Ruta y paisaje: Comienza con un vuelo a Lukla, atravesando puentes colgantes, bosques de rododendros, aldeas Sherpa, monasterios tibetanos y la morrena del Glaciar Khumbu.",
-            imgs: [
-                "Imagenes/Everest Base Camp1.jpg",
-                "Imagenes/Everest Base Camp2.avif",
-                "Imagenes/Everest Base Camp3.webp",
-                "Imagenes/Everest Base Camp4.webp"
-            ]
-        },
+    "Bacalar": {
+        desc: "Bacalar es una población del estado mexicano de Quintana Roo, situada en el sur de su territorio a unos 40 km al norte de la capital, Chetumal.​Bacalar se encuentra situada en la ribera de la Laguna de Bacalar, la más importante de las lagunas del sur quintanarroense y de gran atractivo turístico.",
+        imgs: [
+            "Imagenes/bacalar.jfif",
+            "Imagenes/Bacalar2.avif",
+            "Imagenes/Bacalar3.avif",
+            "Imagenes/Bacalar4.jpg"
+        ]
+    },
 
-        "Safari en Kenia": {
-            desc: "Masái Mara: La reserva más famosa de Kenia, hogar de los Cinco Grandes (león, leopardo, elefante, rinoceronte y búfalo) y escenario de la gran migración de ñus.Parque Nacional de Amboseli: Ideal para ver grandes manadas de elefantes con el majestuoso monte Kilimanjaro como fondo despejado.Parque Nacional de Tsavo East y West: Uno de los parques más grandes y antiguos, conocido por sus elefantes rojos y paisajes volcánicos.",
-            imgs: [
-                "Imagenes/Safari en Kenia.png",
-                "Imagenes/Safari en Kenia2.webp",
-                "Imagenes/Safari en Kenia3.jpg",
-                "Imagenes/Safari en Kenia4.webp",
-                "Imagenes/Safari en Kenia5.png"
-            ]
-        },
 
-        "Izta-Popo": {
-            desc: "Senderismo y montañismo: Rutas ideales para principiantes y avanzadas, como el ascenso hacia La Joya, la ruta a la Boca de Tiburón o recorridos por los manantiales.Ecoturismo y recreación: Centros ecoturísticos con lagos, paseos a caballo, ciclismo de montaña, tirolesa y cuatrimotos.Cultura: Visita al museo y registro en el histórico Paso de Cortés.",
-            imgs: [
-                "Imagenes/Izta-Popo.jpg",
-                "Imagenes/Izta-Popo2.jpg",
-                "Imagenes/Izta-Popo3.jpg",
-                "Imagenes/Izta-Popo4.jpg"
-            ]
-        },
+    "Seychelles": {
+        desc: "Seychelles es un archipiélago de 115 islas en el océano Índico, frente a África Oriental. Alberga varias playas, arrecifes de coral y reservas naturales, además de animales exóticos, como las tortugas gigantes de Aldabra. En Mahé, un centro que permite visitar otras islas, se encuentra la capital, Victoria. También tiene los bosques tropicales de montaña del Parque Nacional de Morne Seychellois y playas, incluidas Beau Vallon y Anse Takamaka. ",
+        imgs: [
+            "Imagenes/Seychelles.jpg",
+            "Imagenes/Seychelles1.webp",
+            "Imagenes/Seychelles3.webp",
+            "Imagenes/Seychelles4.jpg"
+        ]
+    },
 
-        "Cañón del Sumidero": {
-            desc: "Recorrido en lancha por el río Grijalva:• Duración: Alrededor de 2 horas.Embarcaderos principales: Chiapa de Corzo y Cahuaré (cerca de Tuxtla Gutiérrez).Costo referencial: Entre 350 y 400 MXN por persona para el paseo en lancha, más una tarifa de acceso al parque federal de aproximadamente 120-125 MXN.Qué ver: Paredes verticales de roca de hasta 1,000 metros de altura, el famoso Árbol de Navidad (formación de musgo y agua), cocodrilos de pantano, monos araña y diversas aves.",
-            imgs: [
-                "Imagenes/Cañón del Sumidero1.jpg",
-                "Imagenes/Cañón del Sumidero2.jpg",
-                "Imagenes/Cañón del Sumidero3.webp",
-                "Imagenes/Cañón del Sumidero5.jpg",
-                "Imagenes/Cañón del Sumidero4.jpg"
-            ]
-        },
 
-        "Sierra Gorda": {
-            desc: "Kayak y tubing: Recorridos guiados por el río Santa María (en la zona de Arroyo Seco) con rápidos clase 1 y paisajes de la cañada.Cuatrimotos y 4x4 (RZR): Expediciones todoterreno que bajan desde la serranía de San Joaquín hasta el fondo del cañón y el río Extoraz, finalizando en campamentos ecoturísticos.Trekking y senderismo: Rutas de larga distancia como la Travesía Sierra Gorda de 100 km, o caminatas desde el Mirador Cuatro Palos hasta comunidades como Bucareli.Cañonismo y grutas: Exploración de pozas turquesa en Puente de Dios (Río Escanela), la Cueva del Agua en Valle Verde y circuitos con tirolesa y puentes colgantes en Las Trancas.",
-            imgs: [
-                "Imagenes/Cañón del Sumidero1.jpg",
-                "Imagenes/Cañón del Sumidero2.jpg",
-                "Imagenes/Cañón del Sumidero3.webp",
-                "Imagenes/Cañón del Sumidero5.jpg",
-                "Imagenes/Cañón del Sumidero4.jpg"
-            ]
-        },
+    "Islas Fiji": {
+        desc: "Fiyi, un país del Pacífico Sur, es un archipiélago de más de 300 islas. Es famoso por sus paisajes escabrosos, las playas bordeadas de palmeras y los arrecifes de coral con lagunas de aguas cristalinas. Sus islas más importantes, Viti Levu y Vanua Levu, albergan la mayor parte de la población. En Viti Levu, se encuentra la capital, Suva, una ciudad puerto con arquitectura colonial británica. El Museo de Fiyi, en los Jardines Thurston de la época victoriana, tiene exhibiciones etnográficas.",
+        imgs: [
+            "Imagenes/Islas Fiji.jpg",
+            "Imagenes/Islas Fiji2.jpg",
+            "Imagenes/Islas Fiji3.jpg",
+            "Imagenes/Islas Fiji4.avif"
+        ]
+    },
 
-        "El Chepe": {
-            desc: "• Barrancas del Cobre / Divisadero: Es la parada estelar para admirar los cañones.Parque Aventura Barrancas del Cobre (en Divisadero):Teleférico: Cruza parte de las barrancas con capacidad de 60 pasajeros.Tirolesas y ZipRider: Circuitos de alta velocidad, incluyendo una de las tirolesas más largas del mundo.Vía Ferrata: Incluye rappel (48 metros), puentes colgantes y el salto de Tarzán.Pueblo Mágico de Creel: Puerta de entrada a la Sierra Tarahumara y a la cultura rarámuri",
-            imgs: [
-                "Imagenes/El Chepe1.jpg",
-                "Imagenes/El Chepe2.jpg",
-                "Imagenes/El Chepe3.jpg",
-                "Imagenes/El Chepe4.jpg",
-                "Imagenes/El Chepe5.jpg"
-            ]
-        }
+    "Isla Mauricio": {
+        desc: "Mauricio es una nación insular en el océano Índico, conocida por sus playas, lagunas y arrecifes. El interior montañoso incluye el Parque Nacional Gargantas del Río Negro, con bosques tropicales, cascadas, senderos de excursión y fauna, como zorros voladores. La capital Port Louis tiene sitios como el hipódromo Champs de Mars, la casa de hacienda Eureka y el Jardín Botánico de Sir Seewoosagur Ramgoolam del siglo XVIII",
+        imgs: [
+            "Imagenes/Isla Mauricio.avif",
+            "Imagenes/Isla Mauricio2.avif",
+            "Imagenes/Isla Mauricio3.avif",
+            "Imagenes/Isla Mauricio4.avif"
+        ]
+    },
 
-    };
+    "Toscana": {
+        desc: "Toscana es una región del centro de Italia. Su capital, Florencia, alberga algunas de las obras de arte y arquitectura renacentistas más reconocibles, incluida la estatua de (David) de Miguel Ángel, obras de Botticelli en la Galería Uffizi y la catedral de Santa María de la Flor. Su variado paisaje natural abarca los escabrosos montes Apeninos, las playas de la isla de Elba en el mar Tirreno, y los olivares y viñedos de Chianti.",
+        imgs: [
+            "Imagenes/Toscana.avif",
+            "Imagenes/Toscana2.avif",
+            "Imagenes/Toscana3.avif",
+            "Imagenes/Toscana4.avif"
+        ]
+    },
+
+    "Tulum": {
+        desc: "Paseo en ATV y tirolesas en la selva: Recorre senderos en cuatrimoto, vuela en circuitos de tirolesas y desciende a cenotes ocultos con operadores como Tripadvisor - Tulum Adventure Riviera Maya.Esnórquel y buceo en cenotes: Explora cavernas subterráneas de aguas cristalinas, estalactitas y estalagmitas (como en Cenotes Casa Tortuga).Visitas arqueológicas y naturaleza: Combina la historia maya visitando las ruinas frente al mar de Tulum, Cobá o el sitio arqueológico de Muyil en la reserva de Sian Ka",
+        imgs: [
+            "Imagenes/Tulumaventura.jpg",
+            "Imagenes/Tulumaventura1.webp",
+            "Imagenes/Tulumaventura2.webp",
+            "Imagenes/Tulumaventura4.webp"
+        ]
+    },
+
+    "Barrancas del Cobre": {
+        desc: "Principales atracciones y actividades, ZipRider: Una de las tirolesas más largas del mundo, con un recorrido de 2,538 metros donde se alcanzan velocidades de 80 a 135 km/h.,Teleférico Barrancas: Uno de los teleféricos más largos del mundo, con 3 kilómetros de cable sin torres intermedias y capacidad para 60 pasajeros,Circuito de Tirolesas: Un recorrido con 7 tirolesas y puentes colgantes sobre los cañones. Vía Ferrata: Incluye tramos de escalada, 5 puentes colgantes, un salto de Tarzán y un rappel de 48 metros.",
+        imgs: [
+            "Imagenes/Barrancas del Cobre.png",
+            "Imagenes/Barrancas del Cobre2.jpg",
+            "Imagenes/Barrancas del Cobre3.jpeg",
+            "Imagenes/Barrancas del Cobre4.jpeg"
+        ]
+    },
+
+    "Nevado de Toluca": {
+        desc: "Senderismo en el Cráter (Laguna del Sol y Laguna de la Luna): Caminatas de 3.5 a 5 horas dentro del cráter volcánico para contemplar sus aguas cristalinas y formaciones rocosas.Ascenso a las Cimas (Pico del Águila o Pico del Fraile): Rutas de mayor exigencia física y técnica para montañistas.Ruta de los Túneles: Un recorrido alternativo de aproximadamente 14 km entre bosques y túneles de piedra en las faldas del volcán.",
+        imgs: [
+            "Imagenes/Nevado de Toluca.jpg",
+            "Imagenes/Nevado de Toluca2.jpg",
+            "Imagenes/Nevado de Toluca3.jpg",
+            "Imagenes/Nevado de Toluca4.jpg"
+        ]
+    },
+
+    "Huasteca Potosina": {
+        desc: "Rafting (aguas bravas): Se practica en el Río Tampaón (rápidos de clase III ideales para disfrutar la adrenalina y el color azul del agua) y en tramos del Río Micos o El Meco. Salto de cascadas: En la Cascada de Micos puedes hacer una secuencia de saltos desde diferentes alturas con chaleco salvavidas y equipo de protección.Rappel y barranquismo: Descenso con cuerdas por las paredes de agua en lugares como la Cascada de Minas Viejas o cerca de la Cascada de Tamul.",
+        imgs: [
+            "Imagenes/Huasteca Potosina1.jpg",
+            "Imagenes/Huasteca Potosina2.jpg",
+            "Imagenes/Huasteca Potosina3.jpg",
+            "Imagenes/Huasteca Potosina4.jpeg"
+        ]
+    },
+
+    "Everest Base Camp": {
+        desc: "Duración: 12 a 14 días de caminata (más días en Katmandú para traslados y aclimatación).Altitud máxima: Se alcanzan los 5,364 metros en el Campamento Base y los 5,545 metros en el mirador de Kala Patthar.Ruta y paisaje: Comienza con un vuelo a Lukla, atravesando puentes colgantes, bosques de rododendros, aldeas Sherpa, monasterios tibetanos y la morrena del Glaciar Khumbu.",
+        imgs: [
+            "Imagenes/Everest Base Camp1.jpg",
+            "Imagenes/Everest Base Camp2.avif",
+            "Imagenes/Everest Base Camp3.webp",
+            "Imagenes/Everest Base Camp4.webp"
+        ]
+    },
+
+    "Safari en Kenia": {
+        desc: "Masái Mara: La reserva más famosa de Kenia, hogar de los Cinco Grandes (león, leopardo, elefante, rinoceronte y búfalo) y escenario de la gran migración de ñus.Parque Nacional de Amboseli: Ideal para ver grandes manadas de elefantes con el majestuoso monte Kilimanjaro como fondo despejado.Parque Nacional de Tsavo East y West: Uno de los parques más grandes y antiguos, conocido por sus elefantes rojos y paisajes volcánicos.",
+        imgs: [
+            "Imagenes/Safari en Kenia.png",
+            "Imagenes/Safari en Kenia2.webp",
+            "Imagenes/Safari en Kenia3.jpg",
+            "Imagenes/Safari en Kenia4.webp",
+            "Imagenes/Safari en Kenia5.png"
+        ]
+    },
+
+    "Izta-Popo": {
+        desc: "Senderismo y montañismo: Rutas ideales para principiantes y avanzadas, como el ascenso hacia La Joya, la ruta a la Boca de Tiburón o recorridos por los manantiales.Ecoturismo y recreación: Centros ecoturísticos con lagos, paseos a caballo, ciclismo de montaña, tirolesa y cuatrimotos.Cultura: Visita al museo y registro en el histórico Paso de Cortés.",
+        imgs: [
+            "Imagenes/Izta-Popo.jpg",
+            "Imagenes/Izta-Popo2.jpg",
+            "Imagenes/Izta-Popo3.jpg",
+            "Imagenes/Izta-Popo4.jpg"
+        ]
+    },
+
+    "Cañón del Sumidero": {
+        desc: "Recorrido en lancha por el río Grijalva:• Duración: Alrededor de 2 horas.Embarcaderos principales: Chiapa de Corzo y Cahuaré (cerca de Tuxtla Gutiérrez).Costo referencial: Entre 350 y 400 MXN por persona para el paseo en lancha, más una tarifa de acceso al parque federal de aproximadamente 120-125 MXN.Qué ver: Paredes verticales de roca de hasta 1,000 metros de altura, el famoso Árbol de Navidad (formación de musgo y agua), cocodrilos de pantano, monos araña y diversas aves.",
+        imgs: [
+            "Imagenes/Cañón del Sumidero1.jpg",
+            "Imagenes/Cañón del Sumidero2.jpg",
+            "Imagenes/Cañón del Sumidero3.webp",
+            "Imagenes/Cañón del Sumidero5.jpg",
+            "Imagenes/Cañón del Sumidero4.jpg"
+        ]
+    },
+
+    "Sierra Gorda": {
+        desc: "Kayak y tubing: Recorridos guiados por el río Santa María (en la zona de Arroyo Seco) con rápidos clase 1 y paisajes de la cañada.Cuatrimotos y 4x4 (RZR): Expediciones todoterreno que bajan desde la serranía de San Joaquín hasta el fondo del cañón y el río Extoraz, finalizando en campamentos ecoturísticos.Trekking y senderismo: Rutas de larga distancia como la Travesía Sierra Gorda de 100 km, o caminatas desde el Mirador Cuatro Palos hasta comunidades como Bucareli.Cañonismo y grutas: Exploración de pozas turquesa en Puente de Dios (Río Escanela), la Cueva del Agua en Valle Verde y circuitos con tirolesa y puentes colgantes en Las Trancas.",
+        imgs: [
+            "Imagenes/Cañón del Sumidero1.jpg",
+            "Imagenes/Cañón del Sumidero2.jpg",
+            "Imagenes/Cañón del Sumidero3.webp",
+            "Imagenes/Cañón del Sumidero5.jpg",
+            "Imagenes/Cañón del Sumidero4.jpg"
+        ]
+    },
+
+    "El Chepe": {
+        desc: "• Barrancas del Cobre / Divisadero: Es la parada estelar para admirar los cañones.Parque Aventura Barrancas del Cobre (en Divisadero):Teleférico: Cruza parte de las barrancas con capacidad de 60 pasajeros.Tirolesas y ZipRider: Circuitos de alta velocidad, incluyendo una de las tirolesas más largas del mundo.Vía Ferrata: Incluye rappel (48 metros), puentes colgantes y el salto de Tarzán.Pueblo Mágico de Creel: Puerta de entrada a la Sierra Tarahumara y a la cultura rarámuri",
+        imgs: [
+            "Imagenes/El Chepe1.jpg",
+            "Imagenes/El Chepe2.jpg",
+            "Imagenes/El Chepe3.jpg",
+            "Imagenes/El Chepe4.jpg",
+            "Imagenes/El Chepe5.jpg"
+        ]
+    }
+
+};
 
 /* =========================================================
    LÓGICA DEL MODAL DE DESTINOS
@@ -1266,12 +1240,16 @@ function updateMediaTrack() {
 }
 
 mediaModalClose.addEventListener('click', () => {
+    const videos = mediaTrack.querySelectorAll('video');
+    videos.forEach(v => { try { v.pause(); } catch(err) {} });
     mediaModal.classList.remove('active');
     document.body.style.overflow = 'auto';
 });
 
 mediaModal.addEventListener('click', (e) => {
     if (e.target === mediaModal) {
+        const videos = mediaTrack.querySelectorAll('video');
+        videos.forEach(v => { try { v.pause(); } catch(err) {} });
         mediaModal.classList.remove('active');
         document.body.style.overflow = 'auto';
     }
@@ -1292,6 +1270,33 @@ document.getElementById('mediaNext').addEventListener('click', () => {
         updateMediaTrack();
     }
 });
+
+
+/* =========================================================
+   CERRAR MEDIA (pausando videos) Y REDIRIGIR AL FORMULARIO
+========================================================= */
+function cerrarMediaYRedirigir(origen) {
+    // 1. Pausar todos los videos que estén reproduciéndose en el modal
+    const videos = mediaTrack.querySelectorAll('video');
+    videos.forEach(video => {
+        try {
+            video.pause();
+            video.currentTime = 0; // Reinicia el video
+        } catch (e) {
+            console.warn('No se pudo pausar el video:', e);
+        }
+    });
+
+    // 2. Cerrar el modal de media
+    mediaModal.classList.remove('active');
+
+    // 3. Restaurar el scroll del body
+    document.body.style.overflow = 'auto';
+
+    // 4. Redirigir al formulario con el origen
+    redirigirConOrigen(origen || 'Desde Modal Promociones');
+}
+
 
 /* =========================================================
    REDIRIGIR CON ORIGEN
