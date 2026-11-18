@@ -25,12 +25,10 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 
-
     <!-- FIREBASE -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-    
-   
+
 </head>
 
 <body>
@@ -39,9 +37,7 @@
      HEADER
 ========================================================== -->
 <header class="header" id="header">
-
     <nav class="nav">
-
         <a href="#inicio" class="logo">
             <img src="Imagenes/DESTIVA_TRAVEL-06-removebg-preview.png"
                  alt="DESTIVA TRAVEL"
@@ -53,27 +49,22 @@
         </a>
 
         <ul class="nav-menu" id="navMenu">
-
             <li><a href="#registro">Registro</a></li>
             <li><a href="#destinos">Destinos</a></li>
             <li><a href="#experiencias">Experiencias</a></li>
             <li><a href="#paquetes">Paquetes</a></li>
             <li><a href="#nosotros">Nosotros</a></li>
-
             <li>
                 <a href="#registro" class="nav-button">
                     Comenzar mi viaje
                 </a>
             </li>
-
         </ul>
 
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
             <i class="fa-solid fa-bars"></i>
         </button>
-
     </nav>
-
 </header>
 
 
@@ -81,53 +72,36 @@
      HERO
 ========================================================== -->
 <section class="hero" id="inicio">
-
     <div class="hero-content reveal">
-
-        <div class="hero-tag">
-            Tu próxima aventura comienza aquí
-        </div>
-
+        <div class="hero-tag">Tu próxima aventura comienza aquí</div>
         <h1>
             Descubre el mundo
             <em>de una forma diferente.</em>
         </h1>
-
         <p class="hero-description">
             En Destiva Experience creamos experiencias que van más allá
             de un simple viaje. Descubre destinos extraordinarios,
             vive nuevas aventuras y convierte cada recorrido en una
             historia que recordarás para siempre.
         </p>
-
         <div class="hero-actions">
-
             <a href="#registro" class="btn btn-gold">
                 Comenzar mi viaje
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
-
             <a href="#destinos" class="btn btn-outline">
                 Explorar destinos
             </a>
-
         </div>
-
     </div>
 
     <div class="hero-bottom">
-
         <div class="scroll-indicator">
             <span class="scroll-line"></span>
             Descubre
         </div>
-
-        <div class="hero-number">
-            01 / 04
-        </div>
-
+        <div class="hero-number">01 / 04</div>
     </div>
-
 </section>
 
 
@@ -135,78 +109,56 @@
      REGISTRO
 ========================================================== -->
 <section class="section registration" id="registro">
-
     <div class="section-container">
-
         <div class="registration-layout">
 
             <!-- INFO -->
             <div class="registration-copy reveal">
-
-                <div class="eyebrow">
-                    Comienza aquí
-                </div>
-
+                <div class="eyebrow">Comienza aquí</div>
                 <h2 class="section-title">
-                    Diseñemos tu
-                    próximo viaje.
+                    Diseñemos tu próximo viaje.
                 </h2>
-
                 <p>
                     Cuéntanos un poco sobre ti y sobre el tipo
                     de experiencia que estás buscando.
                     Nuestro equipo podrá conocer mejor tus
                     preferencias.
                 </p>
-
                 <div class="contact-points">
-
                     <div class="contact-point">
                         <div class="contact-point-icon">
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
                         <span>Destinos nacionales e internacionales</span>
                     </div>
-
                     <div class="contact-point">
                         <div class="contact-point-icon">
                             <i class="fa-solid fa-umbrella-beach"></i>
                         </div>
                         <span>Playas, ciudades y experiencias</span>
                     </div>
-
                     <div class="contact-point">
                         <div class="contact-point-icon">
                             <i class="fa-solid fa-star"></i>
                         </div>
                         <span>Atención pensada para tu viaje</span>
                     </div>
-
                 </div>
-
             </div>
 
             <!-- FORMULARIO -->
             <div class="form-card reveal">
-
-                <!-- FORM -->
                 <div id="formContainer">
-
                     <div class="form-header">
-
                         <span>Tu próxima aventura</span>
-
                         <h3>Regístrate con nosotros</h3>
-
                         <p>
                             Completa tus datos y cuéntanos qué
                             tipo de viaje tienes en mente.
                         </p>
-
                     </div>
 
                     <form id="travelForm">
-
                         <div class="form-grid">
 
                             <div class="form-group full">
@@ -220,9 +172,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="edad">
-                                    Edad <span>*</span>
-                                </label>
+                                <label for="edad">Edad <span>*</span></label>
                                 <input type="number" id="edad" name="edad"
                                        class="form-control"
                                        min="18" max="100"
@@ -230,9 +180,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="estadoCivil">
-                                    Estado civil <span>*</span>
-                                </label>
+                                <label for="estadoCivil">Estado civil <span>*</span></label>
                                 <select id="estadoCivil" name="estadoCivil"
                                         class="form-control" required>
                                     <option value="">Selecciona una opción</option>
@@ -246,9 +194,7 @@
                             </div>
 
                             <div class="form-group full">
-                                <label for="telefono">
-                                    Teléfono <span>*</span>
-                                </label>
+                                <label for="telefono">Teléfono <span>*</span></label>
                                 <input type="tel" id="telefono" name="telefono"
                                        class="form-control"
                                        placeholder="Ej. 55 1234 5678"
@@ -256,12 +202,8 @@
                             </div>
 
                             <div class="form-group full">
-                                <label>
-                                    ¿Qué tipo de viaje buscas? <span>*</span>
-                                </label>
-
+                                <label>¿Qué tipo de viaje buscas? <span>*</span></label>
                                 <div class="preference-grid">
-
                                     <div class="preference-option">
                                         <input type="radio" id="internacional"
                                                name="preferenciaViaje"
@@ -271,7 +213,6 @@
                                             Internacional
                                         </label>
                                     </div>
-
                                     <div class="preference-option">
                                         <input type="radio" id="nacional"
                                                name="preferenciaViaje"
@@ -281,7 +222,6 @@
                                             Nacional
                                         </label>
                                     </div>
-
                                     <div class="preference-option">
                                         <input type="radio" id="playas"
                                                name="preferenciaViaje"
@@ -291,7 +231,6 @@
                                             Playas
                                         </label>
                                     </div>
-
                                     <div class="preference-option">
                                         <input type="radio" id="pueblos"
                                                name="preferenciaViaje"
@@ -301,7 +240,6 @@
                                             Pueblos Mágicos
                                         </label>
                                     </div>
-
                                 </div>
                             </div>
 
@@ -310,37 +248,80 @@
                                     ¿Acorde a tu disponibilidad cuando podrías tomar una llamada? <span>*</span>
                                 </label>
                                 <div class="preference-grid">
+                                    <div class="preference-option">
+                                        <input type="radio" id="entreSemanaM"
+                                               name="disponibilidad"
+                                               value="Entre semana - Mañana (9am-12pm)" required>
+                                        <label for="entreSemanaM">
+                                            <i class="fa-solid fa-sun"></i>
+                                            Entre semana (9am - 12pm)
+                                        </label>
+                                    </div>
+                                    <div class="preference-option">
+                                        <input type="radio" id="entreSemanaT"
+                                               name="disponibilidad"
+                                               value="Entre semana - Tarde (12pm-6pm)">
+                                        <label for="entreSemanaT">
+                                            <i class="fa-solid fa-cloud-sun"></i>
+                                            Entre semana (12pm - 6pm)
+                                        </label>
+                                    </div>
+                                    <div class="preference-option">
+                                        <input type="radio" id="finSemana"
+                                               name="disponibilidad"
+                                               value="Fin de semana">
+                                        <label for="finSemana">
+                                            <i class="fa-solid fa-calendar-days"></i>
+                                            Fin de semana
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
 
-                                  <div class="preference-option">
-                                    <input type="radio" id="entreSemanaM"
-                                           name="disponibilidad"
-                                           value="Entre semana - Mañana (9am-12pm)" required>
-                                    <label for="entreSemanaM">
-                                      <i class="fa-solid fa-sun"></i>
-                                      Entre semana (9am - 12pm)
+                            <!-- ===== DATOS SENSIBLES (Art. 8) ===== -->
+                            <div class="form-group full">
+                                <label for="datosSensibles">
+                                    ¿Requieres atención especial por salud o alimentación? (opcional)
+                                </label>
+                                <textarea id="datosSensibles" name="datosSensibles"
+                                          class="form-control"
+                                          rows="2"
+                                          placeholder="Ej. alergias, dieta especial, condición médica..."></textarea>
+                                <small style="display:block; margin-top:6px; font-size:11px; color:var(--muted);">
+                                    Si proporcionas estos datos, marca la casilla de consentimiento expreso.
+                                </small>
+                            </div>
+
+                            <!-- ===== CONSENTIMIENTO DATOS SENSIBLES ===== -->
+                            <div class="form-group full">
+                                <label style="display:flex; align-items:flex-start; gap:10px; font-size:12px; line-height:1.5; color:var(--muted); font-weight:400; text-transform:none; letter-spacing:0; cursor:pointer;">
+                                    <input type="checkbox" id="consentimientoSensible"
+                                           name="consentimientoSensible"
+                                           style="margin-top:3px; width:18px; height:18px; flex-shrink:0; accent-color:var(--aqua);">
+                                    <span>
+                                        Consiento expresamente que <strong>DONDAMNIC, S. de R.L. de C.V.</strong>
+                                        trate mis datos de salud o alimentación para gestionar la atención
+                                        especial que solicito, conforme a la sección IV del
+                                        <a href="#aviso-integral" class="legal-link">Aviso de Privacidad Integral</a>.
+                                    </span>
+                                </label>
+                            </div>
+
+                            <!-- ===== LEYENDA CORTA + PROMOCIONES (Art. 16) ===== -->
+                            <div class="form-group full">
+                                <div class="privacy-consent-block">
+                                    <p class="privacy-legend">
+                                        <strong>DONDAMNIC, S. de R.L. de C.V.</strong> (www.destivatravel.com.mx)
+                                        tratará sus datos para atender su solicitud y prestarle los servicios que
+                                        contrate. Consulte nuestro
+                                        <a href="#aviso-simplificado" class="legal-link">Aviso de Privacidad Simplificado</a>
+                                        y nuestro
+                                        <a href="#aviso-integral" class="legal-link">Aviso de Privacidad Integral</a>.
+                                    </p>
+                                    <label class="promo-optout">
+                                        <input type="checkbox" id="noPromociones" name="noPromociones">
+                                        <span>No deseo recibir promociones, encuestas ni recomendaciones personalizadas.</span>
                                     </label>
-                                  </div>
-
-                                  <div class="preference-option">
-                                    <input type="radio" id="entreSemanaT"
-                                           name="disponibilidad"
-                                           value="Entre semana - Tarde (12pm-6pm)">
-                                    <label for="entreSemanaT">
-                                      <i class="fa-solid fa-cloud-sun"></i>
-                                      Entre semana (12pm - 6pm)
-                                    </label>
-                                  </div>
-
-                                  <div class="preference-option">
-                                      <input type="radio" id="finSemana"
-                                             name="disponibilidad"
-                                             value="Fin de semana">
-                                      <label for="finSemana">
-                                          <i class="fa-solid fa-calendar-days"></i>
-                                          Fin de semana
-                                      </label>
-                                  </div>
-
                                 </div>
                             </div>
 
@@ -363,63 +344,46 @@
                             Tus datos serán utilizados únicamente
                             para dar seguimiento a tu solicitud.
                         </div>
-
                     </form>
-
                 </div>
 
                 <!-- SUCCESS -->
                 <div class="success-screen" id="successScreen">
-
                     <div class="success-icon">
                         <i class="fa-solid fa-check"></i>
                     </div>
-
                     <h3>¡Registro recibido!</h3>
-
                     <p>
                         Gracias por confiar en Destiva Experience.
                         Hemos recibido tus datos y tu solicitud
                         quedó registrada correctamente.
                     </p>
-
                     <div class="summary-box">
-
                         <div class="summary-row">
                             <span>Nombre</span>
                             <span id="summaryNombre">—</span>
                         </div>
-
                         <div class="summary-row">
                             <span>Teléfono</span>
                             <span id="summaryTelefono">—</span>
                         </div>
-
                         <div class="summary-row">
                             <span>Preferencia</span>
                             <span id="summaryPreferencia">—</span>
                         </div>
-
                         <div class="summary-row">
                             <span>Disponibilidad</span>
                             <span id="summaryDisponibilidad">—</span>
                         </div>
-
                     </div>
-
                     <button class="btn btn-gold" onclick="reiniciarFormulario()">
                         Registrar otra persona
                         <i class="fa-solid fa-rotate-right"></i>
                     </button>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
 
@@ -427,28 +391,20 @@
      DESTINOS - CARRUSELES
 ========================================================== -->
 <section class="section section-cream" id="destinos">
-
     <div class="section-container">
-
         <div class="section-heading reveal">
-
             <div class="eyebrow">Explora</div>
-
-            <h2 class="section-title">
-                Destinos que inspiran.
-            </h2>
-
+            <h2 class="section-title">Destinos que inspiran.</h2>
             <p class="section-description">
                 Desde playas paradisíacas hasta ciudades llenas de
                 historia. Encuentra el destino que se adapta a la
                 experiencia que estás buscando.
             </p>
-
         </div>
 
         <div class="destinations-wrapper">
 
-            <!-- ===== FILA 1: PLAYAS ===== -->
+            <!-- FILA 1: PLAYAS -->
             <div class="destination-row reveal" data-carousel>
                 <div class="destination-row-header">
                     <h3><i class="fa-solid fa-umbrella-beach"></i> Playas</h3>
@@ -551,7 +507,7 @@
                 <div class="carousel-dots"></div>
             </div>
 
-            <!-- ===== FILA 2: INTERNACIONAL ===== -->
+            <!-- FILA 2: INTERNACIONAL -->
             <div class="destination-row reveal" data-carousel>
                 <div class="destination-row-header">
                     <h3><i class="fa-solid fa-earth-americas"></i> Internacional</h3>
@@ -654,7 +610,7 @@
                 <div class="carousel-dots"></div>
             </div>
 
-            <!-- ===== FILA 3: MÉXICO ===== -->
+            <!-- FILA 3: MÉXICO -->
             <div class="destination-row reveal" data-carousel>
                 <div class="destination-row-header">
                     <h3><i class="fa-solid fa-location-dot"></i> México</h3>
@@ -757,7 +713,7 @@
                 <div class="carousel-dots"></div>
             </div>
 
-            <!-- ===== FILA 4: PUEBLOS MÁGICOS ===== -->
+            <!-- FILA 4: PUEBLOS MÁGICOS -->
             <div class="destination-row reveal" data-carousel>
                 <div class="destination-row-header">
                     <h3><i class="fa-solid fa-mountain-sun"></i> Pueblos Mágicos</h3>
@@ -860,7 +816,7 @@
                 <div class="carousel-dots"></div>
             </div>
 
-            <!-- ===== FILA 5: RESORTS ===== -->
+            <!-- FILA 5: RESORTS -->
             <div class="destination-row reveal" data-carousel>
                 <div class="destination-row-header">
                     <h3><i class="fa-solid fa-hotel"></i> Resorts</h3>
@@ -955,7 +911,7 @@
                 <div class="carousel-dots"></div>
             </div>
 
-            <!-- ===== FILA 6: AVENTURA ===== -->
+            <!-- FILA 6: AVENTURA -->
             <div class="destination-row reveal" data-carousel>
                 <div class="destination-row-header">
                     <h3><i class="fa-solid fa-mountain"></i> Aventura</h3>
@@ -1050,7 +1006,7 @@
                 <div class="carousel-dots"></div>
             </div>
 
-            <!-- ===== FILA 7: CIUDADES ===== -->
+            <!-- FILA 7: CIUDADES -->
             <div class="destination-row reveal" data-carousel>
                 <div class="destination-row-header">
                     <h3><i class="fa-solid fa-city"></i> Ciudades</h3>
@@ -1145,7 +1101,7 @@
                 <div class="carousel-dots"></div>
             </div>
 
-            <!-- ===== FILA 8: LUNA DE MIEL ===== -->
+            <!-- FILA 8: LUNA DE MIEL -->
             <div class="destination-row reveal" data-carousel>
                 <div class="destination-row-header">
                     <h3><i class="fa-solid fa-heart"></i> Luna de Miel</h3>
@@ -1179,11 +1135,11 @@
                             </div>
                         </div>
                         <div class="carousel-slide">
-                            <img src="Imagenes/bacalar.jfif" alt="Seychelles">
+                            <img src="Imagenes/bacalar.jfif" alt="Bacalar">
                             <div class="carousel-slide-info">
                                 <div class="mini-tag">Quintana Roo</div>
                                 <h4>Bacalar</h4>
-                                <p>Playas, Arrecifes de coral y Reservas asi como la majestuosa Laguna de los Siete Colores</p>
+                                <p>Playas, arrecifes y la Laguna de los Siete Colores.</p>
                             </div>
                         </div>
                         <div class="carousel-slide">
@@ -1241,9 +1197,7 @@
             </div>
 
         </div>
-
     </div>
-
 </section>
 
 
@@ -1251,16 +1205,13 @@
      EXPERIENCIAS
 ========================================================== -->
 <section class="section" id="experiencias">
-
     <div class="section-container">
-        
         <div class="section-heading reveal" style="text-align:center; max-width:100%; margin-bottom: 50px;">
             <div class="eyebrow" style="justify-content:center;">Más que un viaje</div>
             <h2 class="section-title" style="margin: auto;">Creamos experiencias inolvidables.</h2>
         </div>
 
         <div class="experience-cards-grid reveal">
-            <!-- Tarjeta 1 -->
             <div class="exp-card" style="cursor: pointer;" onclick="abrirExperiencia('destinos')">
                 <div class="exp-img-wrapper">
                     <img src="https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Destinos Especiales">
@@ -1272,7 +1223,6 @@
                 </div>
             </div>
 
-            <!-- Tarjeta 2 -->
             <div class="exp-card" style="cursor: pointer;" onclick="abrirExperiencia('hospedaje')">
                 <div class="exp-img-wrapper">
                     <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hospedaje de Lujo">
@@ -1284,10 +1234,9 @@
                 </div>
             </div>
 
-            <!-- Tarjeta 3 -->
             <div class="exp-card" style="cursor: pointer;" onclick="abrirExperiencia('aventura')">
                 <div class="exp-img-wrapper">
-                    <img src="Imagenes/aventura.jpg">
+                    <img src="Imagenes/aventura.jpg" alt="Actividades y Aventura">
                 </div>
                 <div class="exp-content">
                     <div class="exp-icon"><i class="fa-solid fa-person-hiking"></i></div>
@@ -1296,9 +1245,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 </section>
 
 
@@ -1306,36 +1253,24 @@
      PAQUETES
 ========================================================== -->
 <section class="section section-dark" id="paquetes">
-
     <div class="section-container">
-
         <div class="section-heading reveal">
-
             <div class="eyebrow">Elige tu experiencia</div>
-
             <h2 class="section-title">Viaja a tu manera.</h2>
-
             <p class="section-description">
                 Diferentes niveles de experiencia para diferentes
                 formas de descubrir el mundo.
             </p>
-
         </div>
 
         <div class="packages-grid">
-
-            <!-- PAQUETE 1 -->
             <article class="package reveal">
-
                 <span class="package-label">Esencial</span>
-
                 <h3>Essential</h3>
-
                 <p>
                     Para quienes quieren comenzar una nueva
                     aventura y descubrir nuevos destinos.
                 </p>
-
                 <ul>
                     <li><i class="fa-solid fa-check"></i> Selección de destinos</li>
                     <li><i class="fa-solid fa-check"></i> Opciones de hospedaje</li>
@@ -1344,32 +1279,24 @@
                     <li><i class="fa-solid fa-check"></i> 1 año de vigencia</li>
                     <li><i class="fa-solid fa-check"></i> Meses sin intereses</li>
                 </ul>
-
                 <div class="check-list">
                     <ul>
                         <li><i class="fa-solid fa-check"></i> Ahorro significativo en cada viaje</li>
                         <li><i class="fa-solid fa-check"></i> Vacaciones sin preocupaciones</li>
                     </ul>
                 </div>
-
                 <a href="#registro" class="btn btn-outline" style="margin-top:20px;" onclick="redirigirConOrigen('Paquete Essential')">
                     Solicitar información
                 </a>
-
             </article>
 
-            <!-- PAQUETE 2 -->
             <article class="package featured reveal">
-
                 <span class="package-label">Más elegido</span>
-
                 <h3>Premium</h3>
-
                 <p>
                     Una experiencia más completa para quienes
                     buscan comodidad y momentos especiales.
                 </p>
-
                 <ul>
                     <li><i class="fa-solid fa-check"></i> Hospédese en resorts de categoría superior</li>
                     <li><i class="fa-solid fa-check"></i> Hasta 60% de descuento</li>
@@ -1378,7 +1305,6 @@
                     <li><i class="fa-solid fa-check"></i> Room Service 24 horas</li>
                     <li><i class="fa-solid fa-check"></i> Servicio de meseros en playa y piscina</li>
                 </ul>
-
                 <div class="check-list">
                     <ul>
                         <li><i class="fa-solid fa-check"></i> Experiencia premium garantizada</li>
@@ -1386,25 +1312,18 @@
                         <li><i class="fa-solid fa-check"></i> Comodidad y lujo en cada detalle</li>
                     </ul>
                 </div>
-
                 <a href="#registro" class="btn btn-gold" style="margin-top:20px;" onclick="redirigirConOrigen('Paquete Premium')">
                     Quiero conocerlo
                 </a>
-
             </article>
 
-            <!-- PAQUETE 3 -->
             <article class="package reveal">
-
                 <span class="package-label">Experiencia superior</span>
-
                 <h3>Diamante</h3>
-
                 <p>
                     Una propuesta pensada para quienes quieren
                     hacer de su viaje una experiencia especial.
                 </p>
-
                 <ul>
                     <li><i class="fa-solid fa-check"></i> Atención personalizada</li>
                     <li><i class="fa-solid fa-check"></i> Experiencias especiales</li>
@@ -1413,7 +1332,6 @@
                     <li><i class="fa-solid fa-check"></i> Todo Incluido Premium – Unlimited Luxury</li>
                     <li><i class="fa-solid fa-check"></i> Room Service 24 horas</li>
                 </ul>
-
                 <div class="check-list">
                     <ul>
                         <li><i class="fa-solid fa-check"></i> Ahorro significativo en cada viaje</li>
@@ -1421,30 +1339,21 @@
                         <li><i class="fa-solid fa-check"></i> Vacaciones sin preocupaciones</li>
                     </ul>
                 </div>
-
                 <a href="#registro" class="btn btn-outline" style="margin-top:20px;" onclick="redirigirConOrigen('Paquete Diamante')">
                     Descubrir Diamante
                 </a>
-
             </article>
-
         </div>
 
-        <!-- NUEVOS FLYERS Y VIDEOS DE ALIADOS -->
         <div class="section-heading reveal" style="margin-top: 60px; margin-bottom: 30px;">
             <div class="eyebrow">Alianzas Exclusivas</div>
             <h2 class="section-title">Conoce nuestras promociones.</h2>
         </div>
 
-        <!-- CONTENEDOR EN FORMA DE TRAPECIO INVERTIDO (2 ARRIBA, 3 ABAJO) -->
         <div class="promo-pyramid reveal" style="margin-bottom: 40px;">
-            
-            <!-- FILA 1: Los 2 Videos Arriba -->
             <div class="promo-row top-row">
-                <!-- Video 1 -->
                 <div class="exp-card promo-card" onclick="abrirMedia('video1')">
                     <div class="exp-img-wrapper">
-                        <!-- IMAGEN DE PORTADA PARA EL VIDEO 1 -->
                         <img src="Imagenes/logo-amatte.png" alt="Video 1">
                         <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
                     </div>
@@ -1454,10 +1363,8 @@
                     </div>
                 </div>
 
-                <!-- Video 2 -->
                 <div class="exp-card promo-card" onclick="abrirMedia('video2')">
                     <div class="exp-img-wrapper">
-                        <!-- IMAGEN DE PORTADA PARA EL VIDEO 2 -->
                         <img src="Imagenes/sandoscaracol.2.jpg" alt="Video 2">
                         <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
                     </div>
@@ -1468,9 +1375,7 @@
                 </div>
             </div>
 
-            <!-- FILA 2: Los 3 Flyers Abajo -->
             <div class="promo-row bottom-row">
-                <!-- Flyer Sandos -->
                 <div class="exp-card promo-card" onclick="abrirMedia('sandos')">
                     <div class="exp-img-wrapper">
                         <img src="Imagenes/SANDOSPORTADA.jpeg" alt="Flyer Sandos">
@@ -1481,7 +1386,6 @@
                     </div>
                 </div>
 
-                <!-- Flyer Amatte -->
                 <div class="exp-card promo-card" onclick="abrirMedia('amatte')">
                     <div class="exp-img-wrapper">
                         <img src="Imagenes/AMATTE FONDO.jpeg" alt="Flyer Amatte">
@@ -1492,7 +1396,6 @@
                     </div>
                 </div>
 
-                <!-- Flyer Acapulco -->
                 <div class="exp-card promo-card" onclick="abrirMedia('acapulco')">
                     <div class="exp-img-wrapper">
                         <img src="Imagenes/acapulcoportada.jpeg" alt="Flyer Acapulco">
@@ -1503,34 +1406,22 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
 
 <!-- =========================================================
-     NOSOTROS — MISIÓN, VISIÓN Y VALORES
+     NOSOTROS
 ========================================================== -->
 <section class="section section-cream" id="nosotros">
-
     <div class="section-container">
-
-        <!-- INTRO CON LOGO -->
         <div class="section-heading reveal" style="text-align:center; max-width:100%; margin-bottom: 30px; margin-top: -80px;">
-            
             <img src="Imagenes/Logotipo de viaje Destiva en dorado y verde teal.png" alt="Destiva Logo" style="height: 250px; margin: 10px auto 10px; object-fit: contain; display: block;">
-            
             <div class="eyebrow" style="justify-content:center;">Destiva Experience</div>
-            
-            <!-- AQUÍ OBLIGAMOS AL TEXTO A SER OSCURO -->
             <h2 class="section-title" style="margin: 10px auto 15px; color: var(--deep); filter: drop-shadow(0px 10px 15px rgba(0, 56, 60, 0.15));">
                 Más que una agencia de viajes.
             </h2>
-            
-            <!-- AQUÍ OBLIGAMOS AL PÁRRAFO A SER GRIS OSCURO -->
             <p class="section-description" style="margin:0 auto; max-width:640px; color: var(--muted);">
                 Somos un equipo que cree en el poder de viajar para transformar
                 perspectivas. Nuestra razón de ser está en cada historia que
@@ -1539,8 +1430,6 @@
         </div>
 
         <div class="mv-grid reveal">
-
-            <!-- MISIÓN -->
             <article class="mv-card mv-mission">
                 <div class="mv-icon" style="background: rgba(0,155,158,.1);">
                     <i class="fa-solid fa-compass"></i>
@@ -1555,7 +1444,6 @@
                 </p>
             </article>
 
-            <!-- VISIÓN -->
             <article class="mv-card mv-vision">
                 <div class="mv-icon" style="background: rgba(0,56,60,.1); color: var(--teal);">
                     <i class="fa-solid fa-binoculars"></i>
@@ -1569,85 +1457,65 @@
                     hacer de cada destino el comienzo de una nueva historia.
                 </p>
             </article>
-
         </div>
 
-        <!-- VALORES -->
         <div class="values-header reveal">
             <div class="eyebrow" style="justify-content:center;">Lo que nos define</div>
             <h3 class="values-title">Nuestros valores.</h3>
         </div>
 
-        <!-- VALORES EN TRAPECIO (3 arriba, 4 abajo) -->
         <div class="pyramid-grid reveal">
-            <!-- Fila de 3 (Arriba) -->
             <div class="value-card">
                 <div class="value-icon"><i class="fa-solid fa-handshake"></i></div>
                 <h4>Confianza y transparencia</h4>
                 <p>Información clara, comunicación honesta y compromiso con cada acuerdo.</p>
             </div>
-
             <div class="value-card">
                 <div class="value-icon"><i class="fa-solid fa-user-check"></i></div>
                 <h4>Compromiso con el cliente</h4>
                 <p>Escuchamos y acompañamos para ofrecer alternativas acordes a tus necesidades.</p>
             </div>
-
             <div class="value-card">
                 <div class="value-icon"><i class="fa-solid fa-gem"></i></div>
                 <h4>Excelencia y calidad</h4>
                 <p>Profesionalismo, atención al detalle y una experiencia satisfactoria.</p>
             </div>
-
-            <!-- Fila de 4 (Abajo) -->
             <div class="value-card">
                 <div class="value-icon"><i class="fa-solid fa-lightbulb"></i></div>
                 <h4>Innovación</h4>
                 <p>Exploramos nuevas ideas para las necesidades cambiantes del viajero.</p>
             </div>
-
             <div class="value-card">
                 <div class="value-icon"><i class="fa-solid fa-compass"></i></div>
                 <h4>Libertad y descubrimiento</h4>
                 <p>Promovemos explorar nuevos horizontes y ampliar perspectivas.</p>
             </div>
-
             <div class="value-card">
                 <div class="value-icon"><i class="fa-solid fa-heart"></i></div>
                 <h4>Cercanía y empatía</h4>
                 <p>Atención cálida, personalizada y orientada a relaciones de largo plazo.</p>
             </div>
-
             <div class="value-card">
                 <div class="value-icon"><i class="fa-solid fa-seedling"></i></div>
                 <h4>Crecimiento y responsabilidad</h4>
                 <p>Crecemos de forma sostenible, generando valor para clientes y organización.</p>
             </div>
         </div>
-
     </div>
-
 </section>
+
 
 <!-- =========================================================
      FAQ
 ========================================================== -->
-<section class="section" id="faq" style="background: var(--cream);">
-
+<section class="section" id="faq" style="background: var(--mist);">
     <div class="section-container">
-
         <div class="section-heading reveal" style="text-align:center; max-width:100%;">
-
             <div class="eyebrow" style="justify-content:center;">Preguntas frecuentes</div>
-
-            <h2 class="section-title" style="max-width:700px; margin:auto;">
-                Resolvemos tus dudas.
-            </h2>
-
+            <h2 class="section-title" style="max-width:700px; margin:auto;">Resolvemos tus dudas.</h2>
         </div>
 
         <div class="faq-grid reveal">
-
             <div class="faq-item">
                 <button class="faq-question">
                     ¿Qué incluye el paquete Premium?
@@ -1655,8 +1523,8 @@
                 </button>
                 <div class="faq-answer">
                     <p>
-                       Paquete Premium: Resorts de categoría superior, hasta 60% de descuento
-                       Todo Incluido Unlimited Luxury,actividades y entretenimiento, room service 24 horas.
+                        Paquete Premium: Resorts de categoría superior, hasta 60% de descuento,
+                        Todo Incluido Unlimited Luxury, actividades y entretenimiento, room service 24 horas.
                     </p>
                 </div>
             </div>
@@ -1686,14 +1554,10 @@
                     </p>
                 </div>
             </div>
-
-            </div>
-
         </div>
-
     </div>
-
 </section>
+
 
 <!-- =========================================================
      TÉRMINOS Y CONDICIONES
@@ -1713,7 +1577,7 @@
             <p>Destiva Experience actúa como una agencia de viajes que ofrece servicios de asesoría, planificación y reserva de viajes, paquetes turísticos, hospedaje y experiencias. La disponibilidad de los servicios está sujeta a cambios sin previo aviso y a la confirmación por parte de nuestros proveedores (hoteles, aerolíneas, etc.).</p>
 
             <h3>3. Registro y Datos Personales</h3>
-            <p>Para acceder a ciertos servicios, es posible que deba registrarse y proporcionar información personal. Usted se compromete a proporcionar información veraz, exacta y actualizada. El uso de sus datos personales se rige por nuestro Aviso de Privacidad.</p>
+            <p>Para acceder a ciertos servicios, es posible que deba registrarse y proporcionar información personal. Usted se compromete a proporcionar información veraz, exacta y actualizada. El uso de sus datos personales se rige por nuestro <a href="#aviso-integral" class="legal-link">Aviso de Privacidad</a>.</p>
             <ul>
                 <li>Los datos proporcionados en el formulario de registro (nombre, edad, teléfono, preferencias) serán utilizados únicamente para fines de contacto y personalización de la experiencia de viaje.</li>
                 <li>Usted es responsable de mantener la confidencialidad de su información.</li>
@@ -1739,35 +1603,31 @@
     </div>
 </section>
 
+
+<!-- =========================================================
+     FINAL CTA
+========================================================== -->
 <section class="final-cta">
-
     <div class="final-content reveal">
-
         <div class="eyebrow">Destiva Experience</div>
-
         <h2 class="section-title">El mundo te espera.</h2>
-
         <p>
             No dejes que tu próxima aventura se quede solamente
             en un sueño. Empieza a descubrir nuevas experiencias.
         </p>
-
         <a href="#registro" class="btn btn-gold">
             Quiero viajar
             <i class="fa-solid fa-plane"></i>
         </a>
-
     </div>
-
 </section>
 
 
 <!-- =========================================================
-     FOOTER Y ALIADOS
+     FOOTER
 ========================================================== -->
 <footer>
     <div class="footer-grid">
-        <!-- Info Marca (Logo y Texto centrados) -->
         <div class="footer-brand">
             <img src="Imagenes/DESTIVA_TRAVEL-06-removebg-preview.png" class="footer-logo" alt="Destiva Travel">
             <p>
@@ -1775,7 +1635,6 @@
             </p>
         </div>
 
-        <!-- Enlaces -->
         <div class="footer-column">
             <h4>Explora</h4>
             <ul>
@@ -1796,16 +1655,15 @@
         </div>
 
         <div class="footer-column">
-            <h4>Contacto</h4>
+            <h4>Legal</h4>
             <ul>
-                <li><span>Atención personalizada</span></li>
-                <li><span>México</span></li>
-                <li><span>Viajes & Experiencias</span></li>
+                <li><a href="#aviso-simplificado">Aviso de Privacidad Simplificado</a></li>
+                <li><a href="#aviso-integral">Aviso de Privacidad Integral</a></li>
+                <li><a href="#" onclick="abrirConfigCookies(); return false;">Configuración de cookies</a></li>
             </ul>
         </div>
     </div>
 
-    <!-- ALIADOS COMERCIALES -->
     <div class="footer-aliados">
         <h4>ALIADOS COMERCIALES</h4>
         <div class="aliados-track">
@@ -1821,18 +1679,23 @@
 
     <div class="footer-bottom">
         <span>© 2026 Destiva Experience. Todos los derechos reservados.</span>
+        <span>
+            <a href="#aviso-integral" class="legal-link">Aviso de Privacidad</a> ·
+            <a href="#" onclick="abrirConfigCookies(); return false;" class="legal-link">Configuración de cookies</a>
+        </span>
         <span>Viaja. Descubre. Vive.</span>
     </div>
 </footer>
 
-<!-- MODAL PARA DESTINOS (SE LLENA CON JS) -->
+
+<!-- =========================================================
+     MODALES EXISTENTES
+========================================================== -->
 <div class="modal-overlay" id="destinoModal">
     <div class="modal-content">
         <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
         <div class="modal-carousel">
-            <div class="modal-track" id="modalTrack">
-                <!-- Las imágenes se inyectan aquí con JavaScript -->
-            </div>
+            <div class="modal-track" id="modalTrack"></div>
             <button class="modal-btn prev" id="modalPrev"><i class="fa-solid fa-chevron-left"></i></button>
             <button class="modal-btn next" id="modalNext"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
@@ -1844,34 +1707,26 @@
     </div>
 </div>
 
-<!-- MODAL PARA EXPERIENCIAS (DESTINOS, HOSPEDAJE, AVENTURA) -->
 <div class="modal-overlay" id="experienceModal">
     <div class="modal-content" style="max-width: 900px;">
         <button class="modal-close" id="expModalClose"><i class="fa-solid fa-xmark"></i></button>
         <div class="modal-carousel">
-            <div class="modal-track" id="expModalTrack">
-                <!-- Las imágenes se inyectan aquí con JavaScript -->
-            </div>
+            <div class="modal-track" id="expModalTrack"></div>
             <button class="modal-btn prev" id="expModalPrev"><i class="fa-solid fa-chevron-left"></i></button>
             <button class="modal-btn next" id="expModalNext"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
         <div class="modal-info">
             <h3 id="expModalTitle" style="color: var(--deep); margin-bottom: 20px;">Título</h3>
-            <div id="expModalContent" style="font-size: 14px; line-height: 1.8; color: var(--muted);">
-                <!-- Contenido inyectado por JS -->
-            </div>
+            <div id="expModalContent" style="font-size: 14px; line-height: 1.8; color: var(--muted);"></div>
         </div>
     </div>
 </div>
 
-<!-- MODAL PARA FLYERS Y VIDEOS -->
 <div class="modal-overlay" id="mediaModal">
     <div class="modal-content" style="max-width: 900px;">
         <button class="modal-close" id="mediaModalClose"><i class="fa-solid fa-xmark"></i></button>
         <div class="modal-carousel" style="background: #F8FFFF; height: 500px; display: flex; align-items: center;">
-            <div class="modal-track" id="mediaTrack" style="align-items: center;">
-                <!-- Aquí se inyectan las imágenes o videos -->
-            </div>
+            <div class="modal-track" id="mediaTrack" style="align-items: center;"></div>
             <button class="modal-btn prev" id="mediaPrev"><i class="fa-solid fa-chevron-left"></i></button>
             <button class="modal-btn next" id="mediaNext"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
@@ -1882,1394 +1737,111 @@
     </div>
 </div>
 
+
 <!-- =========================================================
-     BOTÓN ARRIBA
+     BANNER DE COOKIES (LFPDPPP)
 ========================================================== -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+    <div class="cookie-banner-inner">
+        <p>
+            Usamos cookies necesarias para que el sitio funcione y, con su autorización,
+            cookies de preferencias, analíticas y publicitarias. Puede aceptarlas,
+            rechazarlas o configurarlas. Más información en nuestro
+            <a href="#aviso-integral" class="legal-link">Aviso de Privacidad Integral, sección IX</a>.
+        </p>
+        <div class="cookie-actions">
+            <button class="btn btn-gold" onclick="aceptarCookies('todas')">Aceptar todas</button>
+            <button class="btn btn-outline" onclick="aceptarCookies('no_esenciales')">Rechazar no esenciales</button>
+            <button class="btn btn-outline" onclick="abrirConfigCookies()">Configurar</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL CONFIGURACIÓN DE COOKIES -->
+<div class="modal-overlay" id="cookieConfigModal">
+    <div class="modal-content" style="max-width:600px;">
+        <button class="modal-close" onclick="cerrarConfigCookies()"><i class="fa-solid fa-xmark"></i></button>
+        <div style="padding:30px;">
+            <h3 style="color:var(--deep); margin-bottom:20px;">Configuración de cookies</h3>
+            <label class="cookie-opt"><input type="checkbox" checked disabled> <strong>Necesarias</strong> (siempre activas)</label>
+            <label class="cookie-opt"><input type="checkbox" id="cookPref"> Preferencias</label>
+            <label class="cookie-opt"><input type="checkbox" id="cookAnaliticas"> Analíticas</label>
+            <label class="cookie-opt"><input type="checkbox" id="cookPublicidad"> Publicitarias</label>
+            <button class="btn btn-gold" style="margin-top:20px; width:100%;" onclick="guardarConfigCookies()">Guardar configuración</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL AVISO SIMPLIFICADO -->
+<div class="modal-overlay" id="avisoSimplificadoModal">
+    <div class="modal-content" style="max-width:800px; max-height:85vh; overflow-y:auto;">
+        <button class="modal-close" onclick="cerrarAviso('simplificado')"><i class="fa-solid fa-xmark"></i></button>
+        <div style="padding:30px;">
+            <h2 style="color:var(--deep);">Aviso de Privacidad Simplificado</h2>
+            <p><strong>DONDAMNIC, S. de R.L. de C.V.</strong>, con domicilio en [DOMICILIO FISCAL], es responsable del tratamiento de sus datos personales.</p>
+            <p><strong>Finalidades primarias:</strong> atender su solicitud, prestarle los servicios contratados, gestión de reservas y atención al cliente.</p>
+            <p><strong>Finalidades secundarias:</strong> promociones, encuestas y recomendaciones personalizadas (puede negarse marcando la casilla correspondiente en nuestros formularios).</p>
+            <p><strong>Derechos ARCO:</strong> puede ejercerlos enviando solicitud a [CORREO DE PRIVACIDAD].</p>
+            <p>Consulte el <a href="#aviso-integral" class="legal-link" onclick="cerrarAviso('simplificado'); abrirAviso('integral'); return false;">Aviso de Privacidad Integral</a> para mayor información.</p>
+            <p style="font-size:12px; color:var(--muted); margin-top:20px;">Última actualización: Noviembre 2026 · Versión 1.0</p>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL AVISO INTEGRAL -->
+<div class="modal-overlay" id="avisoIntegralModal">
+    <div class="modal-content" style="max-width:900px; max-height:85vh; overflow-y:auto;">
+        <button class="modal-close" onclick="cerrarAviso('integral')"><i class="fa-solid fa-xmark"></i></button>
+        <div style="padding:30px;">
+            <h2 style="color:var(--deep);">Aviso de Privacidad Integral</h2>
+            <p style="font-size:12px; color:var(--muted);">Versión 1.0 · Última actualización: Noviembre 2026</p>
+
+            <h3>I. Identidad y domicilio del responsable</h3>
+            <p>DONDAMNIC, S. de R.L. de C.V., con domicilio en [DOMICILIO FISCAL], es responsable del tratamiento de sus datos personales.</p>
+
+            <h3>II. Datos personales que recabamos</h3>
+            <p>Nombre completo, edad, estado civil, teléfono, preferencias de viaje, disponibilidad horaria y, en su caso, datos de salud o alimentación.</p>
+
+            <h3>III. Finalidades primarias</h3>
+            <ul>
+                <li>Atender su solicitud de cotización o registro.</li>
+                <li>Prestarle los servicios contratados.</li>
+                <li>Gestión de reservas y atención al cliente.</li>
+            </ul>
+
+            <h3>IV. Datos sensibles</h3>
+            <p>Cuando usted proporcione datos de salud o alimentación, estos serán tratados con consentimiento expreso y por escrito, únicamente para gestionar la atención especial solicitada.</p>
+
+            <h3>V. Finalidades secundarias</h3>
+            <p>Promociones, encuestas y recomendaciones personalizadas. Puede negarse marcando la casilla "No deseo recibir promociones..." en nuestros formularios.</p>
+
+            <h3>VI. Transferencias</h3>
+            <p>Sus datos no serán transferidos a terceros sin su consentimiento, salvo las excepciones previstas en el art. 37 de la LFPDPPP.</p>
+
+            <h3>VII. Derechos ARCO</h3>
+            <p>Puede ejercer sus derechos de Acceso, Rectificación, Cancelación y Oposición enviando solicitud a [CORREO DE PRIVACIDAD].</p>
+
+            <h3>VIII. Revocación del consentimiento</h3>
+            <p>Puede revocar su consentimiento en cualquier momento mediante el mismo canal.</p>
+
+            <h3>IX. Cookies y tecnologías de rastreo</h3>
+            <p>Usamos cookies necesarias, de preferencias, analíticas y publicitarias. Puede configurarlas desde el banner de cookies o desde <a href="#" onclick="abrirConfigCookies(); return false;" class="legal-link">Configuración de cookies</a>.</p>
+
+            <h3>X. Cambios al aviso</h3>
+            <p>Conservamos cada versión publicada con su fecha. La versión vigente es la publicada en este sitio.</p>
+
+            <h3>XI. Contacto</h3>
+            <p>Para dudas sobre privacidad: [CORREO DE PRIVACIDAD]</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- BOTÓN ARRIBA -->
 <button class="floating-top" id="floatingTop" aria-label="Volver arriba">
     <i class="fa-solid fa-arrow-up"></i>
 </button>
 
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================== -->
-<script>
-
-    /* ============ FIREBASE ============ */
-    const firebaseConfig = {
-        apiKey: "AIzaSyC_XZ7BvaYVsDQNIvxaXdYRA-2mF7SvRL0",
-        authDomain: "destination-connect-fd7dd.firebaseapp.com",
-        projectId: "destination-connect-fd7dd",
-        storageBucket: "destination-connect-fd7dd.firebasestorage.app",
-        messagingSenderId: "448736960200",
-        appId: "1:448736960200:web:0c8fcb15e9a09ba6628ffd",
-        measurementId: "G-3HZYGGR4TC"
-    };
-
-    let db = null;
-
-    try {
-        firebase.initializeApp(firebaseConfig);
-        db = firebase.firestore();
-        console.log("Firebase conectado correctamente.");
-    } catch (error) {
-        console.error("Error inicializando Firebase:", error);
-    }
-
-
-    /* ============ ELEMENTOS ============ */
-    const header = document.getElementById("header");
-    const navMenu = document.getElementById("navMenu");
-    const menuToggle = document.getElementById("menuToggle");
-    const floatingTop = document.getElementById("floatingTop");
-    const travelForm = document.getElementById("travelForm");
-    const formContainer = document.getElementById("formContainer");
-    const successScreen = document.getElementById("successScreen");
-    const errorMessage = document.getElementById("errorMessage");
-    const errorText = document.getElementById("errorText");
-    const submitButton = document.getElementById("submitButton");
-    const submitText = document.getElementById("submitText");
-    const submitIcon = document.getElementById("submitIcon");
-
-
-    /* ============ MENÚ MOBILE ============ */
-    menuToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-        const active = navMenu.classList.contains("active");
-        menuToggle.innerHTML = active
-            ? '<i class="fa-solid fa-xmark"></i>'
-            : '<i class="fa-solid fa-bars"></i>';
-    });
-
-    document.querySelectorAll(".nav-menu a").forEach(link => {
-        link.addEventListener("click", () => {
-            navMenu.classList.remove("active");
-            menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-        });
-    });
-
-
-    /* ============ SCROLL HEADER ============ */
-    function handleScroll() {
-        if (window.scrollY > 50) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
-        }
-
-        if (window.scrollY > 500) {
-            floatingTop.classList.add("show");
-        } else {
-            floatingTop.classList.remove("show");
-        }
-    }
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-
-    /* ============ BOTÓN ARRIBA ============ */
-    floatingTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-
-    /* ============ REVEAL ============ */
-    const revealElements = document.querySelectorAll(".reveal");
-
-    const revealObserver = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        },
-        { threshold: 0.10 }
-    );
-
-    revealElements.forEach(el => revealObserver.observe(el));
-
-
-    /* ============ FAQ ACORDEÓN ============ */
-    document.querySelectorAll(".faq-question").forEach(button => {
-        button.addEventListener("click", () => {
-            const item = button.parentElement;
-            const isActive = item.classList.contains("active");
-
-            document.querySelectorAll(".faq-item").forEach(i => {
-                i.classList.remove("active");
-            });
-
-            if (!isActive) {
-                item.classList.add("active");
-            }
-        });
-    });
-
-
-    /* ============ CARRUSELES DE DESTINOS ============ */
-    document.querySelectorAll("[data-carousel]").forEach(carousel => {
-        const track = carousel.querySelector(".carousel-track");
-        const slides = track.querySelectorAll(".carousel-slide");
-        const prevBtn = carousel.querySelector(".carousel-btn.prev");
-        const nextBtn = carousel.querySelector(".carousel-btn.next");
-        const dotsContainer = carousel.querySelector(".carousel-dots");
-
-        let currentIndex = 0;
-
-        function getVisibleCount() {
-            const width = window.innerWidth;
-            if (width <= 650) return 1;
-            if (width <= 850) return 2;
-            if (width <= 1100) return 3;
-            return 4;
-        }
-
-        function getMaxIndex() {
-            return Math.max(0, slides.length - getVisibleCount());
-        }
-
-        function buildDots() {
-            dotsContainer.innerHTML = "";
-            const maxIndex = getMaxIndex();
-            for (let i = 0; i <= maxIndex; i++) {
-                const dot = document.createElement("span");
-                if (i === currentIndex) dot.classList.add("active");
-                dot.addEventListener("click", () => {
-                    currentIndex = i;
-                    updateCarousel();
-                });
-                dotsContainer.appendChild(dot);
-            }
-        }
-
-        function updateCarousel() {
-            const gap = 15;
-            const slideWidth = slides[0].offsetWidth + gap;
-            const maxIndex = getMaxIndex();
-
-            if (currentIndex > maxIndex) currentIndex = maxIndex;
-            if (currentIndex < 0) currentIndex = 0;
-
-            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-
-            const dots = dotsContainer.querySelectorAll("span");
-            dots.forEach((dot, i) => {
-                dot.classList.toggle("active", i === currentIndex);
-            });
-
-            prevBtn.disabled = currentIndex === 0;
-            nextBtn.disabled = currentIndex >= maxIndex;
-        }
-
-        function nextSlide() {
-            if (currentIndex < getMaxIndex()) {
-                currentIndex++;
-                updateCarousel();
-            }
-        }
-
-        function prevSlide() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-            }
-        }
-
-        prevBtn.addEventListener("click", prevSlide);
-        nextBtn.addEventListener("click", nextSlide);
-
-        // Swipe táctil
-        let startX = 0;
-        let isDragging = false;
-
-        track.addEventListener("touchstart", (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-        }, { passive: true });
-
-        track.addEventListener("touchmove", (e) => {
-            if (!isDragging) return;
-            const diff = startX - e.touches[0].clientX;
-            if (Math.abs(diff) > 50) {
-                if (diff > 0) nextSlide();
-                else prevSlide();
-                isDragging = false;
-            }
-        }, { passive: true });
-
-        track.addEventListener("touchend", () => {
-            isDragging = false;
-        });
-
-        let resizeTimer;
-        window.addEventListener("resize", () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                const maxIndex = getMaxIndex();
-                if (currentIndex > maxIndex) currentIndex = maxIndex;
-                buildDots();
-                updateCarousel();
-            }, 150);
-        });
-
-        // Inicial
-        buildDots();
-        updateCarousel();
-
-        // Recalcular cuando carguen las imágenes
-        window.addEventListener("load", () => {
-            buildDots();
-            updateCarousel();
-        });
-    });
-
-
-    /* ============ ERROR ============ */
-    function mostrarError(mensaje) {
-        errorText.textContent = mensaje;
-        errorMessage.classList.add("show");
-        errorMessage.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-
-    function ocultarError() {
-        errorMessage.classList.remove("show");
-    }
-
-
-    /* ============ VALIDAR TELÉFONO ============ */
-    function validarTelefono(telefono) {
-        const limpio = telefono.replace(/\D/g, "");
-        return limpio.length >= 10 && limpio.length <= 15;
-    }
-
-
-    /* ============ FORMATO TELÉFONO ============ */
-    document.getElementById("telefono").addEventListener("input", function() {
-        let valor = this.value.replace(/\D/g, "");
-
-        if (valor.length > 10) {
-            valor = valor.substring(0, 10);
-        }
-
-        if (valor.length > 6) {
-            valor = valor.substring(0,3) + " " + valor.substring(3,6) + " " + valor.substring(6);
-        } else if (valor.length > 3) {
-            valor = valor.substring(0,3) + " " + valor.substring(3);
-        }
-
-        this.value = valor;
-    });
-
-
-    /* ============ SUBMIT ============ */
-    travelForm.addEventListener("submit", async function(event) {
-
-        event.preventDefault();
-        ocultarError();
-
-        const nombre = document.getElementById("nombre").value.trim();
-        const edad = parseInt(document.getElementById("edad").value);
-        const estadoCivil = document.getElementById("estadoCivil").value;
-        const telefono = document.getElementById("telefono").value.trim();
-        const preferencia = document.querySelector('input[name="preferenciaViaje"]:checked');
-        const disponibilidad = document.querySelector('input[name="disponibilidad"]:checked');
-
-        if (nombre.length < 3) {
-            mostrarError("Por favor escribe tu nombre completo.");
-            return;
-        }
-
-        if (isNaN(edad) || edad < 18 || edad > 100) {
-            mostrarError("La edad debe estar entre 18 y 100 años.");
-            return;
-        }
-
-        if (!estadoCivil) {
-            mostrarError("Selecciona tu estado civil.");
-            return;
-        }
-
-        if (!validarTelefono(telefono)) {
-            mostrarError("Ingresa un número de teléfono válido.");
-            return;
-        }
-
-        if (!preferencia) {
-            mostrarError("Selecciona qué tipo de viaje estás buscando.");
-            return;
-        }
-
-        if (!disponibilidad) {
-            mostrarError("Selecciona cuándo prefieres viajar.");
-            return;
-        }
-
-        if (!db) {
-            mostrarError("No fue posible conectar con el sistema. Intenta nuevamente.");
-            return;
-        }
-
-        submitButton.classList.add("loading");
-        submitText.textContent = "Guardando registro...";
-        submitIcon.className = "fa-solid fa-spinner fa-spin";
-
-        try {
-            const origen = document.getElementById('origenRegistro') ? document.getElementById('origenRegistro').value : 'Directo';
-
-            const cliente = {
-                nombre: nombre,
-                edad: edad,
-                estadoCivil: estadoCivil,
-                telefono: telefono,
-                preferenciaViaje: preferencia.value,
-                disponibilidad: disponibilidad.value,
-                origen: origen, // <-- ESTO ES LO NUEVO
-                fechaRegistro: new Date().toLocaleString("es-MX"),
-                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                estado: "pendiente",
-                operador: null,
-                comentario: null
-            };
-
-            const documento = await db.collection("clientes").add(cliente);
-
-            console.log("Cliente registrado:", documento.id);
-
-            document.getElementById("summaryNombre").textContent = nombre;
-            document.getElementById("summaryTelefono").textContent = telefono;
-            document.getElementById("summaryPreferencia").textContent = preferencia.value;
-            document.getElementById("summaryDisponibilidad").textContent = disponibilidad.value;
-
-            formContainer.style.display = "none";
-            successScreen.classList.add("show");
-
-            document.getElementById("registro").scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-        } catch (error) {
-            console.error("Error guardando:", error);
-            mostrarError("No pudimos guardar tu registro. Verifica tu conexión e intenta nuevamente.");
-            submitButton.classList.remove("loading");
-            submitText.textContent = "Confirmar mi registro";
-            submitIcon.className = "fa-solid fa-arrow-right";
-        }
-
-    });
-
-
-    /* ============ REINICIAR ============ */
-    function reiniciarFormulario() {
-        travelForm.reset();
-        successScreen.classList.remove("show");
-        formContainer.style.display = "block";
-        ocultarError();
-
-        submitButton.classList.remove("loading");
-        submitText.textContent = "Confirmar mi registro";
-        submitIcon.className = "fa-solid fa-arrow-right";
-
-        document.getElementById("registro").scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }
-
-
-    /* ============ VERIFICAR CONEXIÓN ============ */
-    async function verificarConexion() {
-        if (!db) {
-            console.warn("Firebase no está disponible.");
-            return;
-        }
-
-        try {
-            await db.collection("clientes").limit(1).get();
-            console.log("Firestore funcionando correctamente.");
-        } catch (error) {
-            console.error("No se pudo verificar Firestore:", error);
-        }
-    }
-
-    verificarConexion();
-
-
-    /* ============ EVITAR ERROR POR IMÁGENES ============ */
-    document.querySelectorAll("img").forEach(image => {
-        image.addEventListener("error", function() {
-            this.style.background = "#d9d2c4";
-        });
-    });
-
-
-    /* ============ LÓGICA DEL MODAL DE DESTINOS ============ */
-    const modal = document.getElementById('destinoModal');
-    const modalClose = document.getElementById('modalClose');
-    const modalTrack = document.getElementById('modalTrack');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDesc = document.getElementById('modalDesc');
-    let modalIndex = 0;
-
-    // Datos para el modal (Puedes personalizar y agregar más destinos aquí)
-    const destinosData = {
-        "Cancún": {
-            desc: "Cancún es una ciudad de México ubicada en la península de Yucatán que limita con el mar Caribe y que es conocida por sus playas, los numerosos centros turísticos y la vida nocturna. Se compone de 2 áreas distintas: el área del centro más tradicional y la Zona Hotelera, la franja costera con hoteles altos, clubes nocturnos, tiendas y restaurantes. Cancún también es un destino popular entre estudiantes durante el período de vacaciones universitarias en la primavera.",
-            imgs: [
-                "Imagenes/cancun-things-to-do-guide.jpg",
-                "Imagenes/cancun.2.webp",
-                "Imagenes/cancun-3.jpg",
-                "Imagenes/cancun-4.avif"
-            ]
-        },
-
-        "Riviera Maya": {
-            desc: "La Riviera Maya​ es una zona turística de México, situada en la costa del mar Caribe, en el estado de Quintana Roo. Geográficamente se extiende a lo largo del litoral, desde la localidad de Puerto Morelos al norte, hasta la localidad de Tulum al sur, con unos 210 km de longitud.",
-            imgs: [
-                "Imagenes/Riviera Maya.webp",
-                "Imagenes/riviera-2.webp",
-                "Imagenes/riviera-3.webp",
-                "Imagenes/riviera-4.webp"
-            ]
-        },
-
-         "Los Cabos": {
-            desc: "Cabo San Lucas es un balneario en el extremo sur de la península de Baja California en México, conocido por sus playas, actividades acuáticas y vida nocturna. La Playa El Médano es la principal del Cabo, con restaurantes al aire libre y numerosos bares. Después de la marina, se encuentra el promontorio del Fin de la Tierra, donde está la Playa del Amor y El Arco, una arcada natural en los riscos marinos.",
-            imgs: [
-                "Imagenes/Los Cabos.jpg",
-                "Imagenes/loscabos-2.png",
-                "Imagenes/loscabos-3.avif",
-                "Imagenes/loscabos-4.webp"
-            ]
-        },
-
-         "Puerto Vallarta": {
-            desc: "Cabo San Lucas es un balneario en el extremo sur de la península de Baja California en México, conocido por sus playas, actividades acuáticas y vida nocturna. La Playa El Médano es la principal del Cabo, con restaurantes al aire libre y numerosos bares. Después de la marina, se encuentra el promontorio del Fin de la Tierra, donde está la Playa del Amor y El Arco, una arcada natural en los riscos marinos.",
-            imgs: [
-                "Imagenes/PUERTOVALLARTA.jpg",
-                "Imagenes/puertovallarta-2.jpg",
-                "Imagenes/puertovallarta-3.jpg",
-                "Imagenes/puertovallarta-4.jpeg"
-            ]
-        },
-
-       "Punta Cana": {
-            desc: "Punta Cana, el extremo más oriental de República Dominicana, limita con el mar Caribe y con el océano Atlántico. Es una región conocida por sus 32 km de extensión de playas y aguas claras. El área del Bávaro y Punta Cana se combinan para formar lo que se conoce como La Costa del Coco, un área con exclusivos centros turísticos con todo incluido. Es popular por sus tirolesas, el windsurf, el kayak y la navegación.Cabo San Lucas es un balneario en el extremo sur de la península de Baja California en México, conocido por sus playas, actividades acuáticas y vida nocturna. La Playa El Médano es la principal del Cabo, con restaurantes al aire libre y numerosos bares. Después de la marina, se encuentra el promontorio del Fin de la Tierra, donde está la Playa del Amor y El Arco, una arcada natural en los riscos marinos.",
-                imgs: [
-                "Imagenes/puntacana.webp",
-                "Imagenes/puntacana-2.webp",
-                "Imagenes/puntacana-3.jpg",
-                "Imagenes/puntacana-4.webp"
-            ]
-        },
-
-        "Maldivas": {
-            desc: "Maldivas es un país tropical en el océano Índico que abarca 26 atolones con forma de anillos que se componen de más de 1,000 islas de coral. Es conocido por las playas, las lagunas azules y los extensos arrecifes. La capital, Malé, tiene un mercado de pescado ajetreado, restaurantes y tiendas en la avenida principal, Majeedhee Magu, y la mezquita del siglo XVII Hukuru Miskiy (también conocida como la Mezquita del Viernes), hecha de coral blanco tallado.",
-            imgs: [
-                "Imagenes/maldivas.jfif",
-                "Imagenes/maldivas-2.avif",
-                "Imagenes/maldivas-4.jpg",
-                "Imagenes/maldivas-4.jpg"
-            ]
-        },
-
-        "Isla Mujeres": {
-            desc: "Isla Mujeres es un pueblo mágico e isla en el Mar Caribe, situada a 13 kilómetros de la costa de Cancún en el estado de Quintana Roo, México ",
-            imgs: [
-                "Imagenes/islamujeres.jpg",
-                "Imagenes/islamujeres-2.avif",
-                "Imagenes/islamujeres-3.jpg",
-                "Imagenes/islamujeres-4.jpg"
-            ]
-        },
-
-        "Huatulco": {
-            desc: "Huatulco es una población del estado mexicano de Oaxaca, siendo la cabecera del Municipio de Santa María Huatulco, localizado en la Costa Oaxaqueña. Fue fundada el 8 de enero de 1539 por Pedro de Alvarado, aunque indicios señalan que fue años antes.",
-            imgs: [
-                "Imagenes/huatulco.jpg",
-                "Imagenes/huatulco-2.jpg",
-                "Imagenes/huatulco-3.jpg",
-                "Imagenes/huatulco-4.webp"
-            ]
-        },
-
-
-        "Sayulita": {
-            desc: "Sayulita es una aldea de México en la costa del Pacífico que tiene a sus espaldas las montañas de la Sierra Madre Occidental. Es conocida por sus playas con fuerte oleaje, como la playa Sayulita central. Al oeste, la Playa de los Muertos está más resguardada entre rocas que la protegen. Las galerías de Sayulita venden obras de arte del pueblo indígena huichol. Al suroeste, las Islas Marietas tienen una fauna diversa que incluye ballenas jorobadas y delfines.",
-            imgs: [
-                "Imagenes/sayulita",
-                "Imagenes/sayulita-2.jpg",
-                "Imagenes/sayulita-3.jpg",
-                "Imagenes/sayulita-4.jpg"
-            ]
-        },
-
-        "Mazatlán": {
-            desc: "Mazatlán es un balneario mexicano de la costa del Pacífico en el estado de Sinaloa. Las playas de arena bordean su malecón de 21 km de largo y el lugar es famoso por la pesca de altura. En su Centro Histórico, o Viejo Mazatlán, los sitios icónicos del siglo XIX incluyen el Teatro Ángela Peralta y la altísima basílica de la Inmaculada Concepción. El distrito moderno Zona Dorada es conocido por su vida nocturna y hoteles.",
-            imgs: [
-                "Imagenes/mazatlan.webp",
-                "Imagenes/mazatlan-2.jpg",
-                "Imagenes/mazatlan-3.jpg",
-                "Imagenes/mazatlan-4.jpg"
-            ]
-        },
-
-        "Mazatlan": {
-            desc: "Mazatlán es un balneario mexicano de la costa del Pacífico en el estado de Sinaloa. Las playas de arena bordean su malecón de 21 km de largo y el lugar es famoso por la pesca de altura. En su Centro Histórico, o Viejo Mazatlán, los sitios icónicos del siglo XIX incluyen el Teatro Ángela Peralta y la altísima basílica de la Inmaculada Concepción. El distrito moderno Zona Dorada es conocido por su vida nocturna y hoteles.",
-            imgs: [
-                "Imagenes/mazatlan.webp",
-                "Imagenes/mazatlan-2.jpg",
-                "Imagenes/mazatlan-3.jpg",
-                "Imagenes/mazatlan-4.jpg"
-            ]
-        },
-
-        "San Blas": {
-            desc: "Descubre San Blas, Nayarit: un destino mágico entre arquitectura colonial, manglares y playas vírgenes. San Blas es famoso principalmente por su historia como puerto colonial estratégico en Nayarit, México, por su riqueza natural y por la popular canción de la banda Maná",
-             imgs: [
-                "Imagenes/SANBLAS.jpg",
-                "Imagenes/sanblas-2.jpg",
-                "Imagenes/sanblas-3.jpg",
-                "Imagenes/sanblas-4.avif"
-            ]
-        },
-
-        "París": {
-            desc: "La ciudad de la luz te espera con su icónica Torre Eiffel, el Museo del Louvre, paseos por el Sena y la mejor gastronomía y moda del mundo.",
-            imgs: [
-                "Imagenes/PARIS.jfif",
-                "Imagenes/paris-2.jpg",
-                "Imagenes/paris-3.avif",
-                "Imagenes/paris-4.webp"
-            ]
-        },
-        
-           "Roma": {
-            desc: "Roma, la capital de Italia, es una extensa ciudad cosmopolita que tiene a la vista casi 3,000 años de arte, arquitectura y cultura de influencia mundial. Las ruinas antiguas como las del Foro y el Coliseo evocan el poder del antiguo Imperio Romano. La ciudad del Vaticano, sede central de la Iglesia católica romana, cuenta con la Basílica de San Pedro y los Museos del Vaticano, que albergan obras maestras como los frescos de la Capilla Sixtina de Miguel Ángel.",
-            imgs: [
-                "Imagenes/ROMA.jpg",
-                "Imagenes/roma-2.jpg",
-                "Imagenes/roma-3.jpg",
-                "Imagenes/roma-4.jpg"
-            ]
-        },
-
-
-        "Londres": {
-            desc: "Londres, la capital de Inglaterra y del Reino Unido, es una ciudad del siglo XXI con una historia que se remonta a la época romana. En su centro se alzan el imponente Palacio del Parlamento, la torre del icónico reloj Big Ben y la Abadía de Westminster, lugar de las coronaciones monárquicas británicas. Al otro lado del río Támesis, la rueda de observación London Eye ofrece vistas panorámicas del complejo cultural South Bank y de toda la ciudad.",
-            imgs: [
-                "Imagenes/LONDRES.jpg",
-                "Imagenes/londres-2.jpg",
-                "Imagenes/londres-3.jpg",
-                "Imagenes/londres-4.webp"
-            ]
-        },
-
-
-
-        "Nueva York": {
-            desc: "Nueva York incluye 5 distritos que se ubican donde el río Hudson desemboca en el océano Atlántico. En su centro se encuentra Manhattan, un distrito densamente poblado que se encuentra entre los principales centros comerciales, financieros y culturales del mundo. Sus sitios icónicos incluyen rascacielos, como el Empire State Building, y el amplio Central Park. El teatro Broadway se ubica en la zona del Times Square iluminada con neones.",
-            imgs: [
-                "Imagenes/NUEVA YORK.jfif",
-                "Imagenes/nuevayork-2.jpg",
-                "Imagenes/nuevayork-3.webp",
-                "Imagenes/nuevayork-4.jpg"
-            ]
-        },
-
-
-        "Roma": {
-            desc: "Roma, la capital de Italia, es una extensa ciudad cosmopolita que tiene a la vista casi 3,000 años de arte, arquitectura y cultura de influencia mundial. Las ruinas antiguas como las del Foro y el Coliseo evocan el poder del antiguo Imperio Romano. La ciudad del Vaticano, sede central de la Iglesia católica romana, cuenta con la Basílica de San Pedro y los Museos del Vaticano, que albergan obras maestras como los frescos de la Capilla Sixtina de Miguel Ángel.",
-            imgs: [
-                "Imagenes/ROMA.jpg",
-                "Imagenes/roma-2.jpg",
-                "Imagenes/roma-3.jpg",
-                "Imagenes/roma-4.jpg"
-            ]
-        },
-
-
-        "Venecia": {
-            desc: "Venecia, la capital de la región de Véneto en el norte de Italia, abarca más de 100 islas pequeñas en una laguna del mar Adriático. No tiene caminos, sino solo canales, incluida la vía pública del Gran Canal, bordeada de palacios renacentistas y góticos. En la plaza central de San Marcos, se encuentra la basílica de San Marcos, que tiene un suelo de mosaicos bizantinos, y el campanario Campanile con vista a los techos rojos de la ciudad.",
-            imgs: [
-                "Imagenes/Venecia.jfif",
-                "Imagenes/venecia-2.webp",
-                "Imagenes/venecia-3.jpg",
-                "Imagenes/venecia-4.webp"
-            ]
-        },
-
-        "Barcelona": {
-            desc: "Barcelona, la capital cosmopolita de la región de Cataluña en España, es conocida por su arte y arquitectura. La fantástica iglesia de la Sagrada Familia y otros hitos modernistas diseñados por Antoni Gaudí adornan la ciudad. El Museo Picasso y la Fundación Joan Miró muestran el arte moderno de los artistas que dan origen a sus nombres. El Museo de Historia de Barcelona (MUHBA) incluye varios sitios arqueológicos romanos.",
-            imgs: [
-                "Imagenes/barcelona.jfif",
-                "Imagenes/barcelona-2.jpg",
-                "Imagenes/barcelona-3.jpg",
-                "Imagenes/barcelona-4.jpg"
-            ]
-        },
-
-        "Roma": {
-            desc: "Roma, la capital de Italia, es una extensa ciudad cosmopolita que tiene a la vista casi 3,000 años de arte, arquitectura y cultura de influencia mundial. Las ruinas antiguas como las del Foro y el Coliseo evocan el poder del antiguo Imperio Romano. La ciudad del Vaticano, sede central de la Iglesia católica romana, cuenta con la Basílica de San Pedro y los Museos del Vaticano, que albergan obras maestras como los frescos de la Capilla Sixtina de Miguel Ángel.",
-            imgs: [
-                "Imagenes/ROMA.jpg",
-                "Imagenes/roma-2.jpg",
-                "Imagenes/roma-3.jpg",
-                "Imagenes/roma-4.jpg"
-            ]
-        },
-
-        "Ámsterdam": {
-            desc: "Amsterdam es la capital de los Países Bajos, conocida por su patrimonio artístico, su elaborado sistema de canales y sus casas angostas con fachadas de dos aguas, herencias de la Edad de Oro de la ciudad durante el siglo XVII. El Distrito de Museos alberga el Museo van Gogh, obras de Rembrandt y Vermeer en el Rijksmuseum, y arte moderno en el Museo Stedelijk. El ciclismo es clave en la identidad de la ciudad y existen varios senderos para practicarlo. ",
-             imgs: [
-                "Imagenes/amsterdam.webp",
-                "Imagenes/amsterdam-2.jpg",
-                "Imagenes/amsterdam-3.jpg",
-                "Imagenes/amsterdam-4.webp"
-            ]
-        },
-
-
-        "Praga": {
-            desc: "Praga, capital de la República Checa, está dividida por el río Moldava. Conocida como «la ciudad de las cien torres», es famosa por su Plaza de la Ciudad Vieja, el corazón de su centro histórico, con coloridos edificios barrocos, iglesias góticas y el reloj astronómico medieval, que ofrece un espectáculo animado cada hora. El puente peatonal de Carlos, terminado en 1402, está flanqueado por estatuas de santos católicos.",
-            imgs: [
-                "Imagenes/praga.webp",
-                "Imagenes/praga-2.jpg",
-                "Imagenes/praga-3.jpg",
-                "Imagenes/praga-4.jpg"
-            ]
-        },
-
-        "Estambul": {
-            desc: "",
-            imgs: [
-                "Imagenes/estambul.jpg",
-                "Imagenes/estambul-2.webp",
-                "Imagenes/estambul-3.webp",
-                "Imagenes/estambul-4.jpg"
-            ]
-        },
-
-        "Bali": {
-            desc: "Bali es una paradisíaca isla y provincia de Indonesia, famosa a nivel mundial por sus frondosas montañas volcánicas, sus icónicos arrozales en terrazas, sus playas tropicales y una profunda riqueza cultural y espiritual que le ha valido el apodo de la (Isla de los Dioses). Al ser un oasis predominantemente hinduista dentro del país musulmán más poblado del mundo, ofrece una atmósfera mística única reflejada en sus miles de templos y coloridas ceremonias diarias.",
-            imgs: [
-                "Imagenes/Bali.jpg",
-                "Imagenes/bali-2.webp",
-                "Imagenes/bali-3.webp",
-                "Imagenes/bali-4.webp"
-            ]
-        },
-
-        "Ciudad de México": {
-            desc: "Ciudad de México es la densamente poblada capital de México que se encuentra a gran altura. Es famosa por su Templo Mayor (un templo azteca del siglo XIII), la Catedral Metropolitana de México, de estilo barroco, de los conquistadores españoles y el Palacio Nacional, que alberga murales históricos de Diego Rivera. Todos estos hitos se ubican en torno a la Plaza de la Constitución, la enorme plaza principal conocida también como el Zócalo.",
-            imgs: [
-                "Imagenes/ciudad-de-mexico-destino-unico-y-capital-cultural-de-america1.jpg",
-                "Imagenes/cdmx-2.webp",
-                "Imagenes/cdmx-3.jpg",
-                "Imagenes/cdmx-4.png"
-            ]
-        },
-
-        "Oaxaca": {
-            desc: "Oaxaca es un estado del sur de México conocido por sus culturas indígenas. Su ciudad capital, que lleva el mismo nombre, tiene edificios coloniales, a menudo, construidos con piedra volcánica verde. En la plaza principal, El Zócalo, se alza la catedral de Oaxaca, de estilo barroco. Fuera de la ciudad, los sitios arqueológicos precolombinos incluyen Mitla, Yagul y Monte Albán, la capital zapoteca que data de alrededor del año 500 a. C.",
-            imgs: [
-                "Imagenes/Oaxaca.jfif",
-                "Imagenes/cdmx-2.webp",
-                "Imagenes/cdmx-3.jpg",
-                "Imagenes/cdmx-4.png"
-            ]
-        },
-
-
-        "San Miguel de Allende": {
-            desc: "San Miguel de Allende, una ciudad de la época colonial en la zona alta central de México, es conocida por su arquitectura barroca española, su activa escena artística y sus festivales culturales. En el centro histórico de adoquines de la ciudad, se encuentra la Parroquia de San Miguel Arcángel, de estilo neogótico, cuyas espectaculares torres rosas se alzan por sobre la plaza principal, El Jardín. Cerca se encuentra la iglesia del Templo de San Francisco con una fachada churrigueresca del siglo XVIII.",
-            imgs: [
-                "Imagenes/San-Miguel-de-Allende.jpeg",
-                "Imagenes/sanmiguel-2.avif",
-                "Imagenes/sanmiguel-3.jpg",
-                "Imagenes/sanmiguel-4.webp"
-            ]
-        },
-
-
-        "Guanajuato": {
-            desc: "Ciudad de México es la densamente poblada capital de México que se encuentra a gran altura. Es famosa por su Templo Mayor (un templo azteca del siglo XIII), la Catedral Metropolitana de México, de estilo barroco, de los conquistadores españoles y el Palacio Nacional, que alberga murales históricos de Diego Rivera. Todos estos hitos se ubican en torno a la Plaza de la Constitución, la enorme plaza principal conocida también como el Zócalo.",
-            imgs: [
-                "Imagenes/ciudad-de-mexico-destino-unico-y-capital-cultural-de-america1.jpg",
-                "Imagenes/cdmx-2.webp",
-                "Imagenes/cdmx-3.jpg",
-                "Imagenes/cdmx-4.png"
-            ]
-        },
-
-
-        "Tokio": {
-            desc: "Tokio, la ajetreada capital de Japón, mezcla lo ultramoderno y lo tradicional, desde los rascacielos iluminados con neones hasta los templos históricos. El opulento santuario Shinto Meiji es conocido por su puerta altísima y los bosques circundantes. El Palacio Imperial se ubica en medio de grandes jardines públicos. Los distintos museos de la ciudad ofrecen exhibiciones que van desde el arte clásico (en el Museo Nacional de Tokio) hasta un teatro kabuki reconstruido (en el Museo Edo-Tokyo)",
-            imgs: [
-                "Imagenes/Tokio2.webp",
-                "Imagenes/Tokio1.jpg",
-                "Imagenes/tokio-3.webp",
-                "Imagenes/tokio-2.jpg"
-            ]
-        },
-
-        
-        "Dubái": {
-            desc: "Dubái es una ciudad emirato de los Emiratos Árabes Unidos conocida por su lujoso comercio, la arquitectura ultramoderna y su vida nocturna animada. Burj Khalifa, una torre de 830 m de alto, domina el paisaje lleno de rascacielos. A sus pies se encuentra la Fuente de Dubái, con coreografías de chorros y luces al ritmo de la música. En las islas artificiales justo frente a la costa están Atlantis, la Palma, un centro turístico con agua y parques de animales marinos.",
-            imgs: [
-                "Imagenes/Dubái.webp",
-                "Imagenes/Dubái2.jpg",
-                "Imagenes/Dubái3.avif",
-                "Imagenes/Dubái4.jpg"
-            ]
-        },
-
-
-         "Berlín": {
-            desc: "Berlín, capital alemana, data del siglo XIII. Los elementos que recuerdan la turbulenta historia de la ciudad en el siglo XX incluyen el Monumento del Holocausto y los restos del Muro de Berlín con grafitis. Después de dividirse durante la Guerra Fría, la Puerta de Brandeburgo del siglo XVIII se convirtió en un símbolo de la reunificación. La ciudad es conocida por su ambiente artístico y los sitios geográficos modernos, como la Filarmónica de Berlín, construida en 1963, de color dorado y con un diseño de paneles que se desprenden de su techo.",
-            imgs: [
-                "Imagenes/Berlín.jpg",
-                "Imagenes/Berlín2.jpg",
-                "Imagenes/Berlín3.jpg",
-                "Imagenes/Berlín4.jpg"
-            ]
-        },
-
-
-        "Lisboa": {
-            desc: "Lisboa es la capital costera y montañosa de Portugal. Desde el imponente castillo de San Jorge, la vista abarca los edificios de colores pastel en la ciudad antigua, el estuario del Tajo y el puente colgante 25 de Abril. Cerca, el Museo Nacional del Azulejo exhibe 5 siglos de azulejos de cerámica decorativos. Justo fuera de Lisboa hay una franja de playas en el Atlántico, desde Cascaes hasta Estoril.",
-            imgs: [
-                "Imagenes/Lisboa.jpg",
-                "Imagenes/Lisboa2.avif",
-                "Imagenes/Lisboa3.jpg",
-                "Imagenes/Lisboa4.webp"
-            ]
-        },
-
-        "Seúl": {
-            desc: "Seúl, pronunciado, oficialmente Ciudad Especial de Seúl, es la capital y ciudad más poblada de Corea del Sur desde la creación de esta república en 1948, la capital histórica de Corea desde hace más de 600 años y la ciudad más poblada de la península de Corea. ",
-            imgs: [
-                "Imagenes/Seúl.jpg",
-                "Imagenes/Seúl2.jpg",
-                "Imagenes/Seúl3.jpg",
-                "Imagenes/Seúl4.webp"
-            ]
-        },
-
-        "Singapur": {
-            desc: "Singapur, oficialmente conocida como República de Singapur, es una ciudad-Estado y país insular, situada en el corazón marítimo del Sudeste asiático.",
-            imgs: [
-                "Imagenes/Singapur.jpg",
-                "Imagenes/Singapur.png",
-                "Imagenes/Singapur3.jpg",
-                "Imagenes/Singapur4.jpg"
-            ]
-        },
-
-        "Bora Bora": {
-            desc: "Bora Bora es una pequeña isla del Pacífico Sur al noroeste de Tahití en la Polinesia Francesa. Rodeada de motus (islotes) con orillas de arena y una laguna turquesa protegida por un arrecife de coral, es conocida por el buceo. También es un popular complejo turístico lujoso donde algunos bungalós se ubican sobre pilotes en el agua. En el centro de la isla, se eleva el monte Otemanu, un volcán inactivo de 727 m.",
-            imgs: [
-                "Imagenes/Bora Bora.webp",
-                "Imagenes/Bora Bora2.webp",
-                "Imagenes/Bora Bora3.jpg",
-                "Imagenes/Bora Bora4.jpg"
-            ]
-        },
-
-        "Santorini": {
-            desc: "Santorini es una de las islas Cícladas en el mar Egeo. Fue devastada por una erupción volcánica en el siglo XVI a. C., que dio forma a su paisaje accidentado. Las casas cúbicas encaladas en sus 2 ciudades principales, Fira y Oia, se aferran a los acantilados sobre un cráter subterráneo. Estas tienen vista al mar, las pequeñas islas al oeste y las playas de piedras de lava blancas, rojas y negras.",
-            imgs: [
-                "Imagenes/Santorini.jpg",
-                "Imagenes/Santorini2.avif",
-                "Imagenes/Santorini3.jpg",
-                "Imagenes/Santorini4.jpg"
-            ]
-        },
-
-        "Bacalar": {
-            desc: "Bacalar es una población del estado mexicano de Quintana Roo, situada en el sur de su territorio a unos 40 km al norte de la capital, Chetumal.​Bacalar se encuentra situada en la ribera de la Laguna de Bacalar, la más importante de las lagunas del sur quintanarroense y de gran atractivo turístico.",
-            imgs: [
-                "Imagenes/bacalar.jfif",
-                "Imagenes/Bacalar2.avif",
-                "Imagenes/Bacalar3.avif",
-                "Imagenes/Bacalar4.jpg"
-            ]
-        },
-
-
-        "Seychelles": {
-            desc: "Seychelles es un archipiélago de 115 islas en el océano Índico, frente a África Oriental. Alberga varias playas, arrecifes de coral y reservas naturales, además de animales exóticos, como las tortugas gigantes de Aldabra. En Mahé, un centro que permite visitar otras islas, se encuentra la capital, Victoria. También tiene los bosques tropicales de montaña del Parque Nacional de Morne Seychellois y playas, incluidas Beau Vallon y Anse Takamaka. ",
-            imgs: [
-                "Imagenes/Seychelles.jpg",
-                "Imagenes/Seychelles1.webp",
-                "Imagenes/Seychelles3.webp",
-                "Imagenes/Seychelles4.jpg"
-            ]
-        },
-        
-
-        "Islas Fiji": {
-            desc: "Fiyi, un país del Pacífico Sur, es un archipiélago de más de 300 islas. Es famoso por sus paisajes escabrosos, las playas bordeadas de palmeras y los arrecifes de coral con lagunas de aguas cristalinas. Sus islas más importantes, Viti Levu y Vanua Levu, albergan la mayor parte de la población. En Viti Levu, se encuentra la capital, Suva, una ciudad puerto con arquitectura colonial británica. El Museo de Fiyi, en los Jardines Thurston de la época victoriana, tiene exhibiciones etnográficas.",
-            imgs: [
-                "Imagenes/Islas Fiji.jpg",
-                "Imagenes/Islas Fiji2.jpg",
-                "Imagenes/Islas Fiji3.jpg",
-                "Imagenes/Islas Fiji4.avif"
-            ]
-        },
-
-        "Isla Mauricio": {
-            desc: "Mauricio es una nación insular en el océano Índico, conocida por sus playas, lagunas y arrecifes. El interior montañoso incluye el Parque Nacional Gargantas del Río Negro, con bosques tropicales, cascadas, senderos de excursión y fauna, como zorros voladores. La capital Port Louis tiene sitios como el hipódromo Champs de Mars, la casa de hacienda Eureka y el Jardín Botánico de Sir Seewoosagur Ramgoolam del siglo XVIII",
-            imgs: [
-                "Imagenes/Isla Mauricio.avif",
-                "Imagenes/Isla Mauricio2.avif",
-                "Imagenes/Isla Mauricio3.avif",
-                "Imagenes/Isla Mauricio4.avif"
-            ]
-        },
-
-        "Toscana": {
-            desc: "Toscana es una región del centro de Italia. Su capital, Florencia, alberga algunas de las obras de arte y arquitectura renacentistas más reconocibles, incluida la estatua de (David) de Miguel Ángel, obras de Botticelli en la Galería Uffizi y la catedral de Santa María de la Flor. Su variado paisaje natural abarca los escabrosos montes Apeninos, las playas de la isla de Elba en el mar Tirreno, y los olivares y viñedos de Chianti.",
-            imgs: [
-                "Imagenes/Toscana.avif",
-                "Imagenes/Toscana2.avif",
-                "Imagenes/Toscana3.avif",
-                "Imagenes/Toscana4.avif"
-            ]
-        },
-
-        "Tulum": {
-            desc: "Paseo en ATV y tirolesas en la selva: Recorre senderos en cuatrimoto, vuela en circuitos de tirolesas y desciende a cenotes ocultos con operadores como Tripadvisor - Tulum Adventure Riviera Maya.Esnórquel y buceo en cenotes: Explora cavernas subterráneas de aguas cristalinas, estalactitas y estalagmitas (como en Cenotes Casa Tortuga).Visitas arqueológicas y naturaleza: Combina la historia maya visitando las ruinas frente al mar de Tulum, Cobá o el sitio arqueológico de Muyil en la reserva de Sian Ka",
-            imgs: [
-                "Imagenes/Tulumaventura.jpg",
-                "Imagenes/Tulumaventura1.webp",
-                "Imagenes/Tulumaventura2.webp",
-                "Imagenes/Tulumaventura4.webp"
-            ]
-        },
-        
-        "Barrancas del Cobre": {
-            desc: "Principales atracciones y actividades, ZipRider: Una de las tirolesas más largas del mundo, con un recorrido de 2,538 metros donde se alcanzan velocidades de 80 a 135 km/h.,Teleférico Barrancas: Uno de los teleféricos más largos del mundo, con 3 kilómetros de cable sin torres intermedias y capacidad para 60 pasajeros,Circuito de Tirolesas: Un recorrido con 7 tirolesas y puentes colgantes sobre los cañones. Vía Ferrata: Incluye tramos de escalada, 5 puentes colgantes, un salto de Tarzán y un rappel de 48 metros.",
-            imgs: [
-                "Imagenes/Barrancas del Cobre.png",
-                "Imagenes/Barrancas del Cobre2.jpg",
-                "Imagenes/Barrancas del Cobre3.jpeg",
-                "Imagenes/Barrancas del Cobre4.jpeg"
-            ]
-        },
-
-        "Nevado de Toluca": {
-            desc: "Senderismo en el Cráter (Laguna del Sol y Laguna de la Luna): Caminatas de 3.5 a 5 horas dentro del cráter volcánico para contemplar sus aguas cristalinas y formaciones rocosas.Ascenso a las Cimas (Pico del Águila o Pico del Fraile): Rutas de mayor exigencia física y técnica para montañistas.Ruta de los Túneles: Un recorrido alternativo de aproximadamente 14 km entre bosques y túneles de piedra en las faldas del volcán.",
-            imgs: [
-                "Imagenes/Nevado de Toluca.jpg",
-                "Imagenes/Nevado de Toluca2.jpg",
-                "Imagenes/Nevado de Toluca3.jpg",
-                "Imagenes/Nevado de Toluca4.jpg"
-            ]
-        },
-
-        "Huasteca Potosina": {
-            desc: "Rafting (aguas bravas): Se practica en el Río Tampaón (rápidos de clase III ideales para disfrutar la adrenalina y el color azul del agua) y en tramos del Río Micos o El Meco. Salto de cascadas: En la Cascada de Micos puedes hacer una secuencia de saltos desde diferentes alturas con chaleco salvavidas y equipo de protección.Rappel y barranquismo: Descenso con cuerdas por las paredes de agua en lugares como la Cascada de Minas Viejas o cerca de la Cascada de Tamul.",
-            imgs: [
-                "Imagenes/Huasteca Potosina1.jpg",
-                "Imagenes/Huasteca Potosina2.jpg",
-                "Imagenes/Huasteca Potosina3.jpg",
-                "Imagenes/Huasteca Potosina4.jpeg"
-            ]
-        },
-
-        "Everest Base Camp": {
-            desc: "Duración: 12 a 14 días de caminata (más días en Katmandú para traslados y aclimatación).Altitud máxima: Se alcanzan los 5,364 metros en el Campamento Base y los 5,545 metros en el mirador de Kala Patthar.Ruta y paisaje: Comienza con un vuelo a Lukla, atravesando puentes colgantes, bosques de rododendros, aldeas Sherpa, monasterios tibetanos y la morrena del Glaciar Khumbu.",
-            imgs: [
-                "Imagenes/Everest Base Camp1.jpg",
-                "Imagenes/Everest Base Camp2.avif",
-                "Imagenes/Everest Base Camp3.webp",
-                "Imagenes/Everest Base Camp4.webp"
-            ]
-        },
-
-        "Safari en Kenia": {
-            desc: "Masái Mara: La reserva más famosa de Kenia, hogar de los Cinco Grandes (león, leopardo, elefante, rinoceronte y búfalo) y escenario de la gran migración de ñus.Parque Nacional de Amboseli: Ideal para ver grandes manadas de elefantes con el majestuoso monte Kilimanjaro como fondo despejado.Parque Nacional de Tsavo East y West: Uno de los parques más grandes y antiguos, conocido por sus elefantes rojos y paisajes volcánicos.",
-            imgs: [
-                "Imagenes/Safari en Kenia.png",
-                "Imagenes/Safari en Kenia2.webp",
-                "Imagenes/Safari en Kenia3.jpg",
-                "Imagenes/Safari en Kenia4.webp",
-                "Imagenes/Safari en Kenia5.png"
-            ]
-        },
-
-        "Izta-Popo": {
-            desc: "Senderismo y montañismo: Rutas ideales para principiantes y avanzadas, como el ascenso hacia La Joya, la ruta a la Boca de Tiburón o recorridos por los manantiales.Ecoturismo y recreación: Centros ecoturísticos con lagos, paseos a caballo, ciclismo de montaña, tirolesa y cuatrimotos.Cultura: Visita al museo y registro en el histórico Paso de Cortés.",
-            imgs: [
-                "Imagenes/Izta-Popo.jpg",
-                "Imagenes/Izta-Popo2.jpg",
-                "Imagenes/Izta-Popo3.jpg",
-                "Imagenes/Izta-Popo4.jpg"
-            ]
-        },
-
-        "Cañón del Sumidero": {
-            desc: "Recorrido en lancha por el río Grijalva:• Duración: Alrededor de 2 horas.Embarcaderos principales: Chiapa de Corzo y Cahuaré (cerca de Tuxtla Gutiérrez).Costo referencial: Entre 350 y 400 MXN por persona para el paseo en lancha, más una tarifa de acceso al parque federal de aproximadamente 120-125 MXN.Qué ver: Paredes verticales de roca de hasta 1,000 metros de altura, el famoso Árbol de Navidad (formación de musgo y agua), cocodrilos de pantano, monos araña y diversas aves.",
-            imgs: [
-                "Imagenes/Cañón del Sumidero1.jpg",
-                "Imagenes/Cañón del Sumidero2.jpg",
-                "Imagenes/Cañón del Sumidero3.webp",
-                "Imagenes/Cañón del Sumidero5.jpg",
-                "Imagenes/Cañón del Sumidero4.jpg"
-            ]
-        },
-
-        "Sierra Gorda": {
-            desc: "Kayak y tubing: Recorridos guiados por el río Santa María (en la zona de Arroyo Seco) con rápidos clase 1 y paisajes de la cañada.Cuatrimotos y 4x4 (RZR): Expediciones todoterreno que bajan desde la serranía de San Joaquín hasta el fondo del cañón y el río Extoraz, finalizando en campamentos ecoturísticos.Trekking y senderismo: Rutas de larga distancia como la Travesía Sierra Gorda de 100 km, o caminatas desde el Mirador Cuatro Palos hasta comunidades como Bucareli.Cañonismo y grutas: Exploración de pozas turquesa en Puente de Dios (Río Escanela), la Cueva del Agua en Valle Verde y circuitos con tirolesa y puentes colgantes en Las Trancas.",
-            imgs: [
-                "Imagenes/Cañón del Sumidero1.jpg",
-                "Imagenes/Cañón del Sumidero2.jpg",
-                "Imagenes/Cañón del Sumidero3.webp",
-                "Imagenes/Cañón del Sumidero5.jpg",
-                "Imagenes/Cañón del Sumidero4.jpg"
-            ]
-        },
-
-        "El Chepe": {
-            desc: "• Barrancas del Cobre / Divisadero: Es la parada estelar para admirar los cañones.Parque Aventura Barrancas del Cobre (en Divisadero):Teleférico: Cruza parte de las barrancas con capacidad de 60 pasajeros.Tirolesas y ZipRider: Circuitos de alta velocidad, incluyendo una de las tirolesas más largas del mundo.Vía Ferrata: Incluye rappel (48 metros), puentes colgantes y el salto de Tarzán.Pueblo Mágico de Creel: Puerta de entrada a la Sierra Tarahumara y a la cultura rarámuri",
-            imgs: [
-                "Imagenes/El Chepe1.jpg",
-                "Imagenes/El Chepe2.jpg",
-                "Imagenes/El Chepe3.jpg",
-                "Imagenes/El Chepe4.jpg",
-                "Imagenes/El Chepe5.jpg"
-            ]
-        }
-
-    };
-
-    // Abrir Modal al dar clic en cualquier tarjeta
-    document.querySelectorAll('.carousel-slide').forEach(slide => {
-        slide.addEventListener('click', () => {
-            // Obtener el nombre del destino de la tarjeta
-            const destinoNombre = slide.querySelector('h4').innerText;
-            const imgSrc = slide.querySelector('img').src;
-            
-            // Si el destino tiene datos especiales, los cargamos, sino, usamos el genérico
-            let data = destinosData[destinoNombre] || {
-                desc: slide.querySelector('p').innerText + " Descubre todo lo que este hermoso lugar tiene para ti con Destiva Experience.",
-                imgs: [imgSrc] // Solo muestra la imagen de la tarjeta
-            };
-
-            // Inyectar título y descripción
-            modalTitle.innerText = destinoNombre;
-            modalDesc.innerText = data.desc;
-
-            // Inyectar imágenes
-            modalTrack.innerHTML = '';
-            data.imgs.forEach(src => {
-                const img = document.createElement('img');
-                img.src = src;
-                modalTrack.appendChild(img);
-            });
-
-            // Reiniciar posición
-            modalIndex = 0;
-            updateModalTrack();
-
-            // Mostrar modal
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo
-        });
-    });
-
-    // Cerrar modal
-    modalClose.addEventListener('click', () => {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
-
-    // Cerrar al hacer clic fuera del contenido
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Controles del carrusel del modal
-    document.getElementById('modalPrev').addEventListener('click', () => {
-        const total = modalTrack.children.length;
-        if (total > 0) {
-            modalIndex = (modalIndex > 0) ? modalIndex - 1 : total - 1;
-            updateModalTrack();
-        }
-    });
-
-    document.getElementById('modalNext').addEventListener('click', () => {
-        const total = modalTrack.children.length;
-        if (total > 0) {
-            modalIndex = (modalIndex < total - 1) ? modalIndex + 1 : 0;
-            updateModalTrack();
-        }
-    });
-
-    function updateModalTrack() {
-        modalTrack.style.transform = `translateX(-${modalIndex * 100}%)`;
-    }
-
-    // Al dar clic en el CTA del modal, se cierra y lleva al registro
-    document.getElementById('modalCTA').addEventListener('click', () => {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
-
-
-    /* ============ LÓGICA DE EXPERIENCIAS Y ORIGEN ============ */
-
-    // 1. Función para redirigir y capturar el origen
-    function redirigirConOrigen(origen) {
-        // --- NUEVO: Detener y reiniciar todos los videos ---
-        const videos = document.querySelectorAll('video');
-        videos.forEach(video => {
-            video.pause();
-            video.currentTime = 0;
-        });
-        // ----------------------------------------------------
-
-        // Rellenar un campo oculto que vamos a crear en el formulario
-        let inputOrigen = document.getElementById('origenRegistro');
-        if (!inputOrigen) {
-            // Si no existe, lo creamos dinámicamente
-            inputOrigen = document.createElement('input');
-            inputOrigen.type = 'hidden';
-            inputOrigen.id = 'origenRegistro';
-            inputOrigen.name = 'origenRegistro';
-            document.getElementById('travelForm').appendChild(inputOrigen);
-        }
-        inputOrigen.value = origen;
-        
-        // Cerrar el modal de media para que no se quede abierto
-        document.getElementById('mediaModal').classList.remove('active');
-        document.body.style.overflow = 'auto';
-
-        // Desplazarse al formulario
-        document.getElementById('registro').scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }
-
-    // 2. Configuración de los datos de las Experiencias
-    const experienceData = {
-        'destinos': {
-            titulo: 'Los Destinos Más Visitados',
-            imgs: [
-                "Imagenes/cancun-things-to-do-guide.jpg",
-                "Imagenes/paris-5.jpg",
-                "Imagenes/maldivas.jfif",
-                "Imagenes/ciudad-de-mexico-destino-unico-y-capital-cultural-de-america1.jpg",
-                "Imagenes/San-Miguel-de-Allende.jpeg",
-                "Imagenes/londres-3.jpg",
-                "Imagenes/ROMA.jpg",
-                "Imagenes/tokio-2.jpg",
-                "Imagenes/puebla.avif"
-            ],
-            contenido: `
-                <ul style="list-style-type: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Cancún:</strong> Playas de arena blanca y vida nocturna.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Riviera Maya:</strong> Cenotes, selva y arqueología.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Los Cabos:</strong> Desierto, mar y golf.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Puerto Vallarta:</strong> Malecón, playas y ambiente.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Punta Cana:</strong> Playas infinitas y resorts.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Maldivas:</strong> Bungalows sobre el agua y lujo.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Isla Mujeres:</strong> Aguas cristalinas y arrecifes.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Huatulco:</strong> Bahías escondidas y tranquilidad.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Sayulita:</strong> Surf, bohemia y playa.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Mazatlán:</strong> Malecón y atardeceres.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>París:</strong> La ciudad de la luz y el romanticismo.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Roma:</strong> Historia y arte en cada esquina.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Londres:</strong> Tradición y modernidad.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Nueva York:</strong> La ciudad que nunca duerme.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>Ciudad de México:</strong> Cultura, historia y gastronomía.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--aqua);"></i> <strong>San Miguel de Allende:</strong> Encanto colonial.</li>
-                </ul>
-                <p style="margin-top: 15px;"><em>¡Y muchos destinos más te esperan! Descúbrelos en nuestra sección de Destinos.</em></p>
-            `
-        },
-        'hospedaje': {
-            titulo: 'Hoteles de Lujo en Nuestros Destinos',
-            imgs: [
-                "Imagenes/hotel inglaterra.jpg",
-                "Imagenes/Overwater Resort.jpeg",
-                "Imagenes/Beach Resort.avif",
-                "Imagenes/Tropical.webp",
-                "Imagenes/hoteldubai.jpg",
-                "Imagenes/hoteldubai2.jpg",
-                "Imagenes/hotelberlin.jpg",
-                "Imagenes/hotel roma.jpg",
-                "Imagenes/hotelbarcelona.jpg",
-                "Imagenes/hotelnuevayork.jpg",
-                "Imagenes/hoteldelujoisla.webp",
-                "Imagenes/BeachResort.webp"
-            ],
-            contenido: `
-                <ul style="list-style-type: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Grand Resort Cancún:</strong> Todo incluido frente al mar.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Luxury Resort Riviera Maya:</strong> Suites con vista al Caribe.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Beach Resort Los Cabos:</strong> Infinity pool y spa.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Tropical Resort Punta Cana:</strong> Palmeras y todo incluido.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Overwater Resort Maldivas:</strong> Bungalows sobre el océano.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Luxury Palm Dubái:</strong> Lujo y excentricidad en el desierto.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Ocean Resort Cozumel:</strong> Buceo y arrecifes.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Bays Resort Huatulco:</strong> Bahías privadas.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Pacific Resort Ixtapa:</strong> Playa y golf.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-hotel" style="color: var(--aqua);"></i> <strong>Bay Resort Puerto Vallarta:</strong> Todo incluido y spa.</li>
-                </ul>
-                <p style="margin-top: 15px;"><em>Alianzas con cadenas hoteleras como Sandos, Sheraton y más.</em></p>
-            `
-        },
-        'aventura': {
-            titulo: 'Actividades y Aventura',
-            imgs: [
-                "Imagenes/Buceo y Snorkel.avif",
-                "Imagenes/Safaris.jpg",
-                "Imagenes/Caminatas y Trekking.png",
-                "Imagenes/Huastecapotosina.jfif",
-                "Imagenes/Ruinas y Cultura.jpg"
-            ],
-            contenido: `
-                <ul style="list-style-type: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Buceo y Snorkel:</strong> En los arrecifes de Cozumel y Cancún.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Tours Gastronómicos:</strong> En Oaxaca, Puebla y CDMX.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Safaris:</strong> En Kenia y África.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Caminatas y Trekking:</strong> En Barrancas del Cobre o el Everest.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Surf:</strong> En Sayulita y San Blas.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Ecoturismo:</strong> En la Huasteca Potosina y Sierra Gorda.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Alpinismo:</strong> En el Izta-Popo y Nevado de Toluca.</li>
-                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-person-hiking" style="color: var(--aqua);"></i> <strong>Ruinas y Cultura:</strong> En Tulum y Cañón del Sumidero.</li>
-                </ul>
-                <p style="margin-top: 15px;"><em>¡Planeamos la aventura perfecta para ti!</em></p>
-            `
-        }
-    };
-
-    // 3. Funciones del Modal de Experiencias
-    const expModal = document.getElementById('experienceModal');
-    const expModalTitle = document.getElementById('expModalTitle');
-    const expModalContent = document.getElementById('expModalContent');
-    const expModalClose = document.getElementById('expModalClose');
-    
-    // Elementos del carrusel del modal de experiencias
-    const expModalTrack = document.getElementById('expModalTrack');
-    const expModalPrev = document.getElementById('expModalPrev');
-    const expModalNext = document.getElementById('expModalNext');
-    let expModalIndex = 0;
-
-    function abrirExperiencia(tipo) {
-        const data = experienceData[tipo];
-        if(data) {
-            expModalTitle.innerText = data.titulo;
-            expModalContent.innerHTML = data.contenido;
-            
-            // Inyectar imágenes en el carrusel
-            expModalTrack.innerHTML = '';
-            if (data.imgs && data.imgs.length > 0) {
-                data.imgs.forEach(src => {
-                    const img = document.createElement('img');
-                    img.src = src;
-                    expModalTrack.appendChild(img);
-                });
-                expModalIndex = 0;
-                updateExpModalTrack();
-            }
-
-            expModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-    }
-
-    function updateExpModalTrack() {
-        expModalTrack.style.transform = `translateX(-${expModalIndex * 100}%)`;
-    }
-
-    expModalPrev.addEventListener('click', () => {
-        const total = expModalTrack.children.length;
-        if (total > 0) {
-            expModalIndex = (expModalIndex > 0) ? expModalIndex - 1 : total - 1;
-            updateExpModalTrack();
-        }
-    });
-
-    expModalNext.addEventListener('click', () => {
-        const total = expModalTrack.children.length;
-        if (total > 0) {
-            expModalIndex = (expModalIndex < total - 1) ? expModalIndex + 1 : 0;
-            updateExpModalTrack();
-        }
-    });
-
-    expModalClose.addEventListener('click', () => {
-        expModal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
-
-    expModal.addEventListener('click', (e) => {
-        if (e.target === expModal) {
-            expModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-
-    /* ============ LÓGICA DEL MODAL DE MEDIA (FLYERS Y VIDEOS) ============ */
-    const mediaModal = document.getElementById('mediaModal');
-    const mediaModalClose = document.getElementById('mediaModalClose');
-    const mediaTrack = document.getElementById('mediaTrack');
-    const mediaTitle = document.getElementById('mediaTitle');
-    let mediaIndex = 0;
-
-    // Configuración de tus medios (Aquí pones las rutas de tus 5 imágenes y tus videos)
-    const mediaData = {
-        'sandos': {
-            titulo: 'Promociones Sandos',
-            items: [
-                'Imagenes/FLYERSANDOS.jpeg', 
-                'Imagenes/sandos-caracol1.jpeg',     
-                'Imagenes/sandos-caracol2.jpeg',    
-                'Imagenes/sandos-caracol3.jpeg',     
-                'Imagenes/sandos-caracol4.jpeg',
-                'Imagenes/sandos-caracol5.jpeg',
-                'Imagenes/sandos-caracol6.jpeg',
-                'Imagenes/sandos-caracol7.jpeg',
-                'Imagenes/sandos-caracol8.jpeg',
-                'Imagenes/sandos-caracol9.jpeg',
-                'Imagenes/sandos-caracol10.jpeg'
-            ]
-        },
-        
-        'amatte': {
-            titulo: 'Promociones Amatte',
-            items: [
-                'Imagenes/FLYERAMATTE.jpeg',
-                'Imagenes/AMATTE.jpeg',
-                'Imagenes/AMATTE1.jpeg',
-                'Imagenes/AMATTE2.jpeg',
-                'Imagenes/AMATTE3.jpeg',
-                'Imagenes/AMATTE4.jpeg',
-                'Imagenes/AMATTE5.jpeg',
-                'Imagenes/AMATTE7.jpeg',
-                'Imagenes/AMATTE8.jpeg',
-                'Imagenes/AMATTE9.jpeg',
-                'Imagenes/AMATTE10.jpeg',
-                'Imagenes/AMATTE11.jpeg',
-                'Imagenes/AMATTE12.jpeg',
-                
-            ]
-        },
-        'acapulco': {
-            titulo: 'Promociones Acapulco',
-            items: [
-                'Imagenes/FLYERCOACAPULCO.jpeg',
-                'Imagenes/acapulco1.jpeg',
-                'Imagenes/acapulco1.jpeg',
-                'Imagenes/acapulco2.jpeg',
-                'Imagenes/acapulco3.jpeg',
-                'Imagenes/acapulco4.jpeg',
-                'Imagenes/acapulco5.jpeg',
-                'Imagenes/acapulco6.jpeg',
-                'Imagenes/acapulco7.jpeg',
-                'Imagenes/acapulco8.jpeg',
-                'Imagenes/acapulco9.jpeg',
-                'Imagenes/acapulco10.jpeg',
-                'Imagenes/acapulco11.jpeg',
-                'Imagenes/acapulco12.jpeg'
-            ]
-        },
-        'video1': {
-            titulo: 'Video Amatte',
-            items: [
-                // CORREGIDO: Etiqueta <video> en lugar de <iframe>
-                '<video width="100%" height="100%" controls style="object-fit: contain; background: #000;"><source src="Imagenes/amatte.mp4" type="video/mp4"></video>'
-            ]
-        },
-        'video2': {
-            titulo: 'Video Sandos Caracol',
-            items: [
-                // CORREGIDO: Etiqueta <video> en lugar de <iframe>
-                '<video width="100%" height="100%" controls style="object-fit: contain; background: #000;"><source src="Imagenes/sandos-caracol.mp4" type="video/mp4"></video>'
-            ]
-        }
-    };
-
-    function abrirMedia(tipo) {
-        const data = mediaData[tipo];
-        if (!data) return;
-
-        mediaTitle.innerText = data.titulo;
-        mediaTrack.innerHTML = '';
-
-        data.items.forEach(item => {
-            // Si es un iframe o un video, lo insertamos tal cual
-            if (item.startsWith('<iframe') || item.startsWith('<video')) {
-                const div = document.createElement('div');
-                div.style.width = '100%';
-                div.style.height = '100%';
-                div.style.flexShrink = '0';
-                div.innerHTML = item;
-                mediaTrack.appendChild(div);
-            } else {
-                // Si es una imagen, creamos la etiqueta img
-                const img = document.createElement('img');
-                img.src = item;
-                img.style.width = '100%';
-                img.style.height = '100%';
-                img.style.objectFit = 'contain'; 
-                img.style.flexShrink = '0';
-                img.style.background = '#F8FFFF';
-                mediaTrack.appendChild(img);
-            }
-        });
-
-        mediaIndex = 0;
-        updateMediaTrack();
-        mediaModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function updateMediaTrack() {
-        // Calculamos el ancho del 100% del contenedor para mover el track
-        mediaTrack.style.transform = `translateX(-${mediaIndex * 100}%)`;
-    }
-
-    mediaModalClose.addEventListener('click', () => {
-        mediaModal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
-
-    mediaModal.addEventListener('click', (e) => {
-        if (e.target === mediaModal) {
-            mediaModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    document.getElementById('mediaPrev').addEventListener('click', () => {
-        const total = mediaTrack.children.length;
-        if (total > 0) {
-            mediaIndex = (mediaIndex > 0) ? mediaIndex - 1 : total - 1;
-            updateMediaTrack();
-        }
-    });
-
-    document.getElementById('mediaNext').addEventListener('click', () => {
-        const total = mediaTrack.children.length;
-        if (total > 0) {
-            mediaIndex = (mediaIndex < total - 1) ? mediaIndex + 1 : 0;
-            updateMediaTrack();
-        }
-    });
-
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
